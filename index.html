@@ -1,0 +1,705 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>EssexBrick Model Works</title>
+<meta name="description" content="Free IngeTrazo plugins and video tutorials for modellers. Build in the real world, print in the scale world, in any scale.">
+<link rel="canonical" href="https://essexbrick.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='32' rx='30' ry='22' fill='%236E1E28' stroke='%23C79A2E' stroke-width='4'/%3E%3Ctext x='32' y='40' font-family='Georgia,serif' font-weight='bold' font-size='22' text-anchor='middle' fill='%23E6C670'%3EEB%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EssexBrick Model Works">
+<meta property="og:title" content="EssexBrick Model Works">
+<meta property="og:description" content="Free IngeTrazo plugins and video tutorials for modellers. Build in the real world, print in the scale world, in any scale.">
+<meta property="og:url" content="https://essexbrick.com/">
+<meta name="theme-color" content="#4C121A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+</head><body>
+<style id="css">/* Layout: works-plate masthead, then a filterable video yard, the plugin shelf, and a links band. */
+:root{
+  --bg:#F2F0EE; --surface:#FFFFFF; --ink:#1F1A1B; --muted:#6B6163; --line:#DCD6D4;
+  --maroon:#6E1E28; --maroon-deep:#4C121A; --gold:#C79A2E; --gold-soft:#E6C670; --on-maroon:#F6E7C1;
+  --rail:#3E6B57; --plug:#2F5F8A; --model:#8A5A2B;
+  --display:"Alfa Slab One", "Rockwell", Georgia, serif;
+  --body:"Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cond:"Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171213; --surface:#221B1C; --ink:#F1E9E6; --muted:#B0A3A2; --line:#3A3031;
+  --maroon:#7E2632; --maroon-deep:#3A0E14; --gold:#D9AE45; --gold-soft:#E8CC80; --on-maroon:#F6E7C1;
+  --rail:#7FB89C; --plug:#7FB0DD; --model:#D49C62; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171213; --surface:#221B1C; --ink:#F1E9E6; --muted:#B0A3A2; --line:#3A3031;
+  --maroon:#7E2632; --maroon-deep:#3A0E14; --gold:#D9AE45; --gold-soft:#E8CC80; --on-maroon:#F6E7C1;
+  --rail:#7FB89C; --plug:#7FB0DD; --model:#D49C62; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Masthead */
+.mast{background:var(--maroon-deep);color:var(--on-maroon);position:relative;overflow:hidden}
+.mast::before{content:"";position:absolute;inset:0;opacity:.13;
+  background-image:linear-gradient(90deg,transparent 47%,var(--gold) 47%,var(--gold) 53%,transparent 53%),
+  linear-gradient(0deg,transparent 47%,var(--gold) 47%,var(--gold) 53%,transparent 53%);
+  background-size:64px 22px,32px 22px;background-position:0 0,0 0}
+.mast .wrap{position:relative;padding-block:28px 34px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start}
+.brand{display:flex;flex-direction:column;align-items:center;gap:12px;width:max-content;min-width:300px;max-width:100%}
+.logo-tags{display:flex;flex-direction:column;align-items:stretch;gap:8px;width:100%}
+.logo-tag{font-family:var(--cond);font-weight:600;font-size:.98rem;letter-spacing:.03em;text-align:center;color:var(--on-maroon);
+  background:color-mix(in oklab,var(--maroon) 80%,transparent);border:1.5px solid var(--gold);border-radius:999px;padding:6px 14px;text-decoration:none;display:block}
+.logo-tag b{color:var(--gold-soft);font-weight:700}
+a.logo-tag::after{content:"\00a0\1F446"}
+.logo-tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+a,button,.chip{cursor:pointer}
+.btn{white-space:nowrap}
+a.logo-tag:hover{background:var(--gold);color:var(--maroon-deep)}
+a.logo-tag:hover::after{color:inherit}
+a.logo-tag:hover b{color:inherit}
+.mast .copy{padding-top:14px}
+.plate{width:300px;max-width:100%;aspect-ratio:2/1.15;border-radius:50%;background:var(--maroon);
+  border:6px solid var(--gold);box-shadow:inset 0 0 0 3px var(--maroon),inset 0 0 0 5px var(--gold-soft),0 8px 24px rgb(0 0 0 / .35);
+  display:grid;place-items:center;text-align:center;padding:14px}
+.plate .t1{font-family:var(--display);color:var(--gold-soft);font-size:2.05rem;line-height:1;letter-spacing:.02em}
+.plate .t2{font-family:var(--cond);font-weight:700;color:var(--gold-soft);letter-spacing:.2em;font-size:.95rem;text-transform:uppercase}
+.plate .t0{font-family:var(--display);color:var(--gold-soft);font-size:1.25rem;letter-spacing:.03em;line-height:1}
+.plate .rule{height:2px;width:70%;background:var(--gold);margin:8px auto}
+.mast h1{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.05;color:var(--on-maroon)}
+.mast .tag{font-family:var(--cond);font-size:1.35rem;font-weight:500;color:var(--gold-soft);margin-top:10px;letter-spacing:.02em}
+.mast p.lede{max-width:56ch;margin:14px 0 0;color:color-mix(in oklab,var(--on-maroon) 85%,transparent)}
+.mast nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.mast nav a{font-family:var(--cond);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.95rem;text-decoration:none;
+  padding:7px 14px;border:1.5px solid var(--gold);border-radius:999px;color:var(--gold-soft)}
+.mast nav a:hover{background:var(--gold);color:var(--maroon-deep)}
+@media (max-width:720px){.mast .wrap{grid-template-columns:1fr;gap:22px}.brand{min-width:0;margin:0 auto}.plate{width:240px}.plate .t1{font-size:1.6rem}.mast .copy{padding-top:0}}
+
+/* Sections */
+section{padding-block:44px 8px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 20px;margin-bottom:18px}
+.eyebrow{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.85rem;color:var(--maroon)}
+:root[data-theme="dark"] .eyebrow{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eyebrow{color:var(--gold)}}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.1}
+.sub{color:var(--muted);margin:6px 0 0;max-width:60ch}
+
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600;
+  background:var(--maroon);color:var(--on-maroon);text-decoration:none}
+.btn:hover{background:var(--maroon-deep)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--muted)}
+.btn.small{padding:5px 10px;font-size:.88rem;border-radius:6px}
+.btn.danger{background:#A3262F;color:#fff}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;
+  font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.03em;display:inline-flex;gap:8px;align-items:center}
+.chip .n{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed="true"] .n{color:inherit;opacity:.7}
+.search{flex:1 1 220px;max-width:320px;margin-left:auto;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+@media (max-width:720px){.card.featured{grid-template-columns:1fr}}
+.thumb{aspect-ratio:16/9;max-width:100%;background:var(--maroon-deep);position:relative;display:block;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .ph{position:absolute;inset:0;display:grid;place-items:center}
+.thumb .ph span{border:3px solid var(--gold);border-radius:50%;padding:12px 26px;font-family:var(--display);color:var(--gold-soft);font-size:1.15rem;background:var(--maroon);text-align:center;line-height:1.1}
+.thumb .play{position:absolute;right:10px;bottom:10px;width:44px;height:44px;border-radius:50%;background:rgb(0 0 0 / .6);display:grid;place-items:center}
+.thumb .play::after{content:"";border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.featured .body{padding:22px 24px;justify-content:center}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem;color:var(--muted)}
+.badge{font-family:var(--cond);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;padding:2px 8px;border-radius:4px;color:var(--surface)}
+.badge.railway{background:var(--rail)} .badge.plugins{background:var(--plug)} .badge.modelling{background:var(--model)}
+.badge.star{background:var(--gold);color:#2a1d00}
+.card h3{font-family:var(--body);font-weight:700;font-size:1.08rem;line-height:1.3}
+.featured h3{font-family:var(--display);font-weight:400;font-size:1.6rem}
+.card h3 a{text-decoration:none} .card h3 a:hover{text-decoration:underline}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.admin-row{display:flex;gap:8px;margin-top:auto;padding-top:6px;flex-wrap:wrap}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.9rem}
+
+.empty{border:2px dashed var(--line);border-radius:12px;padding:36px 20px;text-align:center;color:var(--muted)}
+.empty strong{display:block;color:var(--ink);font-size:1.1rem;margin-bottom:4px}
+
+/* Showcase: layout + latest plugin video */
+.showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.showcase{grid-template-columns:1fr}}
+.slot{display:flex;flex-direction:column;gap:8px;min-width:0}
+.slot-label{font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:var(--muted)}
+.slot .card{flex:1}
+.slot .card h3{font-family:var(--display);font-weight:400;font-size:1.35rem}
+
+/* Free messaging */
+.freebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
+.stamp{font-family:var(--display);font-size:1.05rem;color:var(--maroon-deep);background:var(--gold);padding:6px 14px;border-radius:6px;transform:rotate(-2deg);display:inline-block;box-shadow:0 3px 0 var(--gold-soft)}
+.freebar .small-note{font-family:var(--cond);font-size:1.05rem;color:var(--gold-soft);letter-spacing:.02em}
+.badge.free{background:var(--gold);color:#2a1d00}
+.free-strip{margin-top:18px;background:var(--surface);border:2px solid var(--gold);border-radius:10px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.free-strip strong{font-family:var(--display);font-weight:400;font-size:1.2rem}
+.free-strip ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:.95rem}
+.free-strip li::before{content:"✓ ";color:var(--rail);font-weight:700}
+
+/* Plugins */
+.plugins{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.plug{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.plug-top{display:flex;gap:14px;align-items:center}
+.ico{flex:none;width:48px;height:48px;border-radius:10px;background:var(--maroon);display:grid;place-items:center;
+  font-family:var(--display);color:var(--gold-soft);font-size:1.5rem;border:2px solid var(--gold)}
+.plug h3{font-family:var(--body);font-weight:700;font-size:1.12rem}
+.ready{font-family:var(--cond);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rail);border:1.5px solid currentColor;border-radius:4px;padding:1px 6px;display:inline-block;margin-top:2px}
+.plug p{margin:0;color:var(--muted)}
+.plug .links{display:flex;flex-wrap:wrap;gap:8px}
+.free{font-weight:700;color:var(--ink)}
+
+
+/* Playlists */
+.pl-group{margin-bottom:26px}
+.pl-group h3.grp{font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:1rem;color:var(--muted);margin:0 0 10px}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;align-items:start}
+.pl{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.pl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px}
+.pl summary::-webkit-details-marker{display:none}
+.pl .stack{width:46px;height:46px;border-radius:8px;background:var(--maroon);border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold-soft);font-family:var(--display);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.pl .pt{font-weight:700;line-height:1.3}
+.pl .pd{color:var(--muted);font-size:.9rem;margin-top:2px}
+.pl .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 6px 4px 0;transition:transform .15s}
+.pl[open] .chev{transform:rotate(-135deg);margin-bottom:-4px}
+.pl ol{margin:0;padding:4px 16px 8px 46px;border-top:1px solid var(--line);max-height:340px;overflow:auto}
+.pl li{padding:5px 0;font-size:.95rem;color:var(--muted)}
+.pl li a{color:var(--ink);text-decoration:none}
+.pl li a:hover{text-decoration:underline;color:var(--maroon)}
+.pl .pfoot{display:flex;gap:8px;flex-wrap:wrap;padding:10px 16px 14px;border-top:1px solid var(--line)}
+
+/* Links band */
+.band{margin-top:48px;background:var(--maroon);color:var(--on-maroon)}
+.band .wrap{padding-block:34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
+@media (max-width:720px){.band .wrap{grid-template-columns:1fr}}
+.band h2{color:var(--on-maroon)}
+.band .sub{color:color-mix(in oklab,var(--on-maroon) 80%,transparent)}
+.band .links{display:flex;flex-wrap:wrap;gap:10px}
+.band .btn{background:var(--gold);color:#2a1d00}
+.band .btn:hover{background:var(--gold-soft)}
+.band .btn.ghost{background:transparent;color:var(--on-maroon);border-color:color-mix(in oklab,var(--on-maroon) 40%,transparent)}
+footer{padding-block:22px 34px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+.notice{background:color-mix(in oklab,var(--gold) 18%,var(--surface));border:1px solid var(--gold);border-radius:8px;padding:8px 12px;font-size:.9rem;margin-bottom:16px}
+.editbar{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Dialog */
+dialog{border:0;border-radius:12px;padding:0;background:var(--surface);color:var(--ink);width:min(560px,calc(100vw - 32px));box-shadow:0 20px 60px rgb(0 0 0 / .35)}
+dialog::backdrop{background:rgb(20 10 12 / .55)}
+.dlg-h{background:var(--maroon);color:var(--on-maroon);padding:14px 20px;font-family:var(--display);font-size:1.2rem}
+form.f{padding:18px 20px 20px;display:grid;gap:12px}
+.f label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
+.f input[type=text],.f input[type=url],.f input[type=date],.f select,.f textarea{width:100%;padding:8px 10px;border-radius:6px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font-weight:400}
+.f textarea{min-height:80px;resize:vertical}
+.f .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.f .row{grid-template-columns:1fr}}
+.f .hint{font-weight:400;color:var(--muted);font-size:.82rem}
+.f .chk{display:flex;gap:8px;align-items:center;font-weight:500}
+.f .act{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.f .err{color:#B3262F;font-size:.9rem;min-height:1em}
+.thumbprev{max-width:160px;border-radius:6px;margin-top:4px}
+@media (prefers-reduced-motion:no-preference){.card,.plug{transition:transform .15s ease,box-shadow .15s ease}.card:hover,.plug:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgb(0 0 0 / .08)}}</style>
+<div id="app"></div>
+<template id="tpl"><header class="mast">
+  <div class="wrap">
+    <div class="brand">
+      <div class="plate" aria-hidden="true"><div><div class="t0">EssexBrick</div><div class="rule"></div><div class="t1">MODEL<br>WORKS</div><div class="rule"></div></div></div>
+      <div class="logo-tags" id="logoTags"><a class="logo-tag" href="https://ingetrazo.com/en/" target="_blank" rel="noopener">Built for IngeTrazo, the free CAD software</a><a class="logo-tag" href="https://www.youtube.com/@EssexBrick" target="_blank" rel="noopener">Watch on YouTube: @EssexBrick</a></div>
+    </div>
+    <div class="copy">
+      <h1>EssexBrick Model Works</h1>
+      <div class="tag" id="tagline">Build in the real world, print in the scale world.</div>
+      <p class="lede" id="intro">For modellers who build in the real world and print in the scale world. Measure it, scale it, print it, in any scale.</p>
+      <div class="freebar"><span class="stamp">100% FREE</span><span class="small-note">Every plugin, every video. No catch.</span></div>
+      <nav aria-label="Sections"><a href="#plugins">IngeTrazo plugins</a><a href="#videos">Watch</a><a href="#playlists">Playlists</a><a href="#library">All videos</a><a href="#links">Find me</a></nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="status" class="notice" hidden></div>
+
+  <section id="videos" aria-labelledby="vh">
+    <div class="sec-head">
+      <div><div class="eyebrow">Watch</div><h2 id="vh">Videos</h2>
+        <p class="sub">My layout, and the newest IngeTrazo plugin tutorial.</p></div>
+      <div class="editbar" data-edit hidden><button class="btn" id="addVideo" type="button">+ Add video</button></div>
+    </div>
+    <div class="showcase">
+      <div class="slot"><div class="slot-label">My layout</div><div id="slotLayout"></div></div>
+      <div class="slot"><div class="slot-label">Latest plugin video</div><div id="slotPlugin"></div></div>
+    </div>
+  </section>
+
+  <section id="plugins" aria-labelledby="ph">
+    <div class="sec-head">
+      <div><div class="eyebrow">Built for IngeTrazo</div><h2 id="ph">IngeTrazo plugins</h2>
+        <p class="sub">Every plugin is built around IngeTrazo and <span class="free">every one is free</span>. Install them straight from IngeTrazo's approved extensions, or download them from GitHub.</p></div>
+      <div class="editbar" data-edit hidden><button class="btn" id="addPlugin" type="button">+ Add plugin</button></div>
+    </div>
+    <div id="pluginGrid" class="plugins"></div>
+    <div class="free-strip"><strong>All free. Always.</strong>
+      <ul><li>No paid versions</li><li>Approved IngeTrazo extensions</li><li>Source on GitHub</li><li>Any scale</li></ul>
+      <a class="btn small ghost" id="reportBtn" href="https://github.com/eddy-99/eddys-3d-plugins-ingetrazo/issues/new" target="_blank" rel="noopener">Found a problem? Report an issue</a></div>
+  </section>
+
+  <section id="playlists" aria-labelledby="plh">
+    <div class="sec-head">
+      <div><div class="eyebrow">On YouTube</div><h2 id="plh">Playlists</h2>
+        <p class="sub">Every video on the channel, in its playlist. Open one to see the videos, or play the lot on YouTube.</p></div>
+      <div class="editbar" data-edit hidden><button class="btn" id="addPlaylist" type="button">+ Add playlist</button></div>
+    </div>
+    <div id="plWrap"></div>
+  </section>
+
+  <section id="library" aria-labelledby="lh">
+    <div class="sec-head">
+      <div><div class="eyebrow">The library</div><h2 id="lh">All videos</h2>
+        <p class="sub">Plugin tutorials, builds and printing how-tos, newest first.</p></div>
+    </div>
+    <div class="chips" role="group" aria-label="Filter videos">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">All <span class="n" id="n-all">0</span></button>
+      <button class="chip" type="button" data-f="plugins" aria-pressed="false">IngeTrazo plugins <span class="n" id="n-plugins">0</span></button>
+      <button class="chip" type="button" data-f="railway" aria-pressed="false">Layout &amp; builds <span class="n" id="n-railway">0</span></button>
+      <button class="chip" type="button" data-f="modelling" aria-pressed="false">Modelling &amp; printing <span class="n" id="n-modelling">0</span></button>
+      <input class="search" id="q" type="search" placeholder="Search videos" aria-label="Search videos">
+    </div>
+    <div id="videoGrid" class="grid"></div>
+  </section>
+</main>
+
+<div class="band" id="links">
+  <div class="wrap">
+    <div><h2>Find EssexBrick</h2><p class="sub">Subscribe for new IngeTrazo plugin tutorials. Free, like everything here.</p></div>
+    <div><div class="links" id="siteLinks"></div>
+      <div class="editbar" data-edit hidden style="margin-top:10px"><button class="btn ghost small" id="editSite" type="button">Edit links &amp; tagline</button></div></div>
+  </div>
+</div>
+
+<footer><div class="wrap"><span>© EssexBrick Model Works</span><span id="foot">Free IngeTrazo plugins · any scale</span></div></footer>
+
+<!-- Video dialog -->
+<dialog id="dlgVideo" aria-labelledby="dvTitle">
+  <div class="dlg-h" id="dvTitle">Add video</div>
+  <form class="f" id="fVideo">
+    <label>Title<input type="text" id="v-title" required maxlength="140"></label>
+    <label>YouTube link<input type="url" id="v-url" required placeholder="https://www.youtube.com/watch?v=…"></label>
+    <div class="row">
+      <label>Section<select id="v-cat">
+        <option value="plugins">IngeTrazo plugins</option>
+        <option value="railway">Layout &amp; builds</option>
+        <option value="modelling">Modelling &amp; printing</option></select></label>
+      <label>Date<input type="date" id="v-date"></label>
+    </div>
+    <label>Short description<textarea id="v-desc" maxlength="400"></textarea></label>
+    <label>Thumbnail <span class="hint">Optional. Upload the image from your thumbnails folder.</span>
+      <input type="file" id="v-thumb" accept="image/*"><img id="v-thumbprev" class="thumbprev" alt="" hidden></label>
+    <label class="chk"><input type="checkbox" id="v-feat"> Show as “My layout” video at the top</label>
+    <p class="hint" style="margin:0">The newest video in the IngeTrazo plugins section shows as “Latest plugin video” automatically.</p>
+    <div class="err" id="v-err" role="alert"></div>
+    <div class="act"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit" id="v-save">Save video</button></div>
+  </form>
+</dialog>
+
+<!-- Plugin dialog -->
+<dialog id="dlgPlugin" aria-labelledby="dpTitle">
+  <div class="dlg-h" id="dpTitle">Add plugin</div>
+  <form class="f" id="fPlugin">
+    <label>Plugin name<input type="text" id="p-name" required maxlength="80"></label>
+    <label>What it does<textarea id="p-desc" maxlength="400"></textarea></label>
+    <label>GitHub link<input type="url" id="p-gh" placeholder="https://github.com/…"></label>
+    <label>Tutorial video link <span class="hint">Optional</span><input type="url" id="p-vid"></label>
+    <div class="err" id="p-err" role="alert"></div>
+    <div class="act"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit">Save plugin</button></div>
+  </form>
+</dialog>
+
+<!-- Site dialog -->
+<dialog id="dlgSite" aria-labelledby="dsTitle">
+  <div class="dlg-h" id="dsTitle">Links &amp; tagline</div>
+  <form class="f" id="fSite">
+    <label>Tagline<input type="text" id="s-tag" maxlength="120"></label>
+    <label>Intro<textarea id="s-intro" maxlength="400"></textarea></label>
+    <label>Tags under the logo <span class="hint">One per line. Add a link after a | if you want it clickable, e.g. Free CAD software | https://…</span><textarea id="s-tags" maxlength="800"></textarea></label>
+    <label>YouTube channel<input type="url" id="s-yt" placeholder="https://www.youtube.com/@…"></label>
+    <label>GitHub<input type="url" id="s-gh" placeholder="https://github.com/…"></label>
+    <label>IngeTrazo extensions page<input type="url" id="s-it"></label>
+    <label>Facebook <span class="hint">Optional</span><input type="url" id="s-fb"></label>
+    <div class="err" id="s-err" role="alert"></div>
+    <div class="act"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit">Save</button></div>
+  </form>
+</dialog>
+
+<!-- Playlist dialog -->
+<dialog id="dlgPlaylist" aria-labelledby="dlTitle">
+  <div class="dlg-h" id="dlTitle">Add playlist</div>
+  <form class="f" id="fPlaylist">
+    <label>Playlist name<input type="text" id="l-title" required maxlength="120"></label>
+    <label>YouTube playlist link<input type="url" id="l-url" required placeholder="https://www.youtube.com/playlist?list=…"></label>
+    <label>Section<select id="l-cat">
+      <option value="plugins">IngeTrazo plugins</option>
+      <option value="railway">Layout &amp; builds</option>
+      <option value="modelling">Modelling &amp; printing</option></select></label>
+    <label>Short description<input type="text" id="l-desc" maxlength="200"></label>
+    <p class="hint" style="margin:0">The card links to the playlist on YouTube. Ask Claude to fill in the list of videos.</p>
+    <div class="err" id="l-err" role="alert"></div>
+    <div class="act"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit">Save playlist</button></div>
+  </form>
+</dialog></template>
+<script type="application/json" id="state">{"site":{"tagline":"Build in the real world, print in the scale world.","intro":"For modellers who build in the real world and print in the scale world. Measure it, scale it, print it, in any scale.","logoTags":["Built for IngeTrazo, the free CAD software | https://ingetrazo.com/en/","Watch on YouTube: @EssexBrick | https://www.youtube.com/@EssexBrick"],"youtube":"https://www.youtube.com/@EssexBrick","github":"https://github.com/eddy-99/eddys-3d-plugins-ingetrazo","ingetrazo":"https://ingetrazo.com/en/extensiones","facebook":"https://www.facebook.com/EssexBrickModelWorks"},"videos":[{"id":"mw98jklwt8pp4","title":"EssexBrick model railway in action.","url":"https://youtu.be/3pnVjauufYs","category":"railway","date":"2026-11-09","description":"EssexBrick model railway in action.","featured":true,"thumb":null},{"id":"yt-r0Y98L5CNu0","title":"Scale Studio – Turn Real-World Sizes into Any Model Scale, Ready to Print","url":"https://youtu.be/r0Y98L5CNu0","category":"plugins","date":"2026-11-09","description":"","featured":false,"thumb":null},{"id":"yt-RlcYLDl_zMY","title":"Brick Walls in ONE Click – Neat or Bomb-Damaged | Free 3D Plugin v3","url":"https://youtu.be/RlcYLDl_zMY","category":"plugins","date":"2026-11-07","description":"","featured":false,"thumb":null},{"id":"yt-jFarg8epmys","title":"FREE 3D Plugins for Model Buildings – Install & Tour (Print-Ready Bricks, Windows, Roofs)","url":"https://youtu.be/jFarg8epmys","category":"plugins","date":"2026-11-06","description":"","featured":false,"thumb":null},{"id":"yt-3sLFXhOXweE","title":"Brick Walls, Doors, Roofs & Chimneys in Seconds: 19 Free 3D Plugins for IngeTrazo","url":"https://youtu.be/3sLFXhOXweE","category":"plugins","date":"2026-11-02","description":"","featured":false,"thumb":null}],"plugins":[{"id":"print-scaler","name":"3D Print Scaler","description":"Gets your model scaled and ready for 3D printing, on FDM or resin.","github":"","video":"","order":2},{"id":"mw98mk8xqxfb5","name":"FREE 3D Plugins for Model Buildings","description":"FREE 3D Plugins for Model Buildings","github":"https://github.com/eddy-99/eddys-3d-plugins-ingetrazo","video":"https://youtu.be/jFarg8epmys","order":3}],"playlists":[{"id":"PLSSXrIDls_-k","title":"Eddy’s 3D Plugins for IngeTrazo","category":"plugins","description":"Tutorials for the free IngeTrazo plugins: real-world sizes, model buildings and 3D printing.","videos":[["r0Y98L5CNu0","Scale Studio – Turn Real-World Sizes into Any Model Scale, Ready to Print"],["RlcYLDl_zMY","Brick Walls in ONE Click – Neat or Bomb-Damaged | Free 3D Plugin v3"],["jFarg8epmys","FREE 3D Plugins for Model Buildings – Install & Tour (Print-Ready Bricks, Windows, Roofs)"],["3sLFXhOXweE","Brick Walls, Doors, Roofs & Chimneys in Seconds: 19 Free 3D Plugins for IngeTrazo"]]},{"id":"PLZZ5oBCc-dOS8ESdQZJnXR52Obi-FyOl1","title":"EssexBrick layout in action","category":"railway","description":"Trains running, automatic running and the control box.","videos":[["xFweB4ZFAaw","Automatic running using YAAT"],["woBC9FnUAX8","EssexBrick Control Box, DCC++, JMRI/CMRI, MERG, Wi-Fi, RS 485 bus, Foolproof Connectors."],["JoVSAIEyF7Q","EssexBrick Model Railway. Everything 3d printed. Automatic running using YAAT/JMRI"],["KlLVnJ8eAQ8","Canal Boat Running"],["-5imUMqsIX8","EssexBrick MR With 1950's Sound Track"],["LwY5CO3uGJ0","10 Locos Running 4x Speed"],["RiQE3_X23DE","Model Railway 10 Locos Running Automatically"],["CVjTEabUPAw","EssexBrick Interview With Dawn Quest"]]},{"id":"PLZZ5oBCc-dOSZdE1WocreNYPPCTpGTrhK","title":"Building of Essex Brick Model Railway","category":"railway","description":"The whole build, from the first baseboard to the updates.","videos":[["nCuC8tH99NU","01The Building Of Essex Brick Part 1"],["pDUzSPS4FmA","02 The Building Of Essex Brick Part 2"],["gC8BNP9HkrQ","03 The Building Of Essex Brick Part 3"],["YWH6smlmH5M","04 The Building Of Essex Brick Part 4"],["8Bub3J80ppE","05 The Building Of Essex Brick Part 5 Painting Technique"],["VpVLXvHhc3g","06 The Building of Essex Brick Part 6 Locos and Truck Design"],["HwEe8538Ydg","07 The Building Of Essex Brick Part 7 More Detailing"],["K6odK2V1srU","08 Train Running on Essex Brick"],["Kvq1AA5vRSc","09 Loco Testing, Stay Alive System and 3D Printed Chassis"],["IBAYWl-QoRc","10 Loco Testing"],["9BV0p4vMku8","11 Sliding Fiddle Yard Testing"],["fwymsxua12Q","12 Sliding Fiddle Yard In Depth Pt1"],["E871UQUy-oE","13 Sliding Fiddle Yard In Depth Pt2"],["BeUv0A8Tusc","14 Essex Brick Testing The Canal With Hidden Hornby Loco Using Magnets"],["V3TBOe1S_lU","15 Essex Brick December Update Part1"],["0yndkNBDOzQ","16 Essex Brick December Update Part2"],["bnlk6T3Ps60","17 Essex Brick Canal Barge"],["G_UjWieU1o4","18 Essex Brick Wagons and Locos"],["01YCF8159R4","19 Essex Brick 3d Printed Dummy Locos and Wagons"],["E-A6peKqvI8","20 Essex brick March 2023 Update Part 1"],["E5f4X2K01xU","21 Essex brick March 2023 Update Part 2"],["3U_A_tkebiU","22 Essex Brick March 2023 Update Part 3"],["i2bmVwbPPOI","23 Essex Brick March 2023 Update Part 5"],["Mqtld-muEoE","24 Essex Brick March 2023 Update Part 6"],["D0uq6ces9E8","25 a Essex Brick March 2023 Update Part 7"],["rJssFYgIA30","25 b Essex Brick March 2023 Update Part 8"],["h65y4i4F6GU","26 Essex Brick April 2023 Update Part 1"],["wcZMc6JtYdY","27 Essex Brick April 2023 Update Part 2"],["FLqt84Er32c","28 Essex Brick April 2023 Update Part 3"],["KVg92tJYxFg","29 Essex Brick April 2023 Update Part 4"],["YLW7duHyjc0","30 Essex Brick April 2023 Update Part 5"],["F_KisNaKsoY","31 Essex Brick April 2023 Update Part 6"],["WBAbiGTepKw","32 Essex Brick  April 2023 Update Part 7"],["uqebj1Ey6ho","33 Essex Brick April 2023 Update Part 8"],["jWG9IBF46HE","34 Essex Brick April Resin printer and early designs"],["elEUOiOVot4","35 Testing Stay Alives"]]},{"id":"PLZZ5oBCc-dOQm16zQyk5jQuNLQv-hDfL2","title":"Details of Essex Brick Model Railway","category":"railway","description":"","videos":[["3pnVjauufYs","Essex Brick Demo Med Res"]]},{"id":"PLZZ5oBCc-dORTFnOpefidfMs3vCexINAG","title":"Cranes","category":"railway","description":"Working roof cranes with stepper motors and steam.","videos":[["Mu92n1SLLEA","Added a small chimney"],["rE6_rvGQs-w","Roof Crane With Steam"],["LCCJzNmaM3Q","Roof Crane 2x Stepper Motors Demo 1"],["F4GGUOClkOo","3 x Stepper Demonstration Crane"],["uyXsT-0lgME","Untitled video   Made with Clipchamp"],["LraYGVJV9lc","Crane mk1 Testing"]]},{"id":"PLZZ5oBCc-dOQzlzhlqrFGApIQCQme8Sbz","title":"Welding","category":"railway","description":"An arc welder simulator for model railways.","videos":[["t3xZDwnAepw","Arc Welder Simulator For Model Railways"]]},{"id":"PLZZ5oBCc-dOTCbRMZxw2xwDNkVlQOVMjO","title":"Blender Realistic Walls and Odds","category":"modelling","description":"Textured walls for resin printing, and Blender fixes.","videos":[["RVy8ASkpc_c","01 Textured Brick Wall Part 1 For 3D Printing On A Resin Printer"],["dsIsXIQ9yl4","02 Textured Brick Wall Part 2 For 3D Printing On A Resin Printer"],["JCVIxIG9hb8","03 Realistic Walls Part 1 Tutorial Sketchup & Blender Resin For Printing"],["YKjE8eCHUJ0","04 Realistic Walls Part 2 Tutorial Sketchup & Blender Resin For Printing"],["wVZu_40yc_4","05 Realistic Walls Part 3 Tutorial Sketchup & Blender Resin For Printing"],["oFPXCfO7K0k","Blender bogie modification as requested for a replacement Hornby Loco coach"],["maQkmK0az0o","Blender To Create Wagon Tarpaulins For Your Layout Part A"],["Fot5Me-Ioao","Blender To Create Wagon Tarpaulins For Your Layout Part b"],["x56HaLUqoJk","Blender truck modification from a Thingiverse STL model removing the windows and back canopy"]]},{"id":"PLZZ5oBCc-dOSZQDbAqrfNXiP7TAFp-qBi","title":"Figures & Animals, MakeHuman & Blender","category":"modelling","description":"Posed people and animals ready to print.","videos":[["31A9nadt2Bs","01F Figures Using Make Human And Blender"],["VMecCJpA6P0","02F Figures Fixing The Errors Before Resin Printing Using Uvtools"],["WFzSxUI5Y7E","03F MakeHuman & Blender Changing Hand Pose for Resin Printing"],["a6dpnXPaZH8","04F Adding A Hat & Shovel Using Blender & STL files"],["684EGG-TZJA","Adding Motion Capture To A Makehuman Figure In Blender Which Can Be 3D Printed Via Individual Frames"],["tBkE1yNOwjQ","Animated resin printed 00 Gauge Figure created in MakeHuman and edited in PrusaSlicer"],["EX7QPISzECI","Rigging a DAE figure from the internet in Blender to create any pose you would like  MERG 3D SIG"],["P4FOSjtf0Y0","Rigging A Thingiverse Cow In Blender To Be Able To Get Many Different 3D Printed Models"],["zYlGjQeA0ck","Using Free Motion Capture Files To Create Many Free Stl Animal Models"]]},{"id":"PLZZ5oBCc-dORmqihz3GARxjAMM0FNb-Sr","title":"SketchUp Make for Beginners","category":"modelling","description":"A model railway building from start to finish, ready for 3D printing.","videos":[["xG9MI32LTY0","SU01 Model Railway Building Sketchup Make Basic For 3d Printing Part 1 Frame Design"],["kl2JYhnlZK4","SU02 Model Railway Building Sketchup Make Basic  For 3d Printing Part 2 Removeable Roof Section"],["wZutzaSdseU","SU03 Model Railway Building Sketchup Make Basic For 3d Printng Part 3 Walls  And Roof Section"],["YvuR4Y8WqaM","SU04 Model Railway Building Sketchup Make For 3d Printing Basic Part 4 Windows"],["YEZ1J_kZBuI","SU05 Model Railway Building Sketchup Make For 3D Printing Basic Part  5 Brick Work Using Oob Plugin"],["CAZHFhvJQQs","SU06 Model Railway Building Sketchup Make Basic For 3d Printing Part 6 Adding Barn Doors Using oob P"],["rlFa-XSGQRM","SU07 Model Railway Building Sketchup Make For 3d Printing Part 7 Barn Door Detail & Front Wall Oob P"],["TFgMaelQpeM","SU08 Model Railway Building Sketchup Make For 3d Printing Part 8 Roof Windows & Tiles"],["Q0hOlUpyhxs","SU09 Model Railway Building Sketchup Make For 3d Printing  Part 9 Eddy's OoB & Prusaslicer Setting"],["f7YugHpLMBM","SU10 Model Railway Building Sketchup For 3d Printing  Part 10 Stairs Using 1001bit plugin Oob Plugin"],["Fgp20711NQs","SU11 Model Railway Building Sketchup For 3d Printing Part 11 Side Wall & Stair Support Oob Plugin"],["2FCoJTOMK-4","SU12 Model Railway Building Sketchup 3d Printing Part 14 Dorma Window And Tiles 1001bits & Oob Plugi"],["v6FmFaEOmr4","SU13 Model Railway Building Sketchup 3d Printing Part 15 Back Wall & Outbuilding Frame Using Oob Plu"],["0rr_75nAsYk","SU14 Model Railway Building Sketchup 3d Printing Part 16 Back Wall  using Oob and 1001bit Plugin Use"],["VAnlct7HFmo","SU15 Model Railway Building Sketchup For 3d Printing Part 17 Making A Round Tapered Brick Chimney Oo"]]},{"id":"PLZZ5oBCc-dOSDtTs4aJjV7DjKIyJHvQ7j","title":"SketchUp Make Wagon Design & Loco Parts","category":"modelling","description":"A wagon step by step, plus loco parts.","videos":[["Lb40cLkuX74","W01 Creating A Wagon In SketchUp Part 1 Create The Wagon Ends Sections"],["HrMCYE5UHQg","W02 Creating A Wagon In SketchUp Part 2 Create The Doors"],["7L8OWLFRq6Y","W03 Creating A Wagon In SketchUp Part 3 Completing The Doors"],["thpBnqAk-nI","W04 Creating A Wagon In SketchUp Part 4 Creating The Roof Section"],["YY9feMk5UfA","W05 Creating A Wagon In SketchUp Part 5 Create The Under Frame Part 1"],["yAoFYiBBOnI","W06 Creating A Wagon In SketchUp Part 6 Create The Under Frame Part 2"],["weJwkFnhVWA","W07 Creating A Wagon In SketchUp Part 7 Axle Box Hanger & Spring"],["zYbMFJPqxNw","W08 Creating A Wagon In SketchUp Part 8 Complete The Under Frame"],["IfYVSzDnSyk","W09 Creating A Wagon In SketchUp Part 9 Starting The Buffer Beam"],["K3Inb5piIoA","W10 Creating A Wagon In SketchUp Part 10 Complete The Buffers"],["SqScBYjlnVc","W11 Creating A Wagon In SketchUp Part 11 Easier Ways To Place Rivets"],["zTJ6rI64n2c","W12 Creating A Wagon In SketchUp Part 12 Adding A Roof Vent"],["KPBS-jWTU7o","W13 Creating A Wagon In SketchUp Part 13 Adding A Rain Deflector"],["eVPUbUGO-QE","W14 Creating A Wagon In SketchUp Part 14 Roof Ridge Profile Change"],["_e8NSTXtyeU","W15 Creating A Wagon In SketchUp Part 15 Louvre Door Modification"],["ZR7gqBNh8B4","W16 Sketchup 2017  A Steam Chimney To Boiler join Part 1 Using Plugin's Super Weld, & Extruded Faces"],["k-njDsdp-U4","W17 Sketchup 2017  A Steam Chimney To Boiler join Part 2 Using Path Copy, Smart Drop At Intersection"],["vbHCqbdMLZA","W18 Model Railway Vacuum Pipes Create In Sketchup make 2017 Using The Helix Plugin For 3D resin Prin"]]},{"id":"PLZZ5oBCc-dOQdBXxXReHiZLENQjIv8vBX","title":"SketchUp Make Signal Box","category":"modelling","description":"An FDM-printable signal box in four parts.","videos":[["s1T9p39oQX4","SB01 SketchUp Make 2017 FDM printable signal box for model railway layouts Part 1 MERG 3D SIG 1"],["E4LauSgojGg","SB02 SketchUp Make 2017 FDM printable signal box for model railway layouts Part 2"],["j53cTe-nqbE","SB03 SketchUp Make 2017 FDM printable signal box roof for model railway layouts Part 3"],["wUgCzan0tII","SB04 SketchUp Make 2017 FDM printable signal box Stairs for model railway layouts Part 4"]]},{"id":"PLZZ5oBCc-dOTv3yrugUKM3pTOGQY7NGNp","title":"SketchUp Make Odds","category":"modelling","description":"Arches, chimney pots, towers and stairs.","videos":[["b3sKIZEiXCI","Brick Arches Using Oob"],["ChMkqan-EL8","Chimney Pot Using Free Plugins"],["LxaigI4_Ss8","Plugins Use To Produce Essex Brick Model Railway Layout"],["8secfZWl3uM","Round Tower With Cone Shaped Roof And Curved Windows"],["QnniHkOruuc","Scaling video"],["j6Z8ybiEYiQ","Staircase"]]}]}</script>
+<script id="main">
+(() => {
+  const PAGE_HEAD = '<title>EssexBrick Model Works</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">\n';
+  const SKEL = '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>';
+  const CSS = document.getElementById("css").textContent;
+  const TPL = document.getElementById("tpl").innerHTML;
+  const MAIN = document.getElementById("main").textContent;
+  const SC = "<" + "/script>";
+
+  let state;
+  try { state = JSON.parse(document.getElementById("state").textContent); } catch { state = {}; }
+  state.site = state.site || {}; state.videos = state.videos || []; state.plugins = state.plugins || []; state.playlists = state.playlists || [];
+
+  document.getElementById("app").append(document.getElementById("tpl").content.cloneNode(true));
+
+  const CATS = {railway:"Layout & builds", plugins:"IngeTrazo plugin", modelling:"Modelling & printing"};
+  const $ = s => document.querySelector(s);
+  const el = (tag, attrs = {}, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") n.className = v; else if (k === "text") n.textContent = v;
+      else if (k.startsWith("on")) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v === true ? "" : v);
+    }
+    for (const k of kids.flat()) if (k != null) n.append(k);
+    return n;
+  };
+  const safeUrl = u => { try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : null; } catch { return null; } };
+  const safeImg = u => typeof u === "string" && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(u) ? u : null;
+  const issuesUrl = u => { const s = safeUrl(u || ""); const m = s && s.match(/^https:\/\/github\.com\/[^/]+\/[^/?#]+/); return m ? m[0] + "/issues/new" : null; };
+  const fmtDate = d => { if (!d) return ""; const t = new Date(d + "T12:00:00"); return isNaN(t) ? "" : t.toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"}); };
+  const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  const byNewest = (a, b) => String(b.date || "").localeCompare(String(a.date || ""));
+
+  let artifact = null, canEdit = false, saving = false;
+  let filter = "all", query = "", confirming = null;
+
+  function status(msg){ const s = $("#status"); s.textContent = msg || ""; s.hidden = !msg; }
+
+  /* ---------- Saving: the page republishes itself with the new data ---------- */
+  function buildDoc(){
+    const json = JSON.stringify(state).replace(/</g, "\\u003c");
+    return SKEL + PAGE_HEAD + '<style id="css">' + CSS + '</style>\n<div id="app"></div>\n<template id="tpl">' + TPL +
+      '</template>\n<script type="application/json" id="state">' + json + SC + '\n<script id="main">' + MAIN + SC + '</body></html>';
+  }
+  async function save(){
+    if (!artifact) throw {message:"Saving isn't available here. Open the page in Claude while signed in."};
+    saving = true; status("Saving…");
+    try { await artifact.publish(buildDoc()); status("Saved. The page will refresh."); }
+    catch (e) {
+      saving = false;
+      if (e?.code === "conflict") { status("Someone else saved at the same time. The page will refresh; please make your change again."); return; }
+      status(""); throw e;
+    }
+  }
+
+  /* ---------- Videos ---------- */
+  function videoCard(v, big){
+    const url = safeUrl(v.url);
+    const thumb = el("a", {class:"thumb", href:url || "#", target:"_blank", rel:"noopener", "aria-label":"Watch " + v.title + " on YouTube"});
+    const img = safeImg(v.thumb);
+    if (img) thumb.append(el("img", {src:img, alt:"", loading:"lazy"}));
+    else thumb.append(el("div", {class:"ph"}, el("span", {text:CATS[v.category] || "EssexBrick"})));
+    thumb.append(el("div", {class:"play", "aria-hidden":"true"}));
+    const body = el("div", {class:"body"},
+      el("div", {class:"meta"},
+        el("span", {class:"badge " + (v.category || ""), text:CATS[v.category] || "Video"}),
+        v.category === "plugins" ? el("span", {class:"badge free", text:"Free plugin"}) : null,
+        v.date ? el("span", {text:fmtDate(v.date)}) : null),
+      el("h3", {}, el("a", {href:url || "#", target:"_blank", rel:"noopener", text:v.title})),
+      v.description ? el("p", {text:v.description}) : null,
+      big ? el("div", {}, el("a", {class:"btn", href:url || "#", target:"_blank", rel:"noopener", text:"Watch on YouTube"})) : null
+    );
+    if (canEdit) body.append(adminRow("videos", v, () => openVideo(v)));
+    return el("article", {class:"card"}, thumb, body);
+  }
+
+  function renderShowcase(){
+    const layout = state.videos.find(v => v.featured);
+    const latest = state.videos.filter(v => v.category === "plugins").sort(byNewest)[0];
+    const fill = (id, v, emptyEdit, emptyView) => {
+      const box = $(id); box.replaceChildren();
+      if (v) box.append(videoCard(v, true));
+      else box.append(el("div", {class:"empty"}, el("strong", {text: canEdit ? "Nothing here yet" : "Coming soon"}), canEdit ? emptyEdit : emptyView));
+    };
+    fill("#slotLayout", layout, "Add your layout video and tick “Show as My layout video”.", "A tour of the layout is on its way.");
+    fill("#slotPlugin", latest, "Add a video in the IngeTrazo plugins section and it shows here.", "The next plugin tutorial is on its way.");
+  }
+
+  function renderVideos(){
+    const grid = $("#videoGrid"); grid.replaceChildren();
+    const counts = {all: state.videos.length, railway:0, plugins:0, modelling:0};
+    state.videos.forEach(v => { if (counts[v.category] != null) counts[v.category]++; });
+    for (const k in counts) $("#n-" + k).textContent = counts[k];
+    const q = query.trim().toLowerCase();
+    const list = state.videos.filter(v => (filter === "all" || v.category === filter) &&
+      (!q || (v.title + " " + (v.description || "")).toLowerCase().includes(q))).sort(byNewest);
+    if (!list.length){
+      const msg = state.videos.length ? ["No videos match", "Try another section or clear the search."] :
+        canEdit ? ["No videos yet", "Press “Add video”, paste a YouTube link, and it appears here for everyone."] :
+                  ["Videos coming soon", "New plugin tutorials will appear here."];
+      grid.append(el("div", {class:"empty", style:"grid-column:1/-1"}, el("strong", {text:msg[0]}), msg[1]));
+      return;
+    }
+    for (const v of list) grid.append(videoCard(v));
+  }
+
+  function adminRow(coll, item, onEdit){
+    const key = coll + "/" + item.id;
+    if (confirming === key){
+      return el("div", {class:"admin-row confirm"}, "Remove this for good?",
+        el("button", {class:"btn small danger", type:"button", text:"Remove", onclick: () => removeItem(coll, item)}),
+        el("button", {class:"btn small ghost", type:"button", text:"Keep", onclick: () => { confirming = null; renderAll(); }}));
+    }
+    return el("div", {class:"admin-row"},
+      el("button", {class:"btn small ghost", type:"button", text:"Edit", onclick:onEdit}),
+      el("button", {class:"btn small ghost", type:"button", text:"Remove", onclick: () => { confirming = key; renderAll(); }}));
+  }
+
+  async function removeItem(coll, item){
+    if (saving) return;
+    confirming = null;
+    const before = state[coll];
+    state[coll] = before.filter(x => x.id !== item.id);
+    try { await save(); } catch (e) { state[coll] = before; status("Couldn't remove that: " + (e.message || e.code)); }
+    renderAll();
+  }
+
+  /* ---------- Plugins ---------- */
+  function renderPlugins(){
+    const grid = $("#pluginGrid"); grid.replaceChildren();
+    if (!state.plugins.length){
+      grid.append(el("div", {class:"empty", style:"grid-column:1/-1"},
+        el("strong", {text: canEdit ? "No plugins listed yet" : "Plugins coming soon"}), canEdit ? "Press “Add plugin” to list one." : ""));
+      return;
+    }
+    const sorted = [...state.plugins].sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(a.name).localeCompare(String(b.name)));
+    for (const p of sorted){
+      const gh = safeUrl(p.github || state.site.github), vid = safeUrl(p.video), it = safeUrl(state.site.ingetrazo), rep = issuesUrl(p.github || state.site.github);
+      const card = el("article", {class:"plug"},
+        el("div", {class:"plug-top"}, el("div", {class:"ico", "aria-hidden":"true", text:"E"}),
+          el("div", {}, el("h3", {text:p.name}), el("span", {class:"ready", text:"For IngeTrazo · Free"}))),
+        p.description ? el("p", {text:p.description}) : null,
+        el("div", {class:"links"},
+          gh ? el("a", {class:"btn small", href:gh, target:"_blank", rel:"noopener", text:"GitHub"}) : null,
+          it ? el("a", {class:"btn small ghost", href:it, target:"_blank", rel:"noopener", text:"IngeTrazo extensions"}) : null,
+          vid ? el("a", {class:"btn small ghost", href:vid, target:"_blank", rel:"noopener", text:"Watch tutorial"}) : null,
+          rep ? el("a", {class:"btn small ghost", href:rep, target:"_blank", rel:"noopener", text:"Report an issue"}) : null)
+      );
+      if (canEdit) card.append(adminRow("plugins", p, () => openPlugin(p)));
+      grid.append(card);
+    }
+  }
+
+  /* ---------- Site ---------- */
+  function renderSite(){
+    const site = state.site;
+    if (site.tagline) $("#tagline").textContent = site.tagline;
+    if (site.intro) $("#intro").textContent = site.intro;
+    { const r = issuesUrl(site.github); if (r) $("#reportBtn").href = r; }
+    if (Array.isArray(site.logoTags) && site.logoTags.length){
+      const tb = $("#logoTags"); tb.replaceChildren();
+      for (const t of site.logoTags){
+        const [txt, link] = String(t).split("|").map(s => s.trim());
+        if (!txt) continue;
+        const u = safeUrl(link || "");
+        tb.append(u ? el("a", {class:"logo-tag", href:u, target:"_blank", rel:"noopener", text:txt}) : el("span", {class:"logo-tag", text:txt}));
+      }
+    }
+    const box = $("#siteLinks"); box.replaceChildren();
+    const items = [["youtube","YouTube channel",true],["github","GitHub"],["ingetrazo","IngeTrazo extensions"],["facebook","Facebook"]];
+    let any = false;
+    for (const [k, label, primary] of items){
+      const u = safeUrl(site[k]); if (!u) continue; any = true;
+      box.append(el("a", {class:"btn" + (primary ? "" : " ghost"), href:u, target:"_blank", rel:"noopener", text:label}));
+    }
+    if (!any) box.append(el("span", {class:"sub", text: canEdit ? "Add your channel and GitHub links with the button below." : "Links coming soon."}));
+  }
+
+  function renderAll(){
+    document.querySelectorAll("[data-edit]").forEach(n => n.hidden = !canEdit);
+    renderShowcase(); renderVideos(); renderPlugins(); renderSite(); renderPlaylists();
+  }
+
+  /* ---------- Thumbnails: shrink to 640×360 and keep inside the page ---------- */
+  function shrinkImage(file){
+    return new Promise((resolve, reject) => {
+      const img = new Image(); const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const W = 640, H = 360, c = document.createElement("canvas"); c.width = W; c.height = H;
+        const s = Math.max(W / img.width, H / img.height), w = img.width * s, h = img.height * s;
+        c.getContext("2d").drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
+        URL.revokeObjectURL(url); resolve(c.toDataURL("image/jpeg", 0.78));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject({message:"That file isn't an image I can read."}); };
+      img.src = url;
+    });
+  }
+
+  /* ---------- Dialogs ---------- */
+  let editingVideo = null, pendingThumb = null, editingPlugin = null;
+  document.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => b.closest("dialog").close()));
+
+  function openVideo(v){
+    editingVideo = v || null; pendingThumb = null;
+    $("#dvTitle").textContent = v ? "Edit video" : "Add video";
+    $("#v-title").value = v?.title || ""; $("#v-url").value = v?.url || "";
+    $("#v-cat").value = v?.category || (filter !== "all" ? filter : "plugins");
+    $("#v-date").value = v?.date || new Date().toISOString().slice(0,10);
+    $("#v-desc").value = v?.description || ""; $("#v-feat").checked = !!v?.featured;
+    $("#v-thumb").value = ""; $("#v-err").textContent = "";
+    const pv = $("#v-thumbprev"), img = safeImg(v?.thumb);
+    if (img){ pv.src = img; pv.hidden = false; } else { pv.hidden = true; pv.removeAttribute("src"); }
+    $("#dlgVideo").showModal();
+  }
+  $("#v-thumb").addEventListener("change", async e => {
+    const f = e.target.files[0]; pendingThumb = null; if (!f) return;
+    try { pendingThumb = await shrinkImage(f); const pv = $("#v-thumbprev"); pv.src = pendingThumb; pv.hidden = false; $("#v-err").textContent = ""; }
+    catch (err){ $("#v-err").textContent = err.message; }
+  });
+  $("#fVideo").addEventListener("submit", async e => {
+    e.preventDefault(); if (saving) return;
+    const url = safeUrl($("#v-url").value.trim());
+    if (!url){ $("#v-err").textContent = "Paste the full YouTube link, starting with https://"; return; }
+    const btn = $("#v-save"); btn.disabled = true; btn.textContent = "Saving…";
+    const before = state.videos;
+    const item = {id: editingVideo?.id || newId(), title:$("#v-title").value.trim(), url, category:$("#v-cat").value, date:$("#v-date").value,
+      description:$("#v-desc").value.trim(), featured:$("#v-feat").checked, thumb: pendingThumb || editingVideo?.thumb || null};
+    let list = before.map(x => item.featured && x.featured ? {...x, featured:false} : x);
+    list = editingVideo ? list.map(x => x.id === item.id ? item : x) : [...list, item];
+    state.videos = list;
+    try { await save(); $("#dlgVideo").close(); }
+    catch (err){ state.videos = before; $("#v-err").textContent = "Couldn't save: " + (err?.message || err?.code || err); }
+    finally { btn.disabled = false; btn.textContent = "Save video"; renderAll(); }
+  });
+
+  function openPlugin(p){
+    editingPlugin = p || null;
+    $("#dpTitle").textContent = p ? "Edit plugin" : "Add plugin";
+    $("#p-name").value = p?.name || ""; $("#p-desc").value = p?.description || "";
+    $("#p-gh").value = p?.github || ""; $("#p-vid").value = p?.video || ""; $("#p-err").textContent = "";
+    $("#dlgPlugin").showModal();
+  }
+  $("#fPlugin").addEventListener("submit", async e => {
+    e.preventDefault(); if (saving) return;
+    const before = state.plugins;
+    const item = {id: editingPlugin?.id || newId(), name:$("#p-name").value.trim(), description:$("#p-desc").value.trim(),
+      github:$("#p-gh").value.trim(), video:$("#p-vid").value.trim(), order: editingPlugin?.order ?? before.length + 1};
+    state.plugins = editingPlugin ? before.map(x => x.id === item.id ? item : x) : [...before, item];
+    try { await save(); $("#dlgPlugin").close(); }
+    catch (err){ state.plugins = before; $("#p-err").textContent = "Couldn't save: " + (err?.message || err?.code); }
+    renderAll();
+  });
+
+  $("#editSite").addEventListener("click", () => {
+    const site = state.site;
+    $("#s-tag").value = site.tagline || $("#tagline").textContent; $("#s-intro").value = site.intro || $("#intro").textContent;
+    $("#s-tags").value = (site.logoTags || []).join("\n");
+    $("#s-yt").value = site.youtube || ""; $("#s-gh").value = site.github || "";
+    $("#s-it").value = site.ingetrazo || ""; $("#s-fb").value = site.facebook || ""; $("#s-err").textContent = "";
+    $("#dlgSite").showModal();
+  });
+  $("#fSite").addEventListener("submit", async e => {
+    e.preventDefault(); if (saving) return;
+    const before = state.site;
+    state.site = {tagline:$("#s-tag").value.trim(), intro:$("#s-intro").value.trim(),
+      logoTags:$("#s-tags").value.split("\n").map(s => s.trim()).filter(Boolean).slice(0, 8), youtube:$("#s-yt").value.trim(),
+      github:$("#s-gh").value.trim(), ingetrazo:$("#s-it").value.trim(), facebook:$("#s-fb").value.trim()};
+    try { await save(); $("#dlgSite").close(); }
+    catch (err){ state.site = before; $("#s-err").textContent = "Couldn't save: " + (err?.message || err?.code); }
+    renderAll();
+  });
+  $("#addVideo").addEventListener("click", () => openVideo(null));
+  $("#addPlugin").addEventListener("click", () => openPlugin(null));
+
+  /* ---------- Playlists ---------- */
+  const GROUPS = [["plugins","IngeTrazo plugins"],["railway","Layout & builds"],["modelling","Modelling & printing"]];
+  const plId = u => { try { return new URL(u).searchParams.get("list"); } catch { return null; } };
+  const cleanId = id => /^[A-Za-z0-9_-]+$/.test(String(id || "")) ? id : null;
+  function renderPlaylists(){
+    const wrap = $("#plWrap"); wrap.replaceChildren();
+    const all = state.playlists || [];
+    if (!all.length){ wrap.append(el("div", {class:"empty"}, el("strong", {text:"Playlists coming soon"}))); return; }
+    for (const [cat, label] of GROUPS){
+      const list = all.filter(p => p.category === cat);
+      if (!list.length) continue;
+      const grid = el("div", {class:"pl-grid"});
+      for (const p of list){
+        const lid = cleanId(p.id); if (!lid) continue;
+        const vids = Array.isArray(p.videos) ? p.videos : [];
+        const playAll = "https://www.youtube.com/playlist?list=" + lid;
+        const det = el("details", {class:"pl"},
+          el("summary", {},
+            el("div", {class:"stack", "aria-hidden":"true", text: vids.length ? String(vids.length) : "▶"}),
+            el("div", {}, el("div", {class:"pt", text:p.title}),
+              el("div", {class:"pd", text: (vids.length ? vids.length + (vids.length === 1 ? " video" : " videos") : "Playlist") + (p.description ? " · " + p.description : "")})),
+            el("span", {class:"chev", "aria-hidden":"true"})),
+          vids.length ? el("ol", {}, vids.map(([vid, t]) => cleanId(vid) ? el("li", {}, el("a", {href:"https://www.youtube.com/watch?v=" + vid + "&list=" + lid, target:"_blank", rel:"noopener", text:t})) : null)) : null,
+          el("div", {class:"pfoot"}, el("a", {class:"btn small", href:playAll, target:"_blank", rel:"noopener", text:"Play all on YouTube"}),
+            canEdit ? adminRow("playlists", p, () => openPlaylist(p)) : null));
+        grid.append(det);
+      }
+      wrap.append(el("div", {class:"pl-group"}, el("h3", {class:"grp", text:label}), grid));
+    }
+  }
+  let editingPlaylist = null;
+  function openPlaylist(p){
+    editingPlaylist = p || null;
+    $("#dlTitle").textContent = p ? "Edit playlist" : "Add playlist";
+    $("#l-title").value = p?.title || ""; $("#l-url").value = p ? "https://www.youtube.com/playlist?list=" + p.id : "";
+    $("#l-cat").value = p?.category || "plugins"; $("#l-desc").value = p?.description || ""; $("#l-err").textContent = "";
+    $("#dlgPlaylist").showModal();
+  }
+  $("#fPlaylist").addEventListener("submit", async e => {
+    e.preventDefault(); if (saving) return;
+    const id = cleanId(plId($("#l-url").value.trim()));
+    if (!id){ $("#l-err").textContent = "Paste the playlist link. It has list= in it."; return; }
+    const before = state.playlists || [];
+    const keep = editingPlaylist && editingPlaylist.id === id ? editingPlaylist.videos : [];
+    const item = {id, title:$("#l-title").value.trim(), category:$("#l-cat").value, description:$("#l-desc").value.trim(), videos: keep || []};
+    state.playlists = editingPlaylist ? before.map(x => x.id === editingPlaylist.id ? item : x) : [...before, item];
+    try { await save(); $("#dlgPlaylist").close(); }
+    catch (err){ state.playlists = before; $("#l-err").textContent = "Couldn't save: " + (err?.message || err?.code); }
+    renderAll();
+  });
+  $("#addPlaylist").addEventListener("click", () => openPlaylist(null));
+
+  /* ---------- Filters ---------- */
+  document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+    filter = c.dataset.f;
+    document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x === c)));
+    renderVideos();
+  }));
+  $("#q").addEventListener("input", e => { query = e.target.value; renderVideos(); });
+
+  renderAll();
+
+  /* ---------- Editing controls appear only for Eddy ---------- */
+  (async () => {
+    if (!window.claude?.use) return;
+    const [a, u] = await Promise.all([claude.use("artifact"), claude.use("user")]);
+    artifact = a;
+    try { canEdit = !!(a && u && await u.isOwner()); } catch { canEdit = false; }
+    if (canEdit) renderAll();
+  })();
+})();
+</script>
+
+</body></html>
