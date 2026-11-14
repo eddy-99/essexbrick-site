@@ -1,211 +1,254 @@
-<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
-<title>EssexBrick Model Works</title>
-<meta name="description" content="EssexBrick Model Railway, nearly 100% designed and 3D printed by Eddy, plus free IngeTrazo plugins and video tutorials for modellers. Build in the real world, print in the scale world.">
-<link rel="canonical" href="https://essexbrick.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='32' rx='30' ry='22' fill='%236E1E28' stroke='%23C79A2E' stroke-width='4'/%3E%3Ctext x='32' y='40' font-family='Georgia,serif' font-weight='bold' font-size='22' text-anchor='middle' fill='%23E6C670'%3EEB%3C/text%3E%3C/svg%3E">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="EssexBrick Model Works">
-<meta property="og:title" content="EssexBrick Model Works">
-<meta property="og:description" content="EssexBrick Model Railway, nearly 100% designed and 3D printed by Eddy, plus free IngeTrazo plugins and video tutorials for modellers. Build in the real world, print in the scale world.">
-<meta property="og:url" content="https://essexbrick.com/">
-<meta property="og:image" content="https://essexbrick.com/gallery/overall-view-02.jpg">
-<meta name="theme-color" content="#4C121A">
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Free IngeTrazo plugins for modellers, plugin video tutorials, and the EssexBrick Model Railway - nearly 100% 3D printed. Build in the real world, print in the scale world."><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><title>EssexBrick Model Works</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
-<script data-goatcounter="https://essexbrick.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</head><body>
-<style id="css">/* Layout: works-plate masthead, then a filterable video yard, the plugin shelf, and a links band. */
+<style id="css">/* Layout: slim works-plate header with a five-page menu; each page is its own view (Home, Plugins, Videos, My Layout, About). Maroon is kept for the header and accents; content sits on a light ground. */
 :root{
-  --bg:#F2F0EE; --surface:#FFFFFF; --ink:#1F1A1B; --muted:#6B6163; --line:#DCD6D4;
+  --bg:#F3F1EF; --surface:#FFFFFF; --sunk:#E9E5E2; --ink:#221C1D; --muted:#655B5D; --line:#DDD6D3;
   --maroon:#6E1E28; --maroon-deep:#4C121A; --gold:#C79A2E; --gold-soft:#E6C670; --on-maroon:#F6E7C1;
+  --accent-ink:#6E1E28; --pic-bg:#F4F3F1;
   --rail:#3E6B57; --plug:#2F5F8A; --model:#8A5A2B;
   --display:"Alfa Slab One", "Rockwell", Georgia, serif;
   --body:"Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --cond:"Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#171213; --surface:#221B1C; --ink:#F1E9E6; --muted:#B0A3A2; --line:#3A3031;
+  --bg:#171213; --surface:#221B1C; --sunk:#1C1617; --ink:#F1E9E6; --muted:#B3A6A5; --line:#3A3031;
   --maroon:#7E2632; --maroon-deep:#3A0E14; --gold:#D9AE45; --gold-soft:#E8CC80; --on-maroon:#F6E7C1;
+  --accent-ink:#E8CC80;
   --rail:#7FB89C; --plug:#7FB0DD; --model:#D49C62; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#171213; --surface:#221B1C; --ink:#F1E9E6; --muted:#B0A3A2; --line:#3A3031;
+  --bg:#171213; --surface:#221B1C; --sunk:#1C1617; --ink:#F1E9E6; --muted:#B3A6A5; --line:#3A3031;
   --maroon:#7E2632; --maroon-deep:#3A0E14; --gold:#D9AE45; --gold-soft:#E8CC80; --on-maroon:#F6E7C1;
+  --accent-ink:#E8CC80;
   --rail:#7FB89C; --plug:#7FB0DD; --model:#D49C62; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
 a{color:inherit}
 button,input,select,textarea{font:inherit}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-
-/* Masthead */
-.mast{background:var(--maroon-deep);color:var(--on-maroon);position:relative;overflow:hidden}
-.mast::before{content:"";position:absolute;inset:0;opacity:.13;
-  background-image:linear-gradient(90deg,transparent 47%,var(--gold) 47%,var(--gold) 53%,transparent 53%),
-  linear-gradient(0deg,transparent 47%,var(--gold) 47%,var(--gold) 53%,transparent 53%);
-  background-size:64px 22px,32px 22px;background-position:0 0,0 0}
-.mast .wrap{position:relative;padding-block:28px 34px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start}
-.brand{display:flex;flex-direction:column;align-items:center;gap:12px;width:max-content;min-width:300px;max-width:100%}
-.logo-tags{display:flex;flex-direction:column;align-items:stretch;gap:8px;width:100%}
-.logo-tag{font-family:var(--cond);font-weight:600;font-size:.98rem;letter-spacing:.03em;text-align:center;color:var(--on-maroon);
-  background:color-mix(in oklab,var(--maroon) 80%,transparent);border:1.5px solid var(--gold);border-radius:999px;padding:6px 14px;text-decoration:none;display:block}
-.logo-tag b{color:var(--gold-soft);font-weight:700}
-a.logo-tag::after{content:"\00a0\1F446"}
-.logo-tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 a,button,.chip{cursor:pointer}
-.btn{white-space:nowrap}
-a.logo-tag:hover{background:var(--gold);color:var(--maroon-deep)}
-a.logo-tag:hover::after{color:inherit}
-a.logo-tag:hover b{color:inherit}
-.mast .copy{padding-top:14px}
-.plate{width:300px;max-width:100%;aspect-ratio:2/1.15;border-radius:50%;background:var(--maroon);
-  border:6px solid var(--gold);box-shadow:inset 0 0 0 3px var(--maroon),inset 0 0 0 5px var(--gold-soft),0 8px 24px rgb(0 0 0 / .35);
-  display:grid;place-items:center;text-align:center;padding:14px}
-.plate .t1{font-family:var(--display);color:var(--gold-soft);font-size:2.05rem;line-height:1;letter-spacing:.02em}
-.plate .t2{font-family:var(--cond);font-weight:700;color:var(--gold-soft);letter-spacing:.2em;font-size:.95rem;text-transform:uppercase}
-.plate .t0{font-family:var(--display);color:var(--gold-soft);font-size:1.25rem;letter-spacing:.03em;line-height:1}
-.plate .rule{height:2px;width:70%;background:var(--gold);margin:8px auto}
-.mast h1{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.05;color:var(--on-maroon)}
-.mast .tag{font-family:var(--cond);font-size:1.35rem;font-weight:500;color:var(--gold-soft);margin-top:10px;letter-spacing:.02em}
-.mast p.lede{max-width:56ch;margin:14px 0 0;color:color-mix(in oklab,var(--on-maroon) 85%,transparent)}
-.mast nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.mast nav a{font-family:var(--cond);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.95rem;text-decoration:none;
-  padding:7px 14px;border:1.5px solid var(--gold);border-radius:999px;color:var(--gold-soft)}
-.mast nav a:hover{background:var(--gold);color:var(--maroon-deep)}
-@media (max-width:720px){.mast .wrap{grid-template-columns:1fr;gap:22px}.brand{min-width:0;margin:0 auto}.plate{width:240px}.plate .t1{font-size:1.6rem}.mast .copy{padding-top:0}}
 
-/* Sections */
-section{padding-block:44px 8px}
-.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 20px;margin-bottom:18px}
-.eyebrow{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.85rem;color:var(--maroon)}
-:root[data-theme="dark"] .eyebrow{color:var(--gold)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eyebrow{color:var(--gold)}}
-h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.1}
-.sub{color:var(--muted);margin:6px 0 0;max-width:60ch}
+/* Header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--maroon-deep)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--maroon-deep);color:var(--on-maroon);border-bottom:3px solid var(--gold)}
+.top .wrap{display:flex;align-items:center;gap:12px 28px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--on-maroon)}
+.mini-plate{width:92px;aspect-ratio:2/1.15;border-radius:50%;background:var(--maroon);border:3px solid var(--gold);box-shadow:inset 0 0 0 2px var(--maroon),inset 0 0 0 3px var(--gold-soft);display:grid;place-items:center;text-align:center;flex:none}
+.mini-plate span{font-family:var(--display);color:var(--gold-soft);font-size:.62rem;line-height:1.05;letter-spacing:.02em}
+.mini-plate b{display:block;font-weight:400;font-size:.8rem}
+.brand-name{font-family:var(--cond);font-weight:700;font-size:1.25rem;letter-spacing:.03em;line-height:1.1}
+.brand-name small{display:block;font-weight:500;font-size:.85rem;color:var(--gold-soft);letter-spacing:.04em}
+.menu{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.menu::-webkit-scrollbar{display:none}
+.menu a{font-family:var(--cond);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-decoration:none;padding:8px 14px;border-radius:6px;color:var(--on-maroon);white-space:nowrap}
+.menu a:hover{background:color-mix(in oklab,var(--on-maroon) 12%,transparent)}
+.menu a[aria-current="page"]{background:var(--gold);color:var(--maroon-deep)}
+@media (max-width:760px){.menu{margin-left:0;width:100%;justify-content:space-between;gap:2px}.menu a{padding:6px 6px;font-size:.95rem;letter-spacing:.02em}.route .media{aspect-ratio:16/6}}
 
-.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600;
-  background:var(--maroon);color:var(--on-maroon);text-decoration:none}
+/* Pages */
+main{min-height:60vh}
+.page{padding-block:36px 56px}
+.page-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px 24px;margin-bottom:24px}
+.eyebrow{font-family:var(--cond);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.85rem;color:var(--accent-ink)}
+h1.pt{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.1;margin-top:4px}
+h2{font-family:var(--cond);font-weight:700;font-size:1.5rem;letter-spacing:.01em;line-height:1.2}
+.sub{color:var(--muted);margin-top:8px;max-width:62ch}
+.block{margin-top:40px}
+.block > h2{margin-bottom:14px}
+
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:8px;padding:9px 16px;font-weight:600;background:var(--maroon);color:#FBF3E4;text-decoration:none;white-space:nowrap}
 .btn:hover{background:var(--maroon-deep)}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 .btn.ghost:hover{border-color:var(--muted)}
+.btn.gold{background:var(--gold);color:#2a1d00}
+.btn.gold:hover{background:var(--gold-soft)}
 .btn.small{padding:5px 10px;font-size:.88rem;border-radius:6px}
 .btn.danger{background:#A3262F;color:#fff}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+.textlink{color:var(--accent-ink);font-weight:600;text-decoration:none}
+.textlink:hover{text-decoration:underline}
 
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;
-  font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.03em;display:inline-flex;gap:8px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 13px;font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.03em;display:inline-flex;gap:7px;align-items:center}
 .chip .n{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chip[aria-pressed="true"] .n{color:inherit;opacity:.7}
-.search{flex:1 1 220px;max-width:320px;margin-left:auto;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.search,.pick{padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);min-width:0}
+.search{flex:1 1 200px;max-width:300px}
+.pick{max-width:100%}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:20px}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
-@media (max-width:720px){.card.featured{grid-template-columns:1fr}}
-.thumb{aspect-ratio:16/9;max-width:100%;background:var(--maroon-deep);position:relative;display:block;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb .ph{position:absolute;inset:0;display:grid;place-items:center}
-.thumb .ph span{border:3px solid var(--gold);border-radius:50%;padding:12px 26px;font-family:var(--display);color:var(--gold-soft);font-size:1.15rem;background:var(--maroon);text-align:center;line-height:1.1}
-.thumb .play{position:absolute;right:10px;bottom:10px;width:44px;height:44px;border-radius:50%;background:rgb(0 0 0 / .6);display:grid;place-items:center}
-.thumb .play::after{content:"";border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
-.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
-.featured .body{padding:22px 24px;justify-content:center}
-.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem;color:var(--muted)}
-.badge{font-family:var(--cond);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;padding:2px 8px;border-radius:4px;color:var(--surface)}
+.badge{flex:none;white-space:nowrap;font-family:var(--cond);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem;padding:2px 7px;border-radius:4px;color:var(--surface)}
 .badge.railway{background:var(--rail)} .badge.plugins{background:var(--plug)} .badge.modelling{background:var(--model)}
-.badge.star{background:var(--gold);color:#2a1d00}
-.card h3{font-family:var(--body);font-weight:700;font-size:1.08rem;line-height:1.3}
-.featured h3{font-family:var(--display);font-weight:400;font-size:1.6rem}
-.card h3 a{text-decoration:none} .card h3 a:hover{text-decoration:underline}
-.card p{margin:0;color:var(--muted);font-size:.95rem}
-.admin-row{display:flex;gap:8px;margin-top:auto;padding-top:6px;flex-wrap:wrap}
-.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.9rem}
-
-.empty{border:2px dashed var(--line);border-radius:12px;padding:36px 20px;text-align:center;color:var(--muted)}
-.empty strong{display:block;color:var(--ink);font-size:1.1rem;margin-bottom:4px}
-
-/* Showcase: layout + latest plugin video */
-.showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-@media (max-width:760px){.showcase{grid-template-columns:1fr}}
-.slot{display:flex;flex-direction:column;gap:8px;min-width:0}
-.slot-label{font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:var(--muted)}
-.slot .card{flex:1}
-.slot .card h3{font-family:var(--display);font-weight:400;font-size:1.35rem}
-
-/* Free messaging */
-.freebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
-.stamp{font-family:var(--display);font-size:1.05rem;color:var(--maroon-deep);background:var(--gold);padding:6px 14px;border-radius:6px;transform:rotate(-2deg);display:inline-block;box-shadow:0 3px 0 var(--gold-soft)}
-.freebar .small-note{font-family:var(--cond);font-size:1.05rem;color:var(--gold-soft);letter-spacing:.02em}
 .badge.free{background:var(--gold);color:#2a1d00}
-.free-strip{margin-top:18px;background:var(--surface);border:2px solid var(--gold);border-radius:10px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
-.free-strip strong{font-family:var(--display);font-weight:400;font-size:1.2rem}
-.free-strip ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:.95rem}
-.free-strip li::before{content:"✓ ";color:var(--rail);font-weight:700}
+
+/* Video cards */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px 18px}
+.vcard{display:flex;flex-direction:column;gap:8px;min-width:0}
+.thumb{position:relative;display:block;aspect-ratio:16/9;max-width:100%;border-radius:8px;overflow:hidden;background:var(--maroon-deep)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .ph{position:absolute;inset:0;display:grid;place-items:center;padding:10px;text-align:center;
+  background:linear-gradient(135deg,var(--maroon-deep),var(--maroon))}
+.thumb .ph span{font-family:var(--display);color:var(--gold-soft);font-size:1rem;line-height:1.1;border:3px solid var(--gold);border-radius:50%;padding:10px 22px;background:var(--maroon)}
+.thumb .play{position:absolute;right:8px;bottom:8px;width:40px;height:40px;border-radius:50%;background:rgb(0 0 0 / .65);display:grid;place-items:center}
+.thumb .play::after{content:"";border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.thumb:hover .play{background:#C4302B}
+.vcard h3{font-family:var(--body);font-weight:700;font-size:1rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vcard h3 a{text-decoration:none} .vcard h3 a:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:.85rem;color:var(--muted)}
+.vcard .watch{font-size:.88rem;font-weight:600;color:var(--accent-ink);text-decoration:none}
+.vcard .watch:hover{text-decoration:underline}
+.more{display:flex;justify-content:center;margin-top:26px}
+
+.admin-row{display:flex;gap:8px;flex-wrap:wrap}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.9rem}
+.empty{border:2px dashed var(--line);border-radius:12px;padding:32px 20px;text-align:center;color:var(--muted)}
+.empty strong{display:block;color:var(--ink);font-size:1.1rem;margin-bottom:4px}
+.notice{background:color-mix(in oklab,var(--gold) 18%,var(--surface));border:1px solid var(--gold);border-radius:8px;padding:8px 12px;font-size:.9rem;margin-top:16px}
+.editbar{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Home */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center}
+@media (max-width:800px){.hero{grid-template-columns:1fr;gap:26px}}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.4vw,3rem);line-height:1.08;margin-top:8px}
+.hero .lede{font-size:1.1rem;margin-top:14px;max-width:48ch}
+.freeline{display:flex;align-items:center;gap:10px;margin-top:16px;font-weight:600}
+.freeline .tick{width:22px;height:22px;border-radius:50%;background:var(--rail);color:#fff;display:grid;place-items:center;font-size:.8rem;flex:none}
+.hero .btnrow{margin-top:22px}
+.tags{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:.92rem}
+.tags a,.tags span{color:var(--muted)}
+.tags a{text-decoration:underline;text-underline-offset:3px}
+.tags a:hover{color:var(--ink)}
+.latest{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.latest .lbl{font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem;color:var(--muted)}
+.latest h3{font-size:1.15rem;-webkit-line-clamp:3}
+
+.routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:44px}
+@media (max-width:800px){.routes{grid-template-columns:1fr}}
+.route{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;min-width:0}
+.route:hover{border-color:var(--gold)}
+.route{border-top:4px solid var(--gold)}
+.route:hover .go{text-decoration:underline}
+.route .media{aspect-ratio:16/8;max-width:100%;background:var(--maroon-deep);position:relative;overflow:hidden;display:grid;place-items:center}
+.route .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.route .big{font-family:var(--display);color:var(--gold-soft);font-size:3.2rem;line-height:1;text-align:center}
+.route .big small{display:block;font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+.route .rb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.route h2{font-size:1.35rem}
+.route p{color:var(--muted);font-size:.95rem}
+.route .go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--accent-ink)}
 
 /* Plugins */
-.plug-cta{display:inline-flex;align-items:center;gap:14px;margin-top:18px;padding:10px 20px 10px 12px;border-radius:12px;background:var(--gold);color:#2a1d00;text-decoration:none;font-family:var(--cond);font-weight:700;font-size:1.25rem;letter-spacing:.02em;line-height:1.1;box-shadow:0 4px 0 var(--gold-soft)}
-.plug-cta:hover{background:var(--gold-soft)}
-.plug-cta small{display:block;font-weight:600;font-size:.9rem;opacity:.8;letter-spacing:.06em;text-transform:uppercase}
-.plug-cta .pc-n{font-family:var(--display);font-weight:400;font-size:2.2rem;background:var(--maroon-deep);color:var(--gold-soft);border-radius:8px;padding:4px 12px;line-height:1}
-.get-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
-.pgroup{margin-bottom:26px}
-.pgroup h3.grp{font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:1rem;color:var(--muted);margin:0 0 10px;display:flex;gap:8px;align-items:baseline}
-.pgroup h3.grp .n{font-weight:500;letter-spacing:0}
-.plugins{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.plug .key{font-family:var(--cond);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.install{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-bottom:34px}
+@media (max-width:760px){.install{grid-template-columns:1fr}}
+.way{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.way h2{font-size:1.25rem}
+.way ol{margin:0;padding-left:1.3em;color:var(--muted);display:grid;gap:4px}
+.way ol strong{color:var(--ink)}
+.way code{font-size:.85rem;background:var(--sunk);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.way .btnrow{margin-top:auto;padding-top:6px}
+.way.rec{border:2px solid var(--gold)}
+.rec-tag{align-self:flex-start;font-family:var(--cond);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#2a1d00;padding:2px 8px;border-radius:4px}
+.plugins{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .plug{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.plug p{font-size:.95rem}
-.plug-top{display:flex;gap:14px;align-items:center}
-.ico{flex:none;width:42px;height:42px;border-radius:10px;background:var(--maroon);display:grid;place-items:center;
-  font-family:var(--display);color:var(--gold-soft);font-size:1.5rem;border:2px solid var(--gold)}
-.plug h3{font-family:var(--body);font-weight:700;font-size:1.05rem;line-height:1.25}
-.ready{font-family:var(--cond);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rail);border:1.5px solid currentColor;border-radius:4px;padding:1px 6px;display:inline-block;margin-top:2px}
-.plug p{margin:0;color:var(--muted)}
-.plug .links{display:flex;flex-wrap:wrap;gap:8px}
-.free{font-weight:700;color:var(--ink)}
-
+.plug-top{display:flex;gap:12px;align-items:center}
+.ico{flex:none;width:38px;height:38px;border-radius:9px;background:var(--maroon);display:grid;place-items:center;font-family:var(--display);color:var(--gold-soft);font-size:1.3rem}
+.plug h3{font-family:var(--body);font-weight:700;font-size:1.02rem;line-height:1.25}
+.plug .grp{font-family:var(--cond);font-size:.85rem;color:var(--muted);letter-spacing:.03em}
+.plug p{color:var(--muted);font-size:.94rem}
+.plug .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+.key{font-family:var(--cond);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.foot-note{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
 
 /* Playlists */
 .pl-group{margin-bottom:26px}
 .pl-group h3.grp{font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:1rem;color:var(--muted);margin:0 0 10px}
-.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;align-items:start}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
 .pl{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
-.pl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px}
+.pl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 14px}
 .pl summary::-webkit-details-marker{display:none}
-.pl .stack{width:46px;height:46px;border-radius:8px;background:var(--maroon);border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold-soft);font-family:var(--display);font-size:1.05rem;font-variant-numeric:tabular-nums}
-.pl .pt{font-weight:700;line-height:1.3}
+.pl .stack{width:44px;height:44px;border-radius:8px;background:var(--maroon);display:grid;place-items:center;color:var(--gold-soft);font-family:var(--cond);font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.pl .ptl{font-weight:700;line-height:1.3}
 .pl .pd{color:var(--muted);font-size:.9rem;margin-top:2px}
 .pl .chev{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 6px 4px 0;transition:transform .15s}
 .pl[open] .chev{transform:rotate(-135deg);margin-bottom:-4px}
-.pl ol{margin:0;padding:4px 16px 8px 46px;border-top:1px solid var(--line);max-height:340px;overflow:auto}
-.pl li{padding:5px 0;font-size:.95rem;color:var(--muted)}
+.pl ol{margin:0;padding:4px 16px 8px 44px;border-top:1px solid var(--line);max-height:320px;overflow:auto}
+.pl li{padding:4px 0;font-size:.95rem;color:var(--muted)}
 .pl li a{color:var(--ink);text-decoration:none}
-.pl li a:hover{text-decoration:underline;color:var(--maroon)}
-.pl .pfoot{display:flex;gap:8px;flex-wrap:wrap;padding:10px 16px 14px;border-top:1px solid var(--line)}
+.pl li a:hover{text-decoration:underline}
+.pl .pfoot{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px 12px;border-top:1px solid var(--line)}
 
-/* Links band */
-.band{margin-top:48px;background:var(--maroon);color:var(--on-maroon)}
-.band .wrap{padding-block:34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
-@media (max-width:720px){.band .wrap{grid-template-columns:1fr}}
-.band h2{color:var(--on-maroon)}
-.band .sub{color:color-mix(in oklab,var(--on-maroon) 80%,transparent)}
-.band .links{display:flex;flex-wrap:wrap;gap:10px}
-.band .btn{background:var(--gold);color:#2a1d00}
-.band .btn:hover{background:var(--gold-soft)}
-.band .btn.ghost{background:transparent;color:var(--on-maroon);border-color:color-mix(in oklab,var(--on-maroon) 40%,transparent)}
-footer{padding-block:22px 34px;color:var(--muted);font-size:.88rem}
+/* My Layout */
+.made{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:center}
+@media (max-width:760px){.made{grid-template-columns:1fr;gap:18px}}
+.made-photo{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3;max-width:100%;background:var(--maroon-deep)}
+.made-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.made-big{font-family:var(--display);font-size:clamp(2.2rem,6vw,3.2rem);line-height:1;color:var(--accent-ink);margin-top:6px}
+.made h2{font-size:1.5rem;margin-top:4px}
+.made p{margin-top:10px}
+.made-list{list-style:none;padding:0;margin:14px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
+.made-list li::before{content:"\2713\00a0";color:var(--rail);font-weight:700}
+@media (max-width:480px){.made-list{grid-template-columns:1fr}}
+.made-not{padding:10px 14px;border-radius:8px;background:color-mix(in oklab,var(--gold) 16%,var(--surface));font-size:.95rem}
+.watch-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:760px){.watch-row{grid-template-columns:1fr}}
+.watch-row .vcard h3{font-size:1.15rem}
+.series{display:flex;flex-direction:column;gap:8px}
+.series button{display:flex;justify-content:space-between;gap:12px;align-items:center;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;color:var(--ink);font-weight:600}
+.series button:hover{border-color:var(--gold)}
+.series button span{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Gallery */
+.g-stage{position:relative;background:#120d0e;border-radius:12px;overflow:hidden;aspect-ratio:16/10;max-width:100%}
+@media (max-width:600px){.g-stage{aspect-ratio:4/3}}
+.g-main{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.g-main img{width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .35s ease}
+.g-main img.in{opacity:1}
+.g-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgb(0 0 0 / .55);color:#fff;font-size:1.9rem;line-height:1;display:grid;place-items:center;padding:0 0 4px}
+.g-nav:hover{background:rgb(0 0 0 / .8)}
+.g-nav.prev{left:10px}.g-nav.next{right:10px}
+.g-bar{position:absolute;left:0;right:0;bottom:0;display:flex;gap:12px;align-items:center;padding:22px 14px 10px;background:linear-gradient(transparent,rgb(0 0 0 / .75));color:#fff;font-size:.95rem;pointer-events:none}
+.g-bar>*{pointer-events:auto}
+#gCap{font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#gCount{font-variant-numeric:tabular-nums;opacity:.85}
+.g-play{border:1.5px solid rgb(255 255 255 / .6);background:transparent;color:#fff;border-radius:999px;padding:4px 12px;font-weight:600}
+.g-thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 6px}
+.g-th{flex:none;width:96px;height:72px;border:2px solid transparent;border-radius:6px;padding:0;overflow:hidden;background:var(--line);opacity:.7}
+.g-th:hover{opacity:1}
+.g-th img{width:100%;height:100%;object-fit:cover;display:block}
+.g-th.on{border-color:var(--gold);opacity:1}
+#gChips{margin-bottom:14px}
+dialog.g-box{width:100vw;height:100vh;max-width:none;max-height:none;margin:0;background:#0b0809;padding:0;border-radius:0;box-shadow:none}
+dialog.g-box::backdrop{background:#000}
+.g-box img{width:100%;height:100%;object-fit:contain;display:block}
+.g-close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:0;background:rgb(255 255 255 / .15);color:#fff;font-size:1.6rem}
+.g-boxcap{position:absolute;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:60px;right:60px;text-align:center;color:#fff;font-weight:600;text-shadow:0 1px 3px #000}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+.about .prose{display:grid;gap:14px;max-width:62ch;font-size:1.05rem}
+.find{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.find h2{font-size:1.25rem}
+.find .links{display:flex;flex-direction:column;gap:8px}
+.find .links .btn{justify-content:center}
+.for-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.for-list li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.92rem}
+
+footer{border-top:1px solid var(--line);padding-block:20px 30px;color:var(--muted);font-size:.88rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+footer a{text-decoration:none} footer a:hover{text-decoration:underline;color:var(--ink)}
 
-.notice{background:color-mix(in oklab,var(--gold) 18%,var(--surface));border:1px solid var(--gold);border-radius:8px;padding:8px 12px;font-size:.9rem;margin-bottom:16px}
-.editbar{display:flex;gap:8px;flex-wrap:wrap}
-
-/* Dialog */
+/* Dialogs */
 dialog{border:0;border-radius:12px;padding:0;background:var(--surface);color:var(--ink);width:min(560px,calc(100vw - 32px));box-shadow:0 20px 60px rgb(0 0 0 / .35)}
 dialog::backdrop{background:rgb(20 10 12 / .55)}
-.dlg-h{background:var(--maroon);color:var(--on-maroon);padding:14px 20px;font-family:var(--display);font-size:1.2rem}
+.dlg-h{background:var(--maroon);color:var(--on-maroon);padding:14px 20px;font-family:var(--cond);font-weight:700;font-size:1.3rem}
 form.f{padding:18px 20px 20px;display:grid;gap:12px}
 .f label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
 .f input[type=text],.f input[type=url],.f input[type=date],.f select,.f textarea{width:100%;padding:8px 10px;border-radius:6px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font-weight:400}
@@ -217,79 +260,197 @@ form.f{padding:18px 20px 20px;display:grid;gap:12px}
 .f .act{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
 .f .err{color:#B3262F;font-size:.9rem;min-height:1em}
 .thumbprev{max-width:160px;border-radius:6px;margin-top:4px}
-@media (prefers-reduced-motion:no-preference){.card,.plug{transition:transform .15s ease,box-shadow .15s ease}.card:hover,.plug:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgb(0 0 0 / .08)}}
-/* Made by Eddy */
-.made{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:center;background:var(--surface);border:2px solid var(--gold);border-radius:14px;padding:22px}
-@media (max-width:760px){.made{grid-template-columns:1fr;padding:16px;gap:18px}}
-.made-photo{margin:0;border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:var(--maroon-deep)}
-.made-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.made-big{font-family:var(--display);font-size:clamp(2.4rem,7vw,3.8rem);line-height:1;color:var(--maroon);margin:6px 0 4px}
-:root[data-theme="dark"] .made-big{color:var(--gold)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .made-big{color:var(--gold)}}
-.made h2{font-size:clamp(1.4rem,2.6vw,1.8rem)}
-.made p{margin:10px 0 0}
-.made-list{list-style:none;padding:0;margin:14px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}
-.made-list li::before{content:"\2713\00a0";color:var(--rail);font-weight:700}
-@media (max-width:480px){.made-list{grid-template-columns:1fr}}
-.made-not{padding:10px 14px;border-radius:8px;background:color-mix(in oklab,var(--gold) 16%,var(--surface));font-size:.95rem}
+@media (prefers-reduced-motion:no-preference){.plug,.route{transition:border-color .15s ease}}
 
-/* Gallery */
-.gchip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.03em;display:inline-flex;gap:8px;align-items:center}
-.gchip .n{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
-.gchip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.gchip[aria-pressed="true"] .n{color:inherit;opacity:.7}
-.g-stage{position:relative;background:#120d0e;border-radius:12px;overflow:hidden;aspect-ratio:16/10}
-@media (max-width:600px){.g-stage{aspect-ratio:4/3}}
-.g-main{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in}
-.g-main img{width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .35s ease}
-.g-main img.in{opacity:1}
-.g-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgb(0 0 0 / .55);color:#fff;font-size:1.9rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 4px}
-.g-nav:hover{background:rgb(0 0 0 / .8)}
-.g-nav.prev{left:10px}.g-nav.next{right:10px}
-.g-bar{position:absolute;left:0;right:0;bottom:0;display:flex;gap:12px;align-items:center;padding:22px 14px 10px;background:linear-gradient(transparent,rgb(0 0 0 / .75));color:#fff;font-size:.95rem;pointer-events:none}
-.g-bar>*{pointer-events:auto}
-#gCap{font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#gCount{font-variant-numeric:tabular-nums;opacity:.85}
-.g-play{border:1.5px solid rgb(255 255 255 / .6);background:transparent;color:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font-weight:600}
-.g-thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 6px}
-.g-th{flex:none;width:96px;height:72px;border:2px solid transparent;border-radius:6px;padding:0;overflow:hidden;background:var(--line);cursor:pointer;opacity:.7}
-.g-th:hover{opacity:1}
-.g-th img{width:100%;height:100%;object-fit:cover;display:block}
-.g-th.on{border-color:var(--gold);opacity:1}
-dialog.g-box{width:100vw;height:100vh;max-width:none;max-height:none;margin:0;background:#0b0809;padding:0;border-radius:0;box-shadow:none}
-dialog.g-box::backdrop{background:#000}
-.g-box img{width:100%;height:100%;object-fit:contain;display:block}
-.g-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgb(255 255 255 / .15);color:#fff;font-size:1.6rem;cursor:pointer}
-.g-boxcap{position:absolute;bottom:14px;left:60px;right:60px;text-align:center;color:#fff;font-weight:600;text-shadow:0 1px 3px #000}
+/* Home masthead: the works plate on a maroon brick band */
+.page[data-page="home"]{padding-top:0}
+.mast{background:var(--maroon-deep);color:var(--on-maroon);position:relative;overflow:hidden}
+.mast::before{content:"";position:absolute;inset:0;opacity:.13;
+  background-image:linear-gradient(90deg,transparent 47%,var(--gold) 47%,var(--gold) 53%,transparent 53%),
+  linear-gradient(0deg,transparent 47%,var(--gold) 47%,var(--gold) 53%,transparent 53%);
+  background-size:64px 22px,32px 22px}
+.mast-in{position:relative;padding-block:34px 40px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:760px){.mast-in{grid-template-columns:1fr;gap:24px}}
+.brand-big{display:flex;flex-direction:column;align-items:center;gap:12px;width:300px;max-width:100%;margin-inline:auto}
+.plate{width:300px;max-width:100%;aspect-ratio:2/1.15;border-radius:50%;background:var(--maroon);border:6px solid var(--gold);box-shadow:inset 0 0 0 3px var(--maroon),inset 0 0 0 5px var(--gold-soft),0 8px 24px rgb(0 0 0 / .35);display:grid;place-items:center;text-align:center;padding:14px}
+.plate .t0{font-family:var(--display);color:var(--gold-soft);font-size:1.25rem;letter-spacing:.03em;line-height:1}
+.plate .t1{font-family:var(--display);color:var(--gold-soft);font-size:2.05rem;line-height:1;letter-spacing:.02em}
+.plate .rule{height:2px;width:70%;background:var(--gold);margin:8px auto}
+@media (max-width:760px){.plate{width:240px}.plate .t1{font-size:1.6rem}}
+.logo-tags{display:flex;flex-direction:column;gap:8px;width:100%}
+.logo-tag{display:block;text-align:center;font-family:var(--cond);font-weight:600;font-size:.98rem;letter-spacing:.03em;color:var(--on-maroon);background:color-mix(in oklab,var(--maroon) 80%,transparent);border:1.5px solid var(--gold);border-radius:999px;padding:6px 14px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+a.logo-tag:hover{background:var(--gold);color:var(--maroon-deep)}
+.mast h1{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.05;color:var(--on-maroon)}
+.mast .tag{font-family:var(--cond);font-size:1.4rem;font-weight:500;color:var(--gold-soft);margin-top:10px;letter-spacing:.02em}
+.mast .lede{max-width:56ch;margin-top:12px;color:color-mix(in oklab,var(--on-maroon) 85%,transparent)}
+.freebar{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:18px;align-items:center}
+.stamp{font-family:var(--display);font-size:1.05rem;color:var(--maroon-deep);background:var(--gold);padding:6px 14px;border-radius:6px;transform:rotate(-2deg);display:inline-block;box-shadow:0 3px 0 var(--gold-soft)}
+.small-note{font-family:var(--cond);font-size:1.1rem;color:var(--gold-soft);letter-spacing:.02em}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;margin-top:20px}
+.plug-cta{display:inline-flex;align-items:center;gap:14px;padding:10px 20px 10px 12px;border-radius:12px;background:var(--gold);color:#2a1d00;text-decoration:none;font-family:var(--cond);font-weight:700;font-size:1.25rem;letter-spacing:.02em;line-height:1.1;box-shadow:0 4px 0 var(--gold-soft)}
+.plug-cta:hover{background:var(--gold-soft)}
+.plug-cta small{display:block;font-weight:600;font-size:.9rem;opacity:.8;letter-spacing:.06em;text-transform:uppercase}
+.plug-cta .pc-n{font-family:var(--display);font-weight:400;font-size:2.2rem;background:var(--maroon-deep);color:var(--gold-soft);border-radius:8px;padding:4px 12px;line-height:1}
+.btn.line{background:transparent;color:var(--on-maroon);border:1.5px solid var(--gold);border-radius:999px;font-family:var(--cond);font-size:1.1rem;letter-spacing:.04em}
+.btn.line:hover{background:var(--gold);color:var(--maroon-deep)}
+.home-body{padding-top:32px}
+.home-body .latest{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center;border:2px solid var(--gold)}
+.home-body .latest > .lbl{grid-column:1/-1;margin-bottom:-12px}
+@media (max-width:760px){.home-body .latest{grid-template-columns:1fr}}
+.latest .side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.latest .side h3{font-family:var(--display);font-weight:400;font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.15;-webkit-line-clamp:4}
+.home-body .routes{margin-top:26px}
+
+/* Inner pages: a maroon title band across the full width */
+.page-head{background:var(--maroon-deep);box-shadow:0 0 0 100vmax var(--maroon-deep);clip-path:inset(0 -100vmax);margin-top:-36px;padding-block:26px 28px;margin-bottom:30px;color:var(--on-maroon)}
+.page-head .eyebrow{color:var(--gold-soft)}
+.page-head h1.pt{color:var(--on-maroon)}
+.page-head .sub{color:color-mix(in oklab,var(--on-maroon) 82%,transparent)}
+.page-head .btn{background:var(--gold);color:#2a1d00}
+.page-head .btn:hover{background:var(--gold-soft)}
+.page-head .btn.ghost{background:transparent;color:var(--on-maroon);border-color:var(--gold)}
+.made-big,.eyebrow{color:var(--accent-ink)}
+.plug{border-top:3px solid var(--maroon)}
+
+/* Plugin pictures */
+.plug-pic{display:block;width:100%;aspect-ratio:16/10;max-width:100%;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--pic-bg);cursor:zoom-in;overflow:hidden}
+.plug-pic img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .2s ease}
+.plug-pic:hover img{transform:scale(1.04)}
+dialog.pic-box{width:100vw;height:100vh;max-width:none;max-height:none;margin:0;background:#F4F3F1;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(52px + env(safe-area-inset-bottom,0px));border-radius:0;box-shadow:none}
+dialog.pic-box::backdrop{background:#000}
+.pic-box img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-out}
+.pic-box .g-close{background:var(--maroon);}
+.pic-box .g-boxcap{color:#221C1D;text-shadow:none}
+@media (prefers-reduced-motion:reduce){.plug-pic img{transition:none}}
+
+/* Plugin groups and New */
+.pgroup{margin-bottom:34px}
+.grp-h{display:flex;align-items:center;gap:10px;font-family:var(--cond);font-weight:700;font-size:1.45rem;margin-bottom:14px;padding-bottom:8px;border-bottom:3px solid var(--gold)}
+.grp-h .n{font-size:.95rem;font-weight:700;background:var(--maroon);color:var(--gold-soft);border-radius:999px;padding:1px 10px;font-variant-numeric:tabular-nums}
+.plug-pic{position:relative}
+.new-tag{position:absolute;top:8px;left:8px;font-family:var(--cond);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#2a1d00;padding:2px 9px;border-radius:4px;box-shadow:0 2px 0 var(--maroon)}
+.new-tag.inline{position:static;margin-left:8px;vertical-align:middle;box-shadow:none}
+.chip.chip-new{border-color:var(--gold);background:color-mix(in oklab,var(--gold) 22%,var(--surface))}
+.chip.chip-new[aria-pressed="true"]{background:var(--gold);color:#2a1d00;border-color:var(--gold)}
 </style>
 <div id="app"></div>
-<template id="tpl"><header class="mast">
+<template id="tpl"><header class="top">
   <div class="wrap">
-    <div class="brand">
-      <div class="plate" aria-hidden="true"><div><div class="t0">EssexBrick</div><div class="rule"></div><div class="t1">MODEL<br>WORKS</div><div class="rule"></div></div></div>
-      <div class="logo-tags" id="logoTags"><a class="logo-tag" href="https://ingetrazo.com/en/" target="_blank" rel="noopener">Built for IngeTrazo, the free CAD software</a><a class="logo-tag" href="https://www.youtube.com/@EssexBrick" target="_blank" rel="noopener">Watch on YouTube: @EssexBrick</a></div>
-    </div>
-    <div class="copy">
-      <h1>EssexBrick Model Works</h1>
-      <div class="tag" id="tagline">Build in the real world, print in the scale world.</div>
-      <p class="lede" id="intro">For modellers who build in the real world and print in the scale world. Measure it, scale it, print it, in any scale.</p>
-      <div class="freebar"><span class="stamp">100% FREE</span><span class="small-note">Every plugin, every video. No catch.</span></div>
-      <a class="plug-cta" href="#plugins"><span class="pc-n" id="ctaCount">25</span><span>free IngeTrazo plugins<small>See them all</small></span></a>
-      <nav aria-label="Sections"><a href="#plugins">IngeTrazo plugins</a><a href="#made">Made by me</a><a href="#gallery">Gallery</a><a href="#videos">Watch</a><a href="#playlists">Playlists</a><a href="#library">All videos</a><a href="#links">Find me</a></nav>
-    </div>
+    <a class="brand" href="#home" aria-label="EssexBrick Model Works home">
+      <span class="mini-plate" aria-hidden="true"><span>EssexBrick<b>MODEL WORKS</b></span></span>
+      <span class="brand-name">EssexBrick Model Works<small>Free IngeTrazo plugins · any scale</small></span>
+    </a>
+    <nav class="menu" aria-label="Main menu">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#plugins" data-nav="plugins">Plugins</a>
+      <a href="#videos" data-nav="videos">Videos</a>
+      <a href="#layout" data-nav="layout">My Layout</a>
+      <a href="#about" data-nav="about">About</a>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <div id="status" class="notice" hidden></div>
+<main>
+  <div class="wrap"><div id="status" class="notice" hidden></div></div>
 
-  <section id="made" aria-labelledby="mh">
+  <!-- HOME -->
+  <section class="page" data-page="home" aria-labelledby="homeH">
+    <div class="mast">
+      <div class="wrap mast-in">
+        <div class="brand-big">
+          <div class="plate" aria-hidden="true"><div><div class="t0">EssexBrick</div><div class="rule"></div><div class="t1">MODEL<br>WORKS</div><div class="rule"></div></div></div>
+          <div class="logo-tags" id="logoTags"></div>
+        </div>
+        <div class="copy">
+          <h1 id="homeH">EssexBrick Model Works</h1>
+          <div class="tag" id="tagline">Build in the real world, print in the scale world.</div>
+          <p class="lede" id="intro">For modellers who build in the real world and print in the scale world. Measure it, scale it, print it, in any scale.</p>
+          <div class="freebar"><span class="stamp">100% FREE</span><span class="small-note">Every plugin, every video. No catch.</span></div>
+          <div class="cta-row">
+            <a class="plug-cta" href="#plugins"><span class="pc-n" id="ctaCount">25</span><span>free IngeTrazo plugins<small>See them all</small></span></a>
+            <a class="btn line" href="#videos">Watch the videos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap home-body">
+    <div class="latest" id="homeLatest"></div>
+
+    <div class="routes">
+      <a class="route" href="#plugins">
+        <div class="media"><div class="big"><span id="rPlugCount">25</span><small>free plugins</small></div></div>
+        <div class="rb"><h2>Plugins</h2><p>Bricks, windows, doors, roofs, chimneys, rivets, scaling and printing. Install from IngeTrazo or GitHub.</p><span class="go">See all plugins &rarr;</span></div>
+      </a>
+      <a class="route" href="#videos">
+        <div class="media"><div class="big"><span id="rVidCount">0</span><small>videos</small></div></div>
+        <div class="rb"><h2>Videos</h2><p>Plugin tutorials, the layout build, and SketchUp and Blender how-tos. Search them all in one place.</p><span class="go">Browse the videos &rarr;</span></div>
+      </a>
+      <a class="route" href="#layout">
+        <div class="media"><img src="gallery/overall-view-02.jpg" alt="" loading="lazy"></div>
+        <div class="rb"><h2>My Layout</h2><p>EssexBrick Model Railway: nearly 100% designed and 3D printed by me. Videos and a photo gallery.</p><span class="go">See the layout &rarr;</span></div>
+      </a>
+    </div>
+    </div>
+  </section>
+
+  <!-- PLUGINS -->
+  <section class="page wrap" data-page="plugins" aria-labelledby="plugH" hidden>
+    <div class="page-head">
+      <div><div class="eyebrow">Built for IngeTrazo · all free</div><h1 class="pt" id="plugH"><span id="plugCount">25</span> free plugins</h1>
+        <p class="sub">Tools for drawing model buildings and parts in IngeTrazo, then scaling them for your 3D printer. Any scale, FDM or resin. Click a picture to see it full size.</p></div>
+      <div class="editbar" data-edit hidden><button class="btn" id="addPlugin" type="button">+ Add plugin</button></div>
+    </div>
+
+    <div class="install">
+      <div class="way rec">
+        <span class="rec-tag">Easiest</span>
+        <h2>Install from IngeTrazo</h2>
+        <ol><li>Open the <strong>approved extensions</strong> page on the IngeTrazo website.</li><li>Find <strong>Eddy's 3D plugins</strong> and install the ones you want.</li><li>Restart IngeTrazo. The plugins appear on the toolbar and in the menus.</li></ol>
+        <div class="btnrow" id="getIT"></div>
+      </div>
+      <div class="way">
+        <h2>Download from GitHub</h2>
+        <ol><li>Download the plugin files from GitHub.</li><li>Copy them into IngeTrazo's plugins folder. On Windows that is <code>AppData\Roaming\ingetrazo\plugins</code> in your user folder.</li><li>Restart IngeTrazo.</li></ol>
+        <div class="btnrow" id="getGH"></div>
+      </div>
+    </div>
+
+    <div class="toolbar"><div class="chips" id="pChips" role="group" aria-label="Plugin groups"></div></div>
+    <div id="pluginGrid"></div>
+    <div class="foot-note"><span>Something not working? Tell me and I'll fix it.</span><a class="btn small ghost" id="reportBtn" href="https://github.com/eddy-99/eddys-3d-plugins-ingetrazo/issues/new" target="_blank" rel="noopener">Report a problem</a></div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="page wrap" data-page="videos" aria-labelledby="vidH" hidden>
+    <div class="page-head">
+      <div><div class="eyebrow">On YouTube</div><h1 class="pt" id="vidH">Videos</h1>
+        <p class="sub">Every video on the channel. Pick a subject or a playlist, or search by name.</p></div>
+      <div class="editbar" data-edit hidden><button class="btn" id="addVideo" type="button">+ Add video</button><button class="btn ghost" id="addPlaylist" type="button">+ Add playlist</button></div>
+    </div>
+    <div class="toolbar">
+      <div class="chips" id="vChips" role="group" aria-label="Show videos about"></div>
+      <select class="pick" id="plPick" aria-label="Playlist"></select>
+      <input class="search" id="q" type="search" placeholder="Search videos" aria-label="Search videos">
+    </div>
+    <p class="sub" id="vCount" style="margin:-6px 0 16px"></p>
+    <div id="videoGrid" class="vgrid"></div>
+    <div class="more" id="moreBox" hidden><button class="btn ghost" id="moreBtn" type="button">Show more</button></div>
+
+    <div class="block">
+      <h2>Playlists</h2>
+      <div id="plWrap"></div>
+    </div>
+  </section>
+
+  <!-- MY LAYOUT -->
+  <section class="page wrap" data-page="layout" aria-labelledby="layH" hidden>
+    <div class="page-head"><div><div class="eyebrow">EssexBrick Model Railway</div><h1 class="pt" id="layH">My Layout</h1></div></div>
+
     <div class="made">
       <figure class="made-photo"><img src="gallery/overall-view-01.jpg" alt="Eddy with EssexBrick Model Railway at an exhibition, under his banner reading 100% 3D printed" loading="lazy"></figure>
       <div>
-        <div class="eyebrow">EssexBrick Model Railway</div>
         <div class="made-big">Nearly 100%</div>
-        <h2 id="mh">designed and 3D printed by me</h2>
+        <h2>designed and 3D printed by me</h2>
         <p>I built EssexBrick single-handed, starting in 2020. Almost every part of it is my own design, printed on my own 3D printers, then painted and weathered by hand.</p>
         <ul class="made-list">
           <li>Warehouses and walls</li><li>Cranes</li>
@@ -297,88 +458,54 @@ dialog.g-box::backdrop{background:#000}
           <li>Turntables</li><li>Every figure</li>
           <li>Tea drinkers and toilets</li><li>Painting and weathering</li>
         </ul>
-        <p class="made-not"><strong>The only parts not printed</strong> are the ones you obviously can't print: wheels, track and motors, plus a few Bergman trucks.</p>
+        <p class="made-not"><strong>The only parts not printed</strong> are the ones you can't print: wheels, track and motors, plus a few Bergman trucks.</p>
       </div>
     </div>
-  </section>
 
-  <section id="plugins" aria-labelledby="ph">
-    <div class="sec-head">
-      <div><div class="eyebrow">Built for IngeTrazo · all free</div><h2 id="ph"><span id="plugCount">25</span> free IngeTrazo plugins</h2>
-        <p class="sub">Bricks, windows, doors, roofs, chimneys, canopies, rivets, scaling and printing. Every one is free. Install them straight from IngeTrazo's approved extensions, or download the lot from GitHub.</p></div>
-      <div class="editbar" data-edit hidden><button class="btn" id="addPlugin" type="button">+ Add plugin</button></div>
+    <div class="block">
+      <h2>Watch it run</h2>
+      <div class="watch-row"><div id="slotLayout"></div><div><div class="series" id="railSeries"></div></div></div>
     </div>
-    <div class="get-bar" id="getBar"></div>
-    <div class="chips" id="pChips" role="group" aria-label="Plugin groups"></div>
-    <div id="pluginGrid"></div>
-    <div class="free-strip"><strong>All free. Always.</strong>
-      <ul><li>No paid versions</li><li>Approved IngeTrazo extensions</li><li>Source on GitHub</li><li>Any scale</li></ul>
-      <a class="btn small ghost" id="reportBtn" href="https://github.com/eddy-99/eddys-3d-plugins-ingetrazo/issues/new" target="_blank" rel="noopener">Found a problem? Report an issue</a></div>
-  </section>
 
-  <section id="videos" aria-labelledby="vh">
-    <div class="sec-head">
-      <div><div class="eyebrow">Watch</div><h2 id="vh">Videos</h2>
-        <p class="sub">My layout, and the newest IngeTrazo plugin tutorial.</p></div>
-      <div class="editbar" data-edit hidden><button class="btn" id="addVideo" type="button">+ Add video</button></div>
-    </div>
-    <div class="showcase">
-      <div class="slot"><div class="slot-label">My layout</div><div id="slotLayout"></div></div>
-      <div class="slot"><div class="slot-label">Latest plugin video</div><div id="slotPlugin"></div></div>
+    <div class="block" id="gallery" hidden>
+      <h2>Gallery</h2>
+      <p class="sub" style="margin:-6px 0 14px">Pick a category, or let the slideshow shuffle through.</p>
+      <div class="chips" id="gChips" role="group" aria-label="Gallery categories"></div>
+      <div class="g-stage">
+        <button class="g-main" id="gMain" type="button" aria-label="View full screen"><img id="gImg" alt=""></button>
+        <button class="g-nav prev" id="gPrev" type="button" aria-label="Previous picture">&#8249;</button>
+        <button class="g-nav next" id="gNext" type="button" aria-label="Next picture">&#8250;</button>
+        <div class="g-bar"><span id="gCap"></span><span id="gCount"></span><button class="g-play" id="gPlay" type="button">Pause</button></div>
+      </div>
+      <div class="g-thumbs" id="gThumbs" aria-label="All pictures in this category"></div>
     </div>
   </section>
 
-  <section id="gallery" aria-labelledby="gh" hidden>
-    <div class="sec-head">
-      <div><div class="eyebrow">Gallery</div><h2 id="gh">EssexBrick in pictures</h2>
-        <p class="sub">Nearly everything you see was designed and 3D printed by me. Pick a category, or let the slideshow shuffle through.</p></div>
+  <!-- ABOUT -->
+  <section class="page wrap" data-page="about" aria-labelledby="abH" hidden>
+    <div class="page-head"><div><div class="eyebrow">About</div><h1 class="pt" id="abH">About EssexBrick</h1></div></div>
+    <div class="about">
+      <div class="prose">
+        <p>I'm Eddy. I built the EssexBrick Model Railway single-handed from 2020, designing and 3D printing nearly everything on it on my own FDM and resin printers.</p>
+        <p>The plugins grew out of that work. I wrote them for IngeTrazo, the free CAD software, so that brick walls, windows, roofs and the rest are quick to draw and ready to print. They are approved IngeTrazo extensions, and the source is on GitHub.</p>
+        <p>EssexBrick Model Works is for anyone who builds in the real world and prints in the scale world:</p>
+        <ul class="for-list"><li>Railway modellers</li><li>Dolls' house makers</li><li>Diorama builders</li><li>Wargamers</li><li>Model engineers</li><li>Architects and planners</li></ul>
+        <p>Everything here is free: the plugins, the guides and the videos.</p>
+      </div>
+      <aside class="find" id="links">
+        <h2>Find EssexBrick</h2>
+        <p class="sub" style="margin:0">Subscribe for new plugin tutorials.</p>
+        <div class="links" id="siteLinks"></div>
+        <div class="editbar" data-edit hidden><button class="btn ghost small" id="editSite" type="button">Edit links &amp; tagline</button></div>
+      </aside>
     </div>
-    <div class="chips" id="gChips" role="group" aria-label="Gallery categories"></div>
-    <div class="g-stage">
-      <button class="g-main" id="gMain" type="button" aria-label="View full screen"><img id="gImg" alt=""></button>
-      <button class="g-nav prev" id="gPrev" type="button" aria-label="Previous picture">&#8249;</button>
-      <button class="g-nav next" id="gNext" type="button" aria-label="Next picture">&#8250;</button>
-      <div class="g-bar"><span id="gCap"></span><span id="gCount"></span><button class="g-play" id="gPlay" type="button">Pause</button></div>
-    </div>
-    <div class="g-thumbs" id="gThumbs" aria-label="All pictures in this category"></div>
-  </section>
-
-
-  <section id="playlists" aria-labelledby="plh">
-    <div class="sec-head">
-      <div><div class="eyebrow">On YouTube</div><h2 id="plh">Playlists</h2>
-        <p class="sub">Every video on the channel, in its playlist. Open one to see the videos, or play the lot on YouTube.</p></div>
-      <div class="editbar" data-edit hidden><button class="btn" id="addPlaylist" type="button">+ Add playlist</button></div>
-    </div>
-    <div id="plWrap"></div>
-  </section>
-
-  <section id="library" aria-labelledby="lh">
-    <div class="sec-head">
-      <div><div class="eyebrow">The library</div><h2 id="lh">All videos</h2>
-        <p class="sub">Plugin tutorials, builds and printing how-tos, newest first.</p></div>
-    </div>
-    <div class="chips" role="group" aria-label="Filter videos">
-      <button class="chip" type="button" data-f="all" aria-pressed="true">All <span class="n" id="n-all">0</span></button>
-      <button class="chip" type="button" data-f="plugins" aria-pressed="false">IngeTrazo plugins <span class="n" id="n-plugins">0</span></button>
-      <button class="chip" type="button" data-f="railway" aria-pressed="false">Layout &amp; builds <span class="n" id="n-railway">0</span></button>
-      <button class="chip" type="button" data-f="modelling" aria-pressed="false">Modelling &amp; printing <span class="n" id="n-modelling">0</span></button>
-      <input class="search" id="q" type="search" placeholder="Search videos" aria-label="Search videos">
-    </div>
-    <div id="videoGrid" class="grid"></div>
   </section>
 </main>
 
-<div class="band" id="links">
-  <div class="wrap">
-    <div><h2>Find EssexBrick</h2><p class="sub">Subscribe for new IngeTrazo plugin tutorials. Free, like everything here.</p></div>
-    <div><div class="links" id="siteLinks"></div>
-      <div class="editbar" data-edit hidden style="margin-top:10px"><button class="btn ghost small" id="editSite" type="button">Edit links &amp; tagline</button></div></div>
-  </div>
-</div>
+<footer><div class="wrap"><span>© EssexBrick Model Works · Free IngeTrazo plugins, any scale</span>
+  <nav aria-label="Footer"><a href="#home">Home</a><a href="#plugins">Plugins</a><a href="#videos">Videos</a><a href="#layout">My Layout</a><a href="#about">About</a></nav></div></footer>
 
-<footer><div class="wrap"><span>© EssexBrick Model Works</span><span id="foot">Free IngeTrazo plugins · any scale</span></div></footer>
-
+<dialog id="picBox" class="pic-box" aria-label="Plugin pictures"><img id="picImg" alt=""><button class="g-close" id="picClose" type="button" aria-label="Close">&times;</button><div class="g-boxcap" id="picCap"></div></dialog>
 <dialog id="gBox" class="g-box" aria-label="Picture viewer"><img id="gBoxImg" alt=""><button class="g-nav prev" id="gBoxPrev" type="button" aria-label="Previous picture">&#8249;</button><button class="g-nav next" id="gBoxNext" type="button" aria-label="Next picture">&#8250;</button><button class="g-close" id="gBoxClose" type="button" aria-label="Close">&times;</button><div class="g-boxcap" id="gBoxCap"></div></dialog>
 
 <!-- Video dialog -->
@@ -414,6 +541,7 @@ dialog.g-box::backdrop{background:#000}
     <label>Shortcut <span class="hint">Optional</span><input type="text" id="p-key" maxlength="30"></label></div>
     <label>Own page link <span class="hint">Optional, e.g. its user guide</span><input type="url" id="p-gh" placeholder="https://…"></label>
     <label>Tutorial video link <span class="hint">Optional</span><input type="url" id="p-vid"></label>
+    <label class="chk"><input type="checkbox" id="p-new"> Show as new (listed under New at the top)</label>
     <div class="err" id="p-err" role="alert"></div>
     <div class="act"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit">Save plugin</button></div>
   </form>
@@ -451,11 +579,11 @@ dialog.g-box::backdrop{background:#000}
     <div class="act"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit">Save playlist</button></div>
   </form>
 </dialog></template>
-<script type="application/json" id="state">{"site": {"tagline": "Build in the real world, print in the scale world.", "intro": "For modellers who build in the real world and print in the scale world. Measure it, scale it, print it, in any scale.", "logoTags": ["Built for IngeTrazo, the free CAD software | https://ingetrazo.com/en/", "Watch on YouTube: @EssexBrick | https://www.youtube.com/@EssexBrick"], "youtube": "https://www.youtube.com/@EssexBrick", "github": "https://github.com/eddy-99/eddys-3d-plugins-ingetrazo", "ingetrazo": "https://ingetrazo.com/en/extensiones", "facebook": "https://www.facebook.com/EssexBrickModelWorks", "tour": "https://youtu.be/jFarg8epmys", "guides": "https://github.com/eddy-99/eddys-3d-plugins-ingetrazo/tree/main/guides"}, "videos": [{"id": "mw98jklwt8pp4", "title": "EssexBrick model railway in action.", "url": "https://youtu.be/3pnVjauufYs", "category": "railway", "date": "2026-11-09", "description": "EssexBrick model railway in action.", "featured": true, "thumb": null}, {"id": "yt-r0Y98L5CNu0", "title": "Scale Studio – Turn Real-World Sizes into Any Model Scale, Ready to Print", "url": "https://youtu.be/r0Y98L5CNu0", "category": "plugins", "date": "2026-11-09", "description": "", "featured": false, "thumb": null}, {"id": "yt-RlcYLDl_zMY", "title": "Brick Walls in ONE Click – Neat or Bomb-Damaged | Free 3D Plugin v3", "url": "https://youtu.be/RlcYLDl_zMY", "category": "plugins", "date": "2026-11-07", "description": "", "featured": false, "thumb": null}, {"id": "yt-jFarg8epmys", "title": "FREE 3D Plugins for Model Buildings – Install & Tour (Print-Ready Bricks, Windows, Roofs)", "url": "https://youtu.be/jFarg8epmys", "category": "plugins", "date": "2026-11-06", "description": "", "featured": false, "thumb": null}, {"id": "yt-3sLFXhOXweE", "title": "Brick Walls, Doors, Roofs & Chimneys in Seconds: 19 Free 3D Plugins for IngeTrazo", "url": "https://youtu.be/3sLFXhOXweE", "category": "plugins", "date": "2026-11-02", "description": "", "featured": false, "thumb": null}], "plugins": [{"id": "3d-brick-block-studio", "name": "3D Brick & Block Studio", "description": "Brick, block and stone walling on any wall face: bonds, ashlar, rubble, dry-stone and slate, with quoins, copings and bomb-site damage.", "group": "build", "shortcut": "Ctrl+Shift+T", "github": "", "video": "https://youtu.be/RlcYLDl_zMY", "order": 1}, {"id": "3d-period-windows", "name": "3D Period Windows", "description": "Sash, casement and industrial windows that fit the face you pick, with round tops, sills, heads and keystones.", "group": "build", "shortcut": "Ctrl+Alt+N", "github": "", "video": "", "order": 2}, {"id": "3d-period-doors", "name": "3D Period Doors", "description": "Panelled, half-glazed, ledged and braced, stable and sliding goods doors, with fanlights, steps and keystones.", "group": "build", "shortcut": "Ctrl+Alt+D", "github": "", "video": "", "order": 3}, {"id": "3d-roof-tiles", "name": "3D Roof Tiles", "description": "Plain tiles, slates, shaped and profiled tiles, with ridge tiles and finials.", "group": "build", "shortcut": "Ctrl+Alt+R", "github": "", "video": "", "order": 4}, {"id": "3d-wood-planking", "name": "3D Wood Planking", "description": "Flat, V-jointed, shiplap, weatherboard, board and batten or log boarding, with trims and derelict effects.", "group": "build", "shortcut": "Ctrl+Alt+O", "github": "", "video": "", "order": 5}, {"id": "3d-fences-gates", "name": "3D Fences & Gates", "description": "Picket, close-boarded, panel, post and rail, palisade and iron railings, with gates and weathering.", "group": "build", "shortcut": "Ctrl+Alt+F", "github": "", "video": "", "order": 6}, {"id": "3d-gutters-downpipes", "name": "3D Gutters & Downpipes", "description": "Gutters, downpipes and fittings that join onto each other.", "group": "build", "shortcut": "Ctrl+Alt+G", "github": "", "video": "", "order": 7}, {"id": "3d-soil-waste-pipes", "name": "3D Soil & Waste Pipes", "description": "Soil stacks and outside waste pipes with fittings that join up.", "group": "build", "shortcut": "Ctrl+Alt+W", "github": "", "video": "", "order": 8}, {"id": "3d-wrap", "name": "3D Wrap", "description": "Lays bricks course by course round chimneys of any shape, or bends any flat pattern round a solid.", "group": "build", "shortcut": "Ctrl+Alt+U", "github": "", "video": "", "order": 9}, {"id": "3d-chimneys", "name": "3D Chimneys", "description": "House stacks cut to the roof slope, mill and factory chimneys, and six styles of chimney pot.", "group": "build", "shortcut": "Ctrl+Alt+H", "github": "", "video": "", "order": 10}, {"id": "3d-corrugated-iron", "name": "3D Corrugated Iron", "description": "Corrugated, box-profile and flat sheet cladding for walls and roofs, with rust, holes and lifted sheets.", "group": "build", "shortcut": "Ctrl+Alt+I", "github": "", "video": "", "order": 11}, {"id": "3d-station-canopies", "name": "3D Station Canopies", "description": "Lean-to, island and ridge-and-furrow platform canopies with columns, spandrels and valancing.", "group": "build", "shortcut": "Ctrl+Alt+C", "github": "", "video": "", "order": 12}, {"id": "3d-find-replace", "name": "3D Find & Replace", "description": "Swaps every copy of one part for another in one go: light markers while you work, full rivets and bolts when you're done.", "group": "detail", "shortcut": "Ctrl+Alt+X", "github": "", "video": "", "order": 13}, {"id": "3d-place-along-line", "name": "3D Place Along Line", "description": "Rivets, bolts or any part along a line on a surface, round a ring, or round a face's edge.", "group": "detail", "shortcut": "Ctrl+Alt+S", "github": "", "video": "", "order": 14}, {"id": "3d-centre-finder", "name": "3D Centre Finder", "description": "Finds the centre of a face, edge or object, and can move another object onto it.", "group": "detail", "shortcut": "Ctrl+Alt+M", "github": "", "video": "", "order": 15}, {"id": "3d-loft", "name": "3D Loft", "description": "Makes a solid between two or more profile faces, such as a square into a circle.", "group": "detail", "shortcut": "Ctrl+Alt+L", "github": "", "video": "", "order": 16}, {"id": "3d-blend", "name": "3D Blend", "description": "Blends one object smoothly into another where they meet, like a dome into a boiler, or puts a collar with nuts and bolts round the join.", "group": "detail", "shortcut": "Ctrl+Shift+B", "github": "", "video": "", "order": 17}, {"id": "3d-layers-colours", "name": "3D Layers & Colours", "description": "Puts each kind of part on its own layer and colours it by what it is: brick, slate, glass, ironwork.", "group": "detail", "shortcut": "Ctrl+Alt+V", "github": "", "video": "", "order": 18}, {"id": "3d-scale-studio", "name": "3D Scale Studio", "description": "Scale, repair and export in one window, with a live 3D preview and the real-to-model size converter.", "group": "print", "shortcut": "Ctrl+Alt+K", "github": "", "video": "https://youtu.be/r0Y98L5CNu0", "order": 19}, {"id": "3d-print-scaler", "name": "3D Print Scaler", "description": "Scales a model for printing on FDM or resin, checks it fits your bed, and sends it to your slicer.", "group": "print", "shortcut": "Ctrl+Alt+P", "github": "", "video": "", "order": 20}, {"id": "3d-timeline", "name": "3D Timeline", "description": "Every step along the bottom of the window: click one to roll back, with saved checkpoints.", "group": "helpers", "shortcut": "Ctrl+Alt+T", "github": "", "video": "", "order": 21}, {"id": "3d-notepad", "name": "3D Notepad", "description": "A note pad that stays on screen and saves itself, with a size converter.", "group": "helpers", "shortcut": "Ctrl+Alt+J", "github": "", "video": "", "order": 22}, {"id": "3d-quick-links", "name": "3D Quick Links", "description": "One-click links to your folders, files and web pages, with a set for each job.", "group": "helpers", "shortcut": "Ctrl+Alt+A", "github": "", "video": "", "order": 23}, {"id": "3d-plugins-toolbar", "name": "3D Plugins Toolbar", "description": "A toolbar with a button for each plugin.", "group": "helpers", "shortcut": "Ctrl+Alt+B", "github": "", "video": "", "order": 24}, {"id": "3d-better-icons", "name": "3D Better Icons", "description": "Clearer colour icons for IngeTrazo's own toolbar buttons, with optional names.", "group": "helpers", "shortcut": "Ctrl+Alt+Y", "github": "", "video": "", "order": 25}], "playlists": [{"id": "PLSSXrIDls_-k", "title": "Eddy’s 3D Plugins for IngeTrazo", "category": "plugins", "description": "Tutorials for the free IngeTrazo plugins: real-world sizes, model buildings and 3D printing.", "videos": [["r0Y98L5CNu0", "Scale Studio – Turn Real-World Sizes into Any Model Scale, Ready to Print"], ["RlcYLDl_zMY", "Brick Walls in ONE Click – Neat or Bomb-Damaged | Free 3D Plugin v3"], ["jFarg8epmys", "FREE 3D Plugins for Model Buildings – Install & Tour (Print-Ready Bricks, Windows, Roofs)"], ["3sLFXhOXweE", "Brick Walls, Doors, Roofs & Chimneys in Seconds: 19 Free 3D Plugins for IngeTrazo"]]}, {"id": "PLZZ5oBCc-dOS8ESdQZJnXR52Obi-FyOl1", "title": "EssexBrick layout in action", "category": "railway", "description": "Trains running, automatic running and the control box.", "videos": [["xFweB4ZFAaw", "Automatic running using YAAT"], ["woBC9FnUAX8", "EssexBrick Control Box, DCC++, JMRI/CMRI, MERG, Wi-Fi, RS 485 bus, Foolproof Connectors."], ["JoVSAIEyF7Q", "EssexBrick Model Railway. Everything 3d printed. Automatic running using YAAT/JMRI"], ["KlLVnJ8eAQ8", "Canal Boat Running"], ["-5imUMqsIX8", "EssexBrick MR With 1950's Sound Track"], ["LwY5CO3uGJ0", "10 Locos Running 4x Speed"], ["RiQE3_X23DE", "Model Railway 10 Locos Running Automatically"], ["CVjTEabUPAw", "EssexBrick Interview With Dawn Quest"]]}, {"id": "PLZZ5oBCc-dOSZdE1WocreNYPPCTpGTrhK", "title": "Building of Essex Brick Model Railway", "category": "railway", "description": "The whole build, from the first baseboard to the updates.", "videos": [["nCuC8tH99NU", "01The Building Of Essex Brick Part 1"], ["pDUzSPS4FmA", "02 The Building Of Essex Brick Part 2"], ["gC8BNP9HkrQ", "03 The Building Of Essex Brick Part 3"], ["YWH6smlmH5M", "04 The Building Of Essex Brick Part 4"], ["8Bub3J80ppE", "05 The Building Of Essex Brick Part 5 Painting Technique"], ["VpVLXvHhc3g", "06 The Building of Essex Brick Part 6 Locos and Truck Design"], ["HwEe8538Ydg", "07 The Building Of Essex Brick Part 7 More Detailing"], ["K6odK2V1srU", "08 Train Running on Essex Brick"], ["Kvq1AA5vRSc", "09 Loco Testing, Stay Alive System and 3D Printed Chassis"], ["IBAYWl-QoRc", "10 Loco Testing"], ["9BV0p4vMku8", "11 Sliding Fiddle Yard Testing"], ["fwymsxua12Q", "12 Sliding Fiddle Yard In Depth Pt1"], ["E871UQUy-oE", "13 Sliding Fiddle Yard In Depth Pt2"], ["BeUv0A8Tusc", "14 Essex Brick Testing The Canal With Hidden Hornby Loco Using Magnets"], ["V3TBOe1S_lU", "15 Essex Brick December Update Part1"], ["0yndkNBDOzQ", "16 Essex Brick December Update Part2"], ["bnlk6T3Ps60", "17 Essex Brick Canal Barge"], ["G_UjWieU1o4", "18 Essex Brick Wagons and Locos"], ["01YCF8159R4", "19 Essex Brick 3d Printed Dummy Locos and Wagons"], ["E-A6peKqvI8", "20 Essex brick March 2023 Update Part 1"], ["E5f4X2K01xU", "21 Essex brick March 2023 Update Part 2"], ["3U_A_tkebiU", "22 Essex Brick March 2023 Update Part 3"], ["i2bmVwbPPOI", "23 Essex Brick March 2023 Update Part 5"], ["Mqtld-muEoE", "24 Essex Brick March 2023 Update Part 6"], ["D0uq6ces9E8", "25 a Essex Brick March 2023 Update Part 7"], ["rJssFYgIA30", "25 b Essex Brick March 2023 Update Part 8"], ["h65y4i4F6GU", "26 Essex Brick April 2023 Update Part 1"], ["wcZMc6JtYdY", "27 Essex Brick April 2023 Update Part 2"], ["FLqt84Er32c", "28 Essex Brick April 2023 Update Part 3"], ["KVg92tJYxFg", "29 Essex Brick April 2023 Update Part 4"], ["YLW7duHyjc0", "30 Essex Brick April 2023 Update Part 5"], ["F_KisNaKsoY", "31 Essex Brick April 2023 Update Part 6"], ["WBAbiGTepKw", "32 Essex Brick  April 2023 Update Part 7"], ["uqebj1Ey6ho", "33 Essex Brick April 2023 Update Part 8"], ["jWG9IBF46HE", "34 Essex Brick April Resin printer and early designs"], ["elEUOiOVot4", "35 Testing Stay Alives"]]}, {"id": "PLZZ5oBCc-dOQm16zQyk5jQuNLQv-hDfL2", "title": "Details of Essex Brick Model Railway", "category": "railway", "description": "", "videos": [["3pnVjauufYs", "Essex Brick Demo Med Res"]]}, {"id": "PLZZ5oBCc-dORTFnOpefidfMs3vCexINAG", "title": "Cranes", "category": "railway", "description": "Working roof cranes with stepper motors and steam.", "videos": [["Mu92n1SLLEA", "Added a small chimney"], ["rE6_rvGQs-w", "Roof Crane With Steam"], ["LCCJzNmaM3Q", "Roof Crane 2x Stepper Motors Demo 1"], ["F4GGUOClkOo", "3 x Stepper Demonstration Crane"], ["uyXsT-0lgME", "Untitled video   Made with Clipchamp"], ["LraYGVJV9lc", "Crane mk1 Testing"]]}, {"id": "PLZZ5oBCc-dOQzlzhlqrFGApIQCQme8Sbz", "title": "Welding", "category": "railway", "description": "An arc welder simulator for model railways.", "videos": [["t3xZDwnAepw", "Arc Welder Simulator For Model Railways"]]}, {"id": "PLZZ5oBCc-dOTCbRMZxw2xwDNkVlQOVMjO", "title": "Blender Realistic Walls and Odds", "category": "modelling", "description": "Textured walls for resin printing, and Blender fixes.", "videos": [["RVy8ASkpc_c", "01 Textured Brick Wall Part 1 For 3D Printing On A Resin Printer"], ["dsIsXIQ9yl4", "02 Textured Brick Wall Part 2 For 3D Printing On A Resin Printer"], ["JCVIxIG9hb8", "03 Realistic Walls Part 1 Tutorial Sketchup & Blender Resin For Printing"], ["YKjE8eCHUJ0", "04 Realistic Walls Part 2 Tutorial Sketchup & Blender Resin For Printing"], ["wVZu_40yc_4", "05 Realistic Walls Part 3 Tutorial Sketchup & Blender Resin For Printing"], ["oFPXCfO7K0k", "Blender bogie modification as requested for a replacement Hornby Loco coach"], ["maQkmK0az0o", "Blender To Create Wagon Tarpaulins For Your Layout Part A"], ["Fot5Me-Ioao", "Blender To Create Wagon Tarpaulins For Your Layout Part b"], ["x56HaLUqoJk", "Blender truck modification from a Thingiverse STL model removing the windows and back canopy"]]}, {"id": "PLZZ5oBCc-dOSZQDbAqrfNXiP7TAFp-qBi", "title": "Figures & Animals, MakeHuman & Blender", "category": "modelling", "description": "Posed people and animals ready to print.", "videos": [["31A9nadt2Bs", "01F Figures Using Make Human And Blender"], ["VMecCJpA6P0", "02F Figures Fixing The Errors Before Resin Printing Using Uvtools"], ["WFzSxUI5Y7E", "03F MakeHuman & Blender Changing Hand Pose for Resin Printing"], ["a6dpnXPaZH8", "04F Adding A Hat & Shovel Using Blender & STL files"], ["684EGG-TZJA", "Adding Motion Capture To A Makehuman Figure In Blender Which Can Be 3D Printed Via Individual Frames"], ["tBkE1yNOwjQ", "Animated resin printed 00 Gauge Figure created in MakeHuman and edited in PrusaSlicer"], ["EX7QPISzECI", "Rigging a DAE figure from the internet in Blender to create any pose you would like  MERG 3D SIG"], ["P4FOSjtf0Y0", "Rigging A Thingiverse Cow In Blender To Be Able To Get Many Different 3D Printed Models"], ["zYlGjQeA0ck", "Using Free Motion Capture Files To Create Many Free Stl Animal Models"]]}, {"id": "PLZZ5oBCc-dORmqihz3GARxjAMM0FNb-Sr", "title": "SketchUp Make for Beginners", "category": "modelling", "description": "A model railway building from start to finish, ready for 3D printing.", "videos": [["xG9MI32LTY0", "SU01 Model Railway Building Sketchup Make Basic For 3d Printing Part 1 Frame Design"], ["kl2JYhnlZK4", "SU02 Model Railway Building Sketchup Make Basic  For 3d Printing Part 2 Removeable Roof Section"], ["wZutzaSdseU", "SU03 Model Railway Building Sketchup Make Basic For 3d Printng Part 3 Walls  And Roof Section"], ["YvuR4Y8WqaM", "SU04 Model Railway Building Sketchup Make For 3d Printing Basic Part 4 Windows"], ["YEZ1J_kZBuI", "SU05 Model Railway Building Sketchup Make For 3D Printing Basic Part  5 Brick Work Using Oob Plugin"], ["CAZHFhvJQQs", "SU06 Model Railway Building Sketchup Make Basic For 3d Printing Part 6 Adding Barn Doors Using oob P"], ["rlFa-XSGQRM", "SU07 Model Railway Building Sketchup Make For 3d Printing Part 7 Barn Door Detail & Front Wall Oob P"], ["TFgMaelQpeM", "SU08 Model Railway Building Sketchup Make For 3d Printing Part 8 Roof Windows & Tiles"], ["Q0hOlUpyhxs", "SU09 Model Railway Building Sketchup Make For 3d Printing  Part 9 Eddy's OoB & Prusaslicer Setting"], ["f7YugHpLMBM", "SU10 Model Railway Building Sketchup For 3d Printing  Part 10 Stairs Using 1001bit plugin Oob Plugin"], ["Fgp20711NQs", "SU11 Model Railway Building Sketchup For 3d Printing Part 11 Side Wall & Stair Support Oob Plugin"], ["2FCoJTOMK-4", "SU12 Model Railway Building Sketchup 3d Printing Part 14 Dorma Window And Tiles 1001bits & Oob Plugi"], ["v6FmFaEOmr4", "SU13 Model Railway Building Sketchup 3d Printing Part 15 Back Wall & Outbuilding Frame Using Oob Plu"], ["0rr_75nAsYk", "SU14 Model Railway Building Sketchup 3d Printing Part 16 Back Wall  using Oob and 1001bit Plugin Use"], ["VAnlct7HFmo", "SU15 Model Railway Building Sketchup For 3d Printing Part 17 Making A Round Tapered Brick Chimney Oo"]]}, {"id": "PLZZ5oBCc-dOSDtTs4aJjV7DjKIyJHvQ7j", "title": "SketchUp Make Wagon Design & Loco Parts", "category": "modelling", "description": "A wagon step by step, plus loco parts.", "videos": [["Lb40cLkuX74", "W01 Creating A Wagon In SketchUp Part 1 Create The Wagon Ends Sections"], ["HrMCYE5UHQg", "W02 Creating A Wagon In SketchUp Part 2 Create The Doors"], ["7L8OWLFRq6Y", "W03 Creating A Wagon In SketchUp Part 3 Completing The Doors"], ["thpBnqAk-nI", "W04 Creating A Wagon In SketchUp Part 4 Creating The Roof Section"], ["YY9feMk5UfA", "W05 Creating A Wagon In SketchUp Part 5 Create The Under Frame Part 1"], ["yAoFYiBBOnI", "W06 Creating A Wagon In SketchUp Part 6 Create The Under Frame Part 2"], ["weJwkFnhVWA", "W07 Creating A Wagon In SketchUp Part 7 Axle Box Hanger & Spring"], ["zYbMFJPqxNw", "W08 Creating A Wagon In SketchUp Part 8 Complete The Under Frame"], ["IfYVSzDnSyk", "W09 Creating A Wagon In SketchUp Part 9 Starting The Buffer Beam"], ["K3Inb5piIoA", "W10 Creating A Wagon In SketchUp Part 10 Complete The Buffers"], ["SqScBYjlnVc", "W11 Creating A Wagon In SketchUp Part 11 Easier Ways To Place Rivets"], ["zTJ6rI64n2c", "W12 Creating A Wagon In SketchUp Part 12 Adding A Roof Vent"], ["KPBS-jWTU7o", "W13 Creating A Wagon In SketchUp Part 13 Adding A Rain Deflector"], ["eVPUbUGO-QE", "W14 Creating A Wagon In SketchUp Part 14 Roof Ridge Profile Change"], ["_e8NSTXtyeU", "W15 Creating A Wagon In SketchUp Part 15 Louvre Door Modification"], ["ZR7gqBNh8B4", "W16 Sketchup 2017  A Steam Chimney To Boiler join Part 1 Using Plugin's Super Weld, & Extruded Faces"], ["k-njDsdp-U4", "W17 Sketchup 2017  A Steam Chimney To Boiler join Part 2 Using Path Copy, Smart Drop At Intersection"], ["vbHCqbdMLZA", "W18 Model Railway Vacuum Pipes Create In Sketchup make 2017 Using The Helix Plugin For 3D resin Prin"]]}, {"id": "PLZZ5oBCc-dOQdBXxXReHiZLENQjIv8vBX", "title": "SketchUp Make Signal Box", "category": "modelling", "description": "An FDM-printable signal box in four parts.", "videos": [["s1T9p39oQX4", "SB01 SketchUp Make 2017 FDM printable signal box for model railway layouts Part 1 MERG 3D SIG 1"], ["E4LauSgojGg", "SB02 SketchUp Make 2017 FDM printable signal box for model railway layouts Part 2"], ["j53cTe-nqbE", "SB03 SketchUp Make 2017 FDM printable signal box roof for model railway layouts Part 3"], ["wUgCzan0tII", "SB04 SketchUp Make 2017 FDM printable signal box Stairs for model railway layouts Part 4"]]}, {"id": "PLZZ5oBCc-dOTv3yrugUKM3pTOGQY7NGNp", "title": "SketchUp Make Odds", "category": "modelling", "description": "Arches, chimney pots, towers and stairs.", "videos": [["b3sKIZEiXCI", "Brick Arches Using Oob"], ["ChMkqan-EL8", "Chimney Pot Using Free Plugins"], ["LxaigI4_Ss8", "Plugins Use To Produce Essex Brick Model Railway Layout"], ["8secfZWl3uM", "Round Tower With Cone Shaped Roof And Curved Windows"], ["QnniHkOruuc", "Scaling video"], ["j6Z8ybiEYiQ", "Staircase"]]}], "gallery": [{"c": "Overall view", "f": "gallery/overall-view-01.jpg", "t": "Overall view 1"}, {"c": "Overall view", "f": "gallery/overall-view-02.jpg", "t": "Overall view 2"}, {"c": "Overall view", "f": "gallery/overall-view-03.jpg", "t": "Overall view 3"}, {"c": "Overall view", "f": "gallery/overall-view-04.jpg", "t": "Overall view 4"}, {"c": "Overall view", "f": "gallery/overall-view-05.jpg", "t": "Overall view 5"}, {"c": "Overall view", "f": "gallery/overall-view-06.jpg", "t": "Overall view 6"}, {"c": "Overall view", "f": "gallery/overall-view-07.jpg", "t": "Overall view 7"}, {"c": "Overall view", "f": "gallery/overall-view-08.jpg", "t": "Overall view 8"}, {"c": "Overall view", "f": "gallery/overall-view-09.jpg", "t": "Overall view 9"}, {"c": "Overall view", "f": "gallery/overall-view-10.jpg", "t": "Overall view 10"}, {"c": "Overall view", "f": "gallery/overall-view-11.jpg", "t": "Overall view 11"}, {"c": "Overall view", "f": "gallery/overall-view-12.jpg", "t": "Overall view 12"}, {"c": "Overall view", "f": "gallery/overall-view-13.jpg", "t": "Overall view 13"}, {"c": "Overall view", "f": "gallery/overall-view-14.jpg", "t": "Overall view 14"}, {"c": "Overall view", "f": "gallery/overall-view-15.jpg", "t": "Overall view 15"}, {"c": "Overall view", "f": "gallery/overall-view-16.jpg", "t": "Overall view 16"}, {"c": "Buildings", "f": "gallery/buildings-01.jpg", "t": "Buildings 1"}, {"c": "Buildings", "f": "gallery/buildings-02.jpg", "t": "Buildings 2"}, {"c": "Buildings", "f": "gallery/buildings-03.jpg", "t": "Buildings 3"}, {"c": "Buildings", "f": "gallery/buildings-04.jpg", "t": "Buildings 4"}, {"c": "Buildings", "f": "gallery/buildings-05.jpg", "t": "Buildings 5"}, {"c": "Buildings", "f": "gallery/buildings-06.jpg", "t": "Buildings 6"}, {"c": "Buildings", "f": "gallery/buildings-07.jpg", "t": "Buildings 7"}, {"c": "Buildings", "f": "gallery/buildings-08.jpg", "t": "Buildings 8"}, {"c": "Buildings", "f": "gallery/buildings-09.jpg", "t": "Buildings 9"}, {"c": "Buildings", "f": "gallery/buildings-10.jpg", "t": "Buildings 10"}, {"c": "Buildings", "f": "gallery/buildings-11.jpg", "t": "Buildings 11"}, {"c": "Buildings", "f": "gallery/buildings-12.jpg", "t": "Buildings 12"}, {"c": "Buildings", "f": "gallery/buildings-13.jpg", "t": "Buildings 13"}, {"c": "Buildings", "f": "gallery/buildings-14.jpg", "t": "Buildings 14"}, {"c": "Buildings", "f": "gallery/buildings-15.jpg", "t": "Buildings 15"}, {"c": "Buildings", "f": "gallery/buildings-16.jpg", "t": "Buildings 16"}, {"c": "Buildings", "f": "gallery/buildings-17.jpg", "t": "Buildings 17"}, {"c": "Buildings", "f": "gallery/buildings-18.jpg", "t": "Buildings 18"}, {"c": "Cranes", "f": "gallery/cranes-01.jpg", "t": "Cranes 1"}, {"c": "Cranes", "f": "gallery/cranes-02.jpg", "t": "Cranes 2"}, {"c": "Cranes", "f": "gallery/cranes-03.jpg", "t": "Cranes 3"}, {"c": "Cranes", "f": "gallery/cranes-04.jpg", "t": "Cranes 4"}, {"c": "Cranes", "f": "gallery/cranes-05.jpg", "t": "Cranes 5"}, {"c": "Cranes", "f": "gallery/cranes-06.jpg", "t": "Cranes 6"}, {"c": "Cranes", "f": "gallery/cranes-07.jpg", "t": "Cranes 7"}, {"c": "Cranes", "f": "gallery/cranes-08.jpg", "t": "Cranes 8"}, {"c": "Cranes", "f": "gallery/cranes-09.jpg", "t": "Cranes 9"}, {"c": "Cranes", "f": "gallery/cranes-10.jpg", "t": "Cranes 10"}, {"c": "Cranes", "f": "gallery/cranes-11.jpg", "t": "Cranes 11"}, {"c": "Cranes", "f": "gallery/cranes-12.jpg", "t": "Cranes 12"}, {"c": "Cranes", "f": "gallery/cranes-13.jpg", "t": "Cranes 13"}, {"c": "Cranes", "f": "gallery/cranes-14.jpg", "t": "Cranes 14"}, {"c": "Cranes", "f": "gallery/cranes-15.jpg", "t": "Cranes 15"}, {"c": "Cranes", "f": "gallery/cranes-16.jpg", "t": "Cranes 16"}, {"c": "Cranes", "f": "gallery/cranes-17.jpg", "t": "Cranes 17"}, {"c": "Cranes", "f": "gallery/cranes-18.jpg", "t": "Cranes 18"}, {"c": "Cranes", "f": "gallery/cranes-19.jpg", "t": "Cranes 19"}, {"c": "Cranes", "f": "gallery/cranes-20.jpg", "t": "Cranes 20"}, {"c": "Trucks", "f": "gallery/trucks-01.jpg", "t": "Trucks 1"}, {"c": "Trucks", "f": "gallery/trucks-02.jpg", "t": "Trucks 2"}, {"c": "Trucks", "f": "gallery/trucks-03.jpg", "t": "Trucks 3"}, {"c": "Trucks", "f": "gallery/trucks-04.jpg", "t": "Trucks 4"}, {"c": "Trucks", "f": "gallery/trucks-05.jpg", "t": "Trucks 5"}, {"c": "Trucks", "f": "gallery/trucks-06.jpg", "t": "Trucks 6"}, {"c": "Trucks", "f": "gallery/trucks-07.jpg", "t": "Trucks 7"}, {"c": "Trucks", "f": "gallery/trucks-08.jpg", "t": "Trucks 8"}, {"c": "Trucks", "f": "gallery/trucks-09.jpg", "t": "Trucks 9"}, {"c": "Trucks", "f": "gallery/trucks-10.jpg", "t": "Trucks 10"}, {"c": "Trucks", "f": "gallery/trucks-11.jpg", "t": "Trucks 11"}, {"c": "Trucks", "f": "gallery/trucks-12.jpg", "t": "Trucks 12"}, {"c": "Trucks", "f": "gallery/trucks-13.jpg", "t": "Trucks 13"}, {"c": "Trucks", "f": "gallery/trucks-14.jpg", "t": "Trucks 14"}, {"c": "Trucks", "f": "gallery/trucks-15.jpg", "t": "Trucks 15"}, {"c": "Trucks", "f": "gallery/trucks-16.jpg", "t": "Trucks 16"}, {"c": "Trucks", "f": "gallery/trucks-17.jpg", "t": "Trucks 17"}, {"c": "Trucks", "f": "gallery/trucks-18.jpg", "t": "Trucks 18"}, {"c": "Trucks", "f": "gallery/trucks-19.jpg", "t": "Trucks 19"}, {"c": "Trucks", "f": "gallery/trucks-20.jpg", "t": "Trucks 20"}, {"c": "Trucks", "f": "gallery/trucks-21.jpg", "t": "Trucks 21"}, {"c": "Trucks", "f": "gallery/trucks-22.jpg", "t": "Trucks 22"}, {"c": "Trucks", "f": "gallery/trucks-23.jpg", "t": "Trucks 23"}, {"c": "Trucks", "f": "gallery/trucks-24.jpg", "t": "Trucks 24"}, {"c": "Trucks", "f": "gallery/trucks-25.jpg", "t": "Trucks 25"}, {"c": "Trucks", "f": "gallery/trucks-26.jpg", "t": "Trucks 26"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-01.jpg", "t": "Locos and Wagons 1"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-02.jpg", "t": "Locos and Wagons 2"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-03.jpg", "t": "Locos and Wagons 3"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-04.jpg", "t": "Locos and Wagons 4"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-05.jpg", "t": "Locos and Wagons 5"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-06.jpg", "t": "Locos and Wagons 6"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-07.jpg", "t": "Locos and Wagons 7"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-08.jpg", "t": "Locos and Wagons 8"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-09.jpg", "t": "Locos and Wagons 9"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-10.jpg", "t": "Locos and Wagons 10"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-11.jpg", "t": "Locos and Wagons 11"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-12.jpg", "t": "Locos and Wagons 12"}, {"c": "Figures", "f": "gallery/figures-01.jpg", "t": "Figures 1"}, {"c": "Figures", "f": "gallery/figures-02.jpg", "t": "Figures 2"}, {"c": "Figures", "f": "gallery/figures-03.jpg", "t": "Figures 3"}, {"c": "Figures", "f": "gallery/figures-04.jpg", "t": "Figures 4"}, {"c": "Figures", "f": "gallery/figures-05.jpg", "t": "Figures 5"}, {"c": "Figures", "f": "gallery/figures-06.jpg", "t": "Figures 6"}, {"c": "Figures", "f": "gallery/figures-07.jpg", "t": "Figures 7"}, {"c": "Figures", "f": "gallery/figures-08.jpg", "t": "Figures 8"}, {"c": "Figures", "f": "gallery/figures-09.jpg", "t": "Figures 9"}, {"c": "Figures", "f": "gallery/figures-10.jpg", "t": "Figures 10"}, {"c": "Figures", "f": "gallery/figures-11.jpg", "t": "Figures 11"}, {"c": "Figures", "f": "gallery/figures-12.jpg", "t": "Figures 12"}, {"c": "Figures", "f": "gallery/figures-13.jpg", "t": "Figures 13"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-01.jpg", "t": "Tea Drinkers 1"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-02.jpg", "t": "Tea Drinkers 2"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-03.jpg", "t": "Tea Drinkers 3"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-04.jpg", "t": "Tea Drinkers 4"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-05.jpg", "t": "Tea Drinkers 5"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-06.jpg", "t": "Tea Drinkers 6"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-07.jpg", "t": "Tea Drinkers 7"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-08.jpg", "t": "Tea Drinkers 8"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-09.jpg", "t": "Tea Drinkers 9"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-10.jpg", "t": "Tea Drinkers 10"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-11.jpg", "t": "Tea Drinkers 11"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-12.jpg", "t": "Tea Drinkers 12"}, {"c": "Toilets", "f": "gallery/toilets-01.jpg", "t": "Toilets 1"}, {"c": "Toilets", "f": "gallery/toilets-02.jpg", "t": "Toilets 2"}, {"c": "Toilets", "f": "gallery/toilets-03.jpg", "t": "Toilets 3"}, {"c": "Toilets", "f": "gallery/toilets-04.jpg", "t": "Toilets 4"}, {"c": "Toilets", "f": "gallery/toilets-05.jpg", "t": "Toilets 5"}, {"c": "Toilets", "f": "gallery/toilets-06.jpg", "t": "Toilets 6"}, {"c": "Toilets", "f": "gallery/toilets-07.jpg", "t": "Toilets 7"}, {"c": "Toilets", "f": "gallery/toilets-08.jpg", "t": "Toilets 8"}, {"c": "Toilets", "f": "gallery/toilets-09.jpg", "t": "Toilets 9"}, {"c": "Toilets", "f": "gallery/toilets-10.jpg", "t": "Toilets 10"}, {"c": "Toilets", "f": "gallery/toilets-11.jpg", "t": "Toilets 11"}, {"c": "Walls", "f": "gallery/walls-01.jpg", "t": "Walls 1"}, {"c": "Walls", "f": "gallery/walls-02.jpg", "t": "Walls 2"}, {"c": "Walls", "f": "gallery/walls-03.jpg", "t": "Walls 3"}, {"c": "Walls", "f": "gallery/walls-04.jpg", "t": "Walls 4"}, {"c": "Walls", "f": "gallery/walls-05.jpg", "t": "Walls 5"}, {"c": "Walls", "f": "gallery/walls-06.jpg", "t": "Walls 6"}, {"c": "Walls", "f": "gallery/walls-07.jpg", "t": "Walls 7"}, {"c": "Walls", "f": "gallery/walls-08.jpg", "t": "Walls 8"}, {"c": "Walls", "f": "gallery/walls-09.jpg", "t": "Walls 9"}, {"c": "Walls", "f": "gallery/walls-10.jpg", "t": "Walls 10"}, {"c": "Walls", "f": "gallery/walls-11.jpg", "t": "Walls 11"}, {"c": "Walls", "f": "gallery/walls-12.jpg", "t": "Walls 12"}, {"c": "Painting", "f": "gallery/painting-01.jpg", "t": "Painting 1"}, {"c": "Painting", "f": "gallery/painting-02.jpg", "t": "Painting 2"}, {"c": "Painting", "f": "gallery/painting-03.jpg", "t": "Painting 3"}, {"c": "Painting", "f": "gallery/painting-04.jpg", "t": "Painting 4"}, {"c": "Painting", "f": "gallery/painting-05.jpg", "t": "Painting 5"}, {"c": "Painting", "f": "gallery/painting-06.jpg", "t": "Painting 6"}, {"c": "Painting", "f": "gallery/painting-07.jpg", "t": "Painting 7"}, {"c": "Painting", "f": "gallery/painting-08.jpg", "t": "Painting 8"}, {"c": "Painting", "f": "gallery/painting-09.jpg", "t": "Painting 9"}, {"c": "Painting", "f": "gallery/painting-10.jpg", "t": "Painting 10"}, {"c": "Painting", "f": "gallery/painting-11.jpg", "t": "Painting 11"}, {"c": "Painting", "f": "gallery/painting-12.jpg", "t": "Painting 12"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-01.jpg", "t": "Building of the layout 1"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-02.jpg", "t": "Building of the layout 2"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-03.jpg", "t": "Building of the layout 3"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-04.jpg", "t": "Building of the layout 4"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-05.jpg", "t": "Building of the layout 5"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-06.jpg", "t": "Building of the layout 6"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-07.jpg", "t": "Building of the layout 7"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-08.jpg", "t": "Building of the layout 8"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-09.jpg", "t": "Building of the layout 9"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-10.jpg", "t": "Building of the layout 10"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-11.jpg", "t": "Building of the layout 11"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-12.jpg", "t": "Building of the layout 12"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-13.jpg", "t": "Building of the layout 13"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-14.jpg", "t": "Building of the layout 14"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-15.jpg", "t": "Building of the layout 15"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-16.jpg", "t": "Building of the layout 16"}, {"c": "Early Days", "f": "gallery/early-days-01.jpg", "t": "Early Days 1"}, {"c": "Early Days", "f": "gallery/early-days-02.jpg", "t": "Early Days 2"}, {"c": "Early Days", "f": "gallery/early-days-03.jpg", "t": "Early Days 3"}, {"c": "Early Days", "f": "gallery/early-days-04.jpg", "t": "Early Days 4"}, {"c": "Early Days", "f": "gallery/early-days-05.jpg", "t": "Early Days 5"}, {"c": "Early Days", "f": "gallery/early-days-06.jpg", "t": "Early Days 6"}, {"c": "Early Days", "f": "gallery/early-days-07.jpg", "t": "Early Days 7"}, {"c": "Early Days", "f": "gallery/early-days-08.jpg", "t": "Early Days 8"}, {"c": "Early Days", "f": "gallery/early-days-09.jpg", "t": "Early Days 9"}, {"c": "Early Days", "f": "gallery/early-days-10.jpg", "t": "Early Days 10"}, {"c": "Early Days", "f": "gallery/early-days-11.jpg", "t": "Early Days 11"}, {"c": "Early Days", "f": "gallery/early-days-12.jpg", "t": "Early Days 12"}, {"c": "Early Days", "f": "gallery/early-days-13.jpg", "t": "Early Days 13"}, {"c": "Early Days", "f": "gallery/early-days-14.jpg", "t": "Early Days 14"}, {"c": "Early Days", "f": "gallery/early-days-15.jpg", "t": "Early Days 15"}, {"c": "Early Days", "f": "gallery/early-days-16.jpg", "t": "Early Days 16"}, {"c": "Electronics", "f": "gallery/electronics-01.jpg", "t": "Electronics 1"}, {"c": "Electronics", "f": "gallery/electronics-02.jpg", "t": "Electronics 2"}, {"c": "Electronics", "f": "gallery/electronics-03.jpg", "t": "Electronics 3"}, {"c": "Electronics", "f": "gallery/electronics-04.jpg", "t": "Electronics 4"}, {"c": "Electronics", "f": "gallery/electronics-05.jpg", "t": "Electronics 5"}, {"c": "Electronics", "f": "gallery/electronics-06.jpg", "t": "Electronics 6"}, {"c": "Electronics", "f": "gallery/electronics-07.jpg", "t": "Electronics 7"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-01.jpg", "t": "Loco Stay Alives 1"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-02.jpg", "t": "Loco Stay Alives 2"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-03.jpg", "t": "Loco Stay Alives 3"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-04.jpg", "t": "Loco Stay Alives 4"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-05.jpg", "t": "Loco Stay Alives 5"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-06.jpg", "t": "Loco Stay Alives 6"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-07.jpg", "t": "Loco Stay Alives 7"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-08.jpg", "t": "Loco Stay Alives 8"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-01.jpg", "t": "Behind the scenes 1"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-02.jpg", "t": "Behind the scenes 2"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-03.jpg", "t": "Behind the scenes 3"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-04.jpg", "t": "Behind the scenes 4"}]}</script>
+<script type="application/json" id="state">{"site": {"tagline": "Build in the real world, print in the scale world.", "intro": "For modellers who build in the real world and print in the scale world. Measure it, scale it, print it, in any scale.", "logoTags": ["Built for IngeTrazo, the free CAD software | https://ingetrazo.com/en/", "Watch on YouTube: @EssexBrick | https://www.youtube.com/@EssexBrick"], "youtube": "https://www.youtube.com/@EssexBrick", "github": "https://github.com/eddy-99/eddys-3d-plugins-ingetrazo", "ingetrazo": "https://ingetrazo.com/en/extensiones", "facebook": "https://www.facebook.com/EssexBrickModelWorks", "tour": "https://youtu.be/jFarg8epmys", "guides": "https://github.com/eddy-99/eddys-3d-plugins-ingetrazo/tree/main/guides"}, "videos": [{"id": "mw98jklwt8pp4", "title": "EssexBrick model railway in action.", "url": "https://youtu.be/3pnVjauufYs", "category": "railway", "date": "2026-11-09", "description": "EssexBrick model railway in action.", "featured": true, "thumb": null}, {"id": "yt-r0Y98L5CNu0", "title": "Scale Studio – Turn Real-World Sizes into Any Model Scale, Ready to Print", "url": "https://youtu.be/r0Y98L5CNu0", "category": "plugins", "date": "2026-11-09", "description": "", "featured": false, "thumb": null}, {"id": "yt-RlcYLDl_zMY", "title": "Brick Walls in ONE Click – Neat or Bomb-Damaged | Free 3D Plugin v3", "url": "https://youtu.be/RlcYLDl_zMY", "category": "plugins", "date": "2026-11-07", "description": "", "featured": false, "thumb": null}, {"id": "yt-jFarg8epmys", "title": "FREE 3D Plugins for Model Buildings – Install & Tour (Print-Ready Bricks, Windows, Roofs)", "url": "https://youtu.be/jFarg8epmys", "category": "plugins", "date": "2026-11-06", "description": "", "featured": false, "thumb": null}, {"id": "yt-3sLFXhOXweE", "title": "Brick Walls, Doors, Roofs & Chimneys in Seconds: 19 Free 3D Plugins for IngeTrazo", "url": "https://youtu.be/3sLFXhOXweE", "category": "plugins", "date": "2026-11-02", "description": "", "featured": false, "thumb": null}], "plugins": [{"id": "3d-brick-block-studio", "name": "3D Brick & Block Studio", "description": "Brick, block and stone walling on any wall face: bonds, ashlar, rubble, dry-stone and slate, with quoins, copings and bomb-site damage.", "group": "build", "shortcut": "Ctrl+Shift+T", "github": "", "video": "https://youtu.be/RlcYLDl_zMY", "order": 1, "pic": "plugins/3d-brick-block-studio.webp"}, {"id": "3d-period-windows", "name": "3D Period Windows", "description": "Sash, casement and industrial windows that fit the face you pick, with round tops, sills, heads and keystones.", "group": "build", "shortcut": "Ctrl+Alt+N", "github": "", "video": "", "order": 2, "pic": "plugins/3d-period-windows.webp"}, {"id": "3d-period-doors", "name": "3D Period Doors", "description": "Panelled, half-glazed, ledged and braced, stable and sliding goods doors, with fanlights, steps and keystones.", "group": "build", "shortcut": "Ctrl+Alt+D", "github": "", "video": "", "order": 3, "pic": "plugins/3d-period-doors.webp"}, {"id": "3d-roof-tiles", "name": "3D Roof Tiles", "description": "Plain tiles, slates, shaped and profiled tiles, with ridge tiles and finials.", "group": "build", "shortcut": "Ctrl+Alt+R", "github": "", "video": "", "order": 4, "pic": "plugins/3d-roof-tiles.webp"}, {"id": "3d-wood-planking", "name": "3D Wood Planking", "description": "Flat, V-jointed, shiplap, weatherboard, board and batten or log boarding, with trims and derelict effects.", "group": "build", "shortcut": "Ctrl+Alt+O", "github": "", "video": "", "order": 5, "pic": "plugins/3d-wood-planking.webp"}, {"id": "3d-fences-gates", "name": "3D Fences & Gates", "description": "Picket, close-boarded, panel, post and rail, palisade and iron railings, with gates and weathering.", "group": "build", "shortcut": "Ctrl+Alt+F", "github": "", "video": "", "order": 6, "pic": "plugins/3d-fences-gates.webp"}, {"id": "3d-gutters-downpipes", "name": "3D Gutters & Downpipes", "description": "Gutters, downpipes and fittings that join onto each other.", "group": "build", "shortcut": "Ctrl+Alt+G", "github": "", "video": "", "order": 7, "pic": "plugins/3d-gutters-downpipes.webp"}, {"id": "3d-soil-waste-pipes", "name": "3D Soil & Waste Pipes", "description": "Soil stacks and outside waste pipes with fittings that join up.", "group": "build", "shortcut": "Ctrl+Alt+W", "github": "", "video": "", "order": 8, "pic": "plugins/3d-soil-waste-pipes.webp"}, {"id": "3d-wrap", "name": "3D Wrap", "description": "Lays bricks course by course round chimneys of any shape, or bends any flat pattern round a solid.", "group": "build", "shortcut": "Ctrl+Alt+U", "github": "", "video": "", "order": 9, "pic": "plugins/3d-wrap.webp"}, {"id": "3d-chimneys", "name": "3D Chimneys", "description": "House stacks cut to the roof slope, mill and factory chimneys, and six styles of chimney pot.", "group": "build", "shortcut": "Ctrl+Alt+H", "github": "", "video": "", "order": 10, "pic": "plugins/3d-chimneys.webp"}, {"id": "3d-corrugated-iron", "name": "3D Corrugated Iron", "description": "Corrugated, box-profile and flat sheet cladding for walls and roofs, with rust, holes and lifted sheets.", "group": "build", "shortcut": "Ctrl+Alt+I", "github": "", "video": "", "order": 11, "pic": "plugins/3d-corrugated-iron.webp"}, {"id": "3d-station-canopies", "name": "3D Station Canopies", "description": "Lean-to, island and ridge-and-furrow platform canopies with columns, spandrels and valancing.", "group": "build", "shortcut": "Ctrl+Alt+C", "github": "", "video": "", "order": 12, "pic": "plugins/3d-station-canopies.webp"}, {"id": "3d-find-replace", "name": "3D Find & Replace", "description": "Swaps every copy of one part for another in one go: light markers while you work, full rivets and bolts when you're done.", "group": "detail", "shortcut": "Ctrl+Alt+X", "github": "", "video": "", "order": 13, "pic": "plugins/3d-find-replace.webp"}, {"id": "3d-place-along-line", "name": "3D Place Along Line", "description": "Rivets, bolts or any part along a line on a surface, round a ring, or round a face's edge.", "group": "detail", "shortcut": "Ctrl+Alt+S", "github": "", "video": "", "order": 14, "pic": "plugins/3d-place-along-line.webp"}, {"id": "3d-centre-finder", "name": "3D Centre Finder", "description": "Finds the centre of a face, edge or object, and can move another object onto it.", "group": "detail", "shortcut": "Ctrl+Alt+M", "github": "", "video": "", "order": 15, "pic": "plugins/3d-centre-finder.webp"}, {"id": "3d-loft", "name": "3D Loft", "description": "Makes a solid between two or more profile faces, such as a square into a circle.", "group": "detail", "shortcut": "Ctrl+Alt+L", "github": "", "video": "", "order": 16, "pic": "plugins/3d-loft.webp"}, {"id": "3d-blend", "name": "3D Blend", "description": "Blends one object smoothly into another where they meet, like a dome into a boiler, or puts a collar with nuts and bolts round the join.", "group": "detail", "shortcut": "Ctrl+Shift+B", "github": "", "video": "", "order": 17, "pic": "plugins/3d-blend.webp", "isNew": true}, {"id": "3d-layers-colours", "name": "3D Layers & Colours", "description": "Puts each kind of part on its own layer and colours it by what it is: brick, slate, glass, ironwork.", "group": "detail", "shortcut": "Ctrl+Alt+V", "github": "", "video": "", "order": 18, "pic": "plugins/3d-layers-colours.webp"}, {"id": "3d-scale-studio", "name": "3D Scale Studio", "description": "Scale, repair and export in one window, with a live 3D preview and the real-to-model size converter.", "group": "print", "shortcut": "Ctrl+Alt+K", "github": "", "video": "https://youtu.be/r0Y98L5CNu0", "order": 19, "pic": "plugins/3d-scale-studio.webp"}, {"id": "3d-print-scaler", "name": "3D Print Scaler", "description": "Scales a model for printing on FDM or resin, checks it fits your bed, and sends it to your slicer.", "group": "print", "shortcut": "Ctrl+Alt+P", "github": "", "video": "", "order": 20, "pic": "plugins/3d-print-scaler.webp"}, {"id": "3d-timeline", "name": "3D Timeline", "description": "Every step along the bottom of the window: click one to roll back, with saved checkpoints.", "group": "helpers", "shortcut": "Ctrl+Alt+T", "github": "", "video": "", "order": 21, "pic": "plugins/3d-timeline.webp"}, {"id": "3d-notepad", "name": "3D Notepad", "description": "A note pad that stays on screen and saves itself, with a size converter.", "group": "helpers", "shortcut": "Ctrl+Alt+J", "github": "", "video": "", "order": 22, "pic": "plugins/3d-notepad.webp"}, {"id": "3d-quick-links", "name": "3D Quick Links", "description": "One-click links to your folders, files and web pages, with a set for each job.", "group": "helpers", "shortcut": "Ctrl+Alt+A", "github": "", "video": "", "order": 23, "pic": "plugins/3d-quick-links.webp"}, {"id": "3d-plugins-toolbar", "name": "3D Plugins Toolbar", "description": "A toolbar with a button for each plugin.", "group": "helpers", "shortcut": "Ctrl+Alt+B", "github": "", "video": "", "order": 24, "pic": "plugins/3d-plugins-toolbar.webp"}, {"id": "3d-better-icons", "name": "3D Better Icons", "description": "Clearer colour icons for IngeTrazo's own toolbar buttons, with optional names.", "group": "helpers", "shortcut": "Ctrl+Alt+Y", "github": "", "video": "", "order": 25, "pic": "plugins/3d-better-icons.webp"}], "playlists": [{"id": "PLSSXrIDls_-k", "title": "Eddy’s 3D Plugins for IngeTrazo", "category": "plugins", "description": "Tutorials for the free IngeTrazo plugins: real-world sizes, model buildings and 3D printing.", "videos": [["r0Y98L5CNu0", "Scale Studio – Turn Real-World Sizes into Any Model Scale, Ready to Print"], ["RlcYLDl_zMY", "Brick Walls in ONE Click – Neat or Bomb-Damaged | Free 3D Plugin v3"], ["jFarg8epmys", "FREE 3D Plugins for Model Buildings – Install & Tour (Print-Ready Bricks, Windows, Roofs)"], ["3sLFXhOXweE", "Brick Walls, Doors, Roofs & Chimneys in Seconds: 19 Free 3D Plugins for IngeTrazo"]]}, {"id": "PLZZ5oBCc-dOS8ESdQZJnXR52Obi-FyOl1", "title": "EssexBrick layout in action", "category": "railway", "description": "Trains running, automatic running and the control box.", "videos": [["xFweB4ZFAaw", "Automatic running using YAAT"], ["woBC9FnUAX8", "EssexBrick Control Box, DCC++, JMRI/CMRI, MERG, Wi-Fi, RS 485 bus, Foolproof Connectors."], ["JoVSAIEyF7Q", "EssexBrick Model Railway. Everything 3d printed. Automatic running using YAAT/JMRI"], ["KlLVnJ8eAQ8", "Canal Boat Running"], ["-5imUMqsIX8", "EssexBrick MR With 1950's Sound Track"], ["LwY5CO3uGJ0", "10 Locos Running 4x Speed"], ["RiQE3_X23DE", "Model Railway 10 Locos Running Automatically"], ["CVjTEabUPAw", "EssexBrick Interview With Dawn Quest"]]}, {"id": "PLZZ5oBCc-dOSZdE1WocreNYPPCTpGTrhK", "title": "Building of Essex Brick Model Railway", "category": "railway", "description": "The whole build, from the first baseboard to the updates.", "videos": [["nCuC8tH99NU", "01The Building Of Essex Brick Part 1"], ["pDUzSPS4FmA", "02 The Building Of Essex Brick Part 2"], ["gC8BNP9HkrQ", "03 The Building Of Essex Brick Part 3"], ["YWH6smlmH5M", "04 The Building Of Essex Brick Part 4"], ["8Bub3J80ppE", "05 The Building Of Essex Brick Part 5 Painting Technique"], ["VpVLXvHhc3g", "06 The Building of Essex Brick Part 6 Locos and Truck Design"], ["HwEe8538Ydg", "07 The Building Of Essex Brick Part 7 More Detailing"], ["K6odK2V1srU", "08 Train Running on Essex Brick"], ["Kvq1AA5vRSc", "09 Loco Testing, Stay Alive System and 3D Printed Chassis"], ["IBAYWl-QoRc", "10 Loco Testing"], ["9BV0p4vMku8", "11 Sliding Fiddle Yard Testing"], ["fwymsxua12Q", "12 Sliding Fiddle Yard In Depth Pt1"], ["E871UQUy-oE", "13 Sliding Fiddle Yard In Depth Pt2"], ["BeUv0A8Tusc", "14 Essex Brick Testing The Canal With Hidden Hornby Loco Using Magnets"], ["V3TBOe1S_lU", "15 Essex Brick December Update Part1"], ["0yndkNBDOzQ", "16 Essex Brick December Update Part2"], ["bnlk6T3Ps60", "17 Essex Brick Canal Barge"], ["G_UjWieU1o4", "18 Essex Brick Wagons and Locos"], ["01YCF8159R4", "19 Essex Brick 3d Printed Dummy Locos and Wagons"], ["E-A6peKqvI8", "20 Essex brick March 2023 Update Part 1"], ["E5f4X2K01xU", "21 Essex brick March 2023 Update Part 2"], ["3U_A_tkebiU", "22 Essex Brick March 2023 Update Part 3"], ["i2bmVwbPPOI", "23 Essex Brick March 2023 Update Part 5"], ["Mqtld-muEoE", "24 Essex Brick March 2023 Update Part 6"], ["D0uq6ces9E8", "25 a Essex Brick March 2023 Update Part 7"], ["rJssFYgIA30", "25 b Essex Brick March 2023 Update Part 8"], ["h65y4i4F6GU", "26 Essex Brick April 2023 Update Part 1"], ["wcZMc6JtYdY", "27 Essex Brick April 2023 Update Part 2"], ["FLqt84Er32c", "28 Essex Brick April 2023 Update Part 3"], ["KVg92tJYxFg", "29 Essex Brick April 2023 Update Part 4"], ["YLW7duHyjc0", "30 Essex Brick April 2023 Update Part 5"], ["F_KisNaKsoY", "31 Essex Brick April 2023 Update Part 6"], ["WBAbiGTepKw", "32 Essex Brick  April 2023 Update Part 7"], ["uqebj1Ey6ho", "33 Essex Brick April 2023 Update Part 8"], ["jWG9IBF46HE", "34 Essex Brick April Resin printer and early designs"], ["elEUOiOVot4", "35 Testing Stay Alives"]]}, {"id": "PLZZ5oBCc-dOQm16zQyk5jQuNLQv-hDfL2", "title": "Details of Essex Brick Model Railway", "category": "railway", "description": "", "videos": [["3pnVjauufYs", "Essex Brick Demo Med Res"]]}, {"id": "PLZZ5oBCc-dORTFnOpefidfMs3vCexINAG", "title": "Cranes", "category": "railway", "description": "Working roof cranes with stepper motors and steam.", "videos": [["Mu92n1SLLEA", "Added a small chimney"], ["rE6_rvGQs-w", "Roof Crane With Steam"], ["LCCJzNmaM3Q", "Roof Crane 2x Stepper Motors Demo 1"], ["F4GGUOClkOo", "3 x Stepper Demonstration Crane"], ["uyXsT-0lgME", "Untitled video   Made with Clipchamp"], ["LraYGVJV9lc", "Crane mk1 Testing"]]}, {"id": "PLZZ5oBCc-dOQzlzhlqrFGApIQCQme8Sbz", "title": "Welding", "category": "railway", "description": "An arc welder simulator for model railways.", "videos": [["t3xZDwnAepw", "Arc Welder Simulator For Model Railways"]]}, {"id": "PLZZ5oBCc-dOTCbRMZxw2xwDNkVlQOVMjO", "title": "Blender Realistic Walls and Odds", "category": "modelling", "description": "Textured walls for resin printing, and Blender fixes.", "videos": [["RVy8ASkpc_c", "01 Textured Brick Wall Part 1 For 3D Printing On A Resin Printer"], ["dsIsXIQ9yl4", "02 Textured Brick Wall Part 2 For 3D Printing On A Resin Printer"], ["JCVIxIG9hb8", "03 Realistic Walls Part 1 Tutorial Sketchup & Blender Resin For Printing"], ["YKjE8eCHUJ0", "04 Realistic Walls Part 2 Tutorial Sketchup & Blender Resin For Printing"], ["wVZu_40yc_4", "05 Realistic Walls Part 3 Tutorial Sketchup & Blender Resin For Printing"], ["oFPXCfO7K0k", "Blender bogie modification as requested for a replacement Hornby Loco coach"], ["maQkmK0az0o", "Blender To Create Wagon Tarpaulins For Your Layout Part A"], ["Fot5Me-Ioao", "Blender To Create Wagon Tarpaulins For Your Layout Part b"], ["x56HaLUqoJk", "Blender truck modification from a Thingiverse STL model removing the windows and back canopy"]]}, {"id": "PLZZ5oBCc-dOSZQDbAqrfNXiP7TAFp-qBi", "title": "Figures & Animals, MakeHuman & Blender", "category": "modelling", "description": "Posed people and animals ready to print.", "videos": [["31A9nadt2Bs", "01F Figures Using Make Human And Blender"], ["VMecCJpA6P0", "02F Figures Fixing The Errors Before Resin Printing Using Uvtools"], ["WFzSxUI5Y7E", "03F MakeHuman & Blender Changing Hand Pose for Resin Printing"], ["a6dpnXPaZH8", "04F Adding A Hat & Shovel Using Blender & STL files"], ["684EGG-TZJA", "Adding Motion Capture To A Makehuman Figure In Blender Which Can Be 3D Printed Via Individual Frames"], ["tBkE1yNOwjQ", "Animated resin printed 00 Gauge Figure created in MakeHuman and edited in PrusaSlicer"], ["EX7QPISzECI", "Rigging a DAE figure from the internet in Blender to create any pose you would like  MERG 3D SIG"], ["P4FOSjtf0Y0", "Rigging A Thingiverse Cow In Blender To Be Able To Get Many Different 3D Printed Models"], ["zYlGjQeA0ck", "Using Free Motion Capture Files To Create Many Free Stl Animal Models"]]}, {"id": "PLZZ5oBCc-dORmqihz3GARxjAMM0FNb-Sr", "title": "SketchUp Make for Beginners", "category": "modelling", "description": "A model railway building from start to finish, ready for 3D printing.", "videos": [["xG9MI32LTY0", "SU01 Model Railway Building Sketchup Make Basic For 3d Printing Part 1 Frame Design"], ["kl2JYhnlZK4", "SU02 Model Railway Building Sketchup Make Basic  For 3d Printing Part 2 Removeable Roof Section"], ["wZutzaSdseU", "SU03 Model Railway Building Sketchup Make Basic For 3d Printng Part 3 Walls  And Roof Section"], ["YvuR4Y8WqaM", "SU04 Model Railway Building Sketchup Make For 3d Printing Basic Part 4 Windows"], ["YEZ1J_kZBuI", "SU05 Model Railway Building Sketchup Make For 3D Printing Basic Part  5 Brick Work Using Oob Plugin"], ["CAZHFhvJQQs", "SU06 Model Railway Building Sketchup Make Basic For 3d Printing Part 6 Adding Barn Doors Using oob P"], ["rlFa-XSGQRM", "SU07 Model Railway Building Sketchup Make For 3d Printing Part 7 Barn Door Detail & Front Wall Oob P"], ["TFgMaelQpeM", "SU08 Model Railway Building Sketchup Make For 3d Printing Part 8 Roof Windows & Tiles"], ["Q0hOlUpyhxs", "SU09 Model Railway Building Sketchup Make For 3d Printing  Part 9 Eddy's OoB & Prusaslicer Setting"], ["f7YugHpLMBM", "SU10 Model Railway Building Sketchup For 3d Printing  Part 10 Stairs Using 1001bit plugin Oob Plugin"], ["Fgp20711NQs", "SU11 Model Railway Building Sketchup For 3d Printing Part 11 Side Wall & Stair Support Oob Plugin"], ["2FCoJTOMK-4", "SU12 Model Railway Building Sketchup 3d Printing Part 14 Dorma Window And Tiles 1001bits & Oob Plugi"], ["v6FmFaEOmr4", "SU13 Model Railway Building Sketchup 3d Printing Part 15 Back Wall & Outbuilding Frame Using Oob Plu"], ["0rr_75nAsYk", "SU14 Model Railway Building Sketchup 3d Printing Part 16 Back Wall  using Oob and 1001bit Plugin Use"], ["VAnlct7HFmo", "SU15 Model Railway Building Sketchup For 3d Printing Part 17 Making A Round Tapered Brick Chimney Oo"]]}, {"id": "PLZZ5oBCc-dOSDtTs4aJjV7DjKIyJHvQ7j", "title": "SketchUp Make Wagon Design & Loco Parts", "category": "modelling", "description": "A wagon step by step, plus loco parts.", "videos": [["Lb40cLkuX74", "W01 Creating A Wagon In SketchUp Part 1 Create The Wagon Ends Sections"], ["HrMCYE5UHQg", "W02 Creating A Wagon In SketchUp Part 2 Create The Doors"], ["7L8OWLFRq6Y", "W03 Creating A Wagon In SketchUp Part 3 Completing The Doors"], ["thpBnqAk-nI", "W04 Creating A Wagon In SketchUp Part 4 Creating The Roof Section"], ["YY9feMk5UfA", "W05 Creating A Wagon In SketchUp Part 5 Create The Under Frame Part 1"], ["yAoFYiBBOnI", "W06 Creating A Wagon In SketchUp Part 6 Create The Under Frame Part 2"], ["weJwkFnhVWA", "W07 Creating A Wagon In SketchUp Part 7 Axle Box Hanger & Spring"], ["zYbMFJPqxNw", "W08 Creating A Wagon In SketchUp Part 8 Complete The Under Frame"], ["IfYVSzDnSyk", "W09 Creating A Wagon In SketchUp Part 9 Starting The Buffer Beam"], ["K3Inb5piIoA", "W10 Creating A Wagon In SketchUp Part 10 Complete The Buffers"], ["SqScBYjlnVc", "W11 Creating A Wagon In SketchUp Part 11 Easier Ways To Place Rivets"], ["zTJ6rI64n2c", "W12 Creating A Wagon In SketchUp Part 12 Adding A Roof Vent"], ["KPBS-jWTU7o", "W13 Creating A Wagon In SketchUp Part 13 Adding A Rain Deflector"], ["eVPUbUGO-QE", "W14 Creating A Wagon In SketchUp Part 14 Roof Ridge Profile Change"], ["_e8NSTXtyeU", "W15 Creating A Wagon In SketchUp Part 15 Louvre Door Modification"], ["ZR7gqBNh8B4", "W16 Sketchup 2017  A Steam Chimney To Boiler join Part 1 Using Plugin's Super Weld, & Extruded Faces"], ["k-njDsdp-U4", "W17 Sketchup 2017  A Steam Chimney To Boiler join Part 2 Using Path Copy, Smart Drop At Intersection"], ["vbHCqbdMLZA", "W18 Model Railway Vacuum Pipes Create In Sketchup make 2017 Using The Helix Plugin For 3D resin Prin"]]}, {"id": "PLZZ5oBCc-dOQdBXxXReHiZLENQjIv8vBX", "title": "SketchUp Make Signal Box", "category": "modelling", "description": "An FDM-printable signal box in four parts.", "videos": [["s1T9p39oQX4", "SB01 SketchUp Make 2017 FDM printable signal box for model railway layouts Part 1 MERG 3D SIG 1"], ["E4LauSgojGg", "SB02 SketchUp Make 2017 FDM printable signal box for model railway layouts Part 2"], ["j53cTe-nqbE", "SB03 SketchUp Make 2017 FDM printable signal box roof for model railway layouts Part 3"], ["wUgCzan0tII", "SB04 SketchUp Make 2017 FDM printable signal box Stairs for model railway layouts Part 4"]]}, {"id": "PLZZ5oBCc-dOTv3yrugUKM3pTOGQY7NGNp", "title": "SketchUp Make Odds", "category": "modelling", "description": "Arches, chimney pots, towers and stairs.", "videos": [["b3sKIZEiXCI", "Brick Arches Using Oob"], ["ChMkqan-EL8", "Chimney Pot Using Free Plugins"], ["LxaigI4_Ss8", "Plugins Use To Produce Essex Brick Model Railway Layout"], ["8secfZWl3uM", "Round Tower With Cone Shaped Roof And Curved Windows"], ["QnniHkOruuc", "Scaling video"], ["j6Z8ybiEYiQ", "Staircase"]]}], "gallery": [{"c": "Overall view", "f": "gallery/overall-view-01.jpg", "t": "Overall view 1"}, {"c": "Overall view", "f": "gallery/overall-view-02.jpg", "t": "Overall view 2"}, {"c": "Overall view", "f": "gallery/overall-view-03.jpg", "t": "Overall view 3"}, {"c": "Overall view", "f": "gallery/overall-view-04.jpg", "t": "Overall view 4"}, {"c": "Overall view", "f": "gallery/overall-view-05.jpg", "t": "Overall view 5"}, {"c": "Overall view", "f": "gallery/overall-view-06.jpg", "t": "Overall view 6"}, {"c": "Overall view", "f": "gallery/overall-view-07.jpg", "t": "Overall view 7"}, {"c": "Overall view", "f": "gallery/overall-view-08.jpg", "t": "Overall view 8"}, {"c": "Overall view", "f": "gallery/overall-view-09.jpg", "t": "Overall view 9"}, {"c": "Overall view", "f": "gallery/overall-view-10.jpg", "t": "Overall view 10"}, {"c": "Overall view", "f": "gallery/overall-view-11.jpg", "t": "Overall view 11"}, {"c": "Overall view", "f": "gallery/overall-view-12.jpg", "t": "Overall view 12"}, {"c": "Overall view", "f": "gallery/overall-view-13.jpg", "t": "Overall view 13"}, {"c": "Overall view", "f": "gallery/overall-view-14.jpg", "t": "Overall view 14"}, {"c": "Overall view", "f": "gallery/overall-view-15.jpg", "t": "Overall view 15"}, {"c": "Overall view", "f": "gallery/overall-view-16.jpg", "t": "Overall view 16"}, {"c": "Buildings", "f": "gallery/buildings-01.jpg", "t": "Buildings 1"}, {"c": "Buildings", "f": "gallery/buildings-02.jpg", "t": "Buildings 2"}, {"c": "Buildings", "f": "gallery/buildings-03.jpg", "t": "Buildings 3"}, {"c": "Buildings", "f": "gallery/buildings-04.jpg", "t": "Buildings 4"}, {"c": "Buildings", "f": "gallery/buildings-05.jpg", "t": "Buildings 5"}, {"c": "Buildings", "f": "gallery/buildings-06.jpg", "t": "Buildings 6"}, {"c": "Buildings", "f": "gallery/buildings-07.jpg", "t": "Buildings 7"}, {"c": "Buildings", "f": "gallery/buildings-08.jpg", "t": "Buildings 8"}, {"c": "Buildings", "f": "gallery/buildings-09.jpg", "t": "Buildings 9"}, {"c": "Buildings", "f": "gallery/buildings-10.jpg", "t": "Buildings 10"}, {"c": "Buildings", "f": "gallery/buildings-11.jpg", "t": "Buildings 11"}, {"c": "Buildings", "f": "gallery/buildings-12.jpg", "t": "Buildings 12"}, {"c": "Buildings", "f": "gallery/buildings-13.jpg", "t": "Buildings 13"}, {"c": "Buildings", "f": "gallery/buildings-14.jpg", "t": "Buildings 14"}, {"c": "Buildings", "f": "gallery/buildings-15.jpg", "t": "Buildings 15"}, {"c": "Buildings", "f": "gallery/buildings-16.jpg", "t": "Buildings 16"}, {"c": "Buildings", "f": "gallery/buildings-17.jpg", "t": "Buildings 17"}, {"c": "Buildings", "f": "gallery/buildings-18.jpg", "t": "Buildings 18"}, {"c": "Cranes", "f": "gallery/cranes-01.jpg", "t": "Cranes 1"}, {"c": "Cranes", "f": "gallery/cranes-02.jpg", "t": "Cranes 2"}, {"c": "Cranes", "f": "gallery/cranes-03.jpg", "t": "Cranes 3"}, {"c": "Cranes", "f": "gallery/cranes-04.jpg", "t": "Cranes 4"}, {"c": "Cranes", "f": "gallery/cranes-05.jpg", "t": "Cranes 5"}, {"c": "Cranes", "f": "gallery/cranes-06.jpg", "t": "Cranes 6"}, {"c": "Cranes", "f": "gallery/cranes-07.jpg", "t": "Cranes 7"}, {"c": "Cranes", "f": "gallery/cranes-08.jpg", "t": "Cranes 8"}, {"c": "Cranes", "f": "gallery/cranes-09.jpg", "t": "Cranes 9"}, {"c": "Cranes", "f": "gallery/cranes-10.jpg", "t": "Cranes 10"}, {"c": "Cranes", "f": "gallery/cranes-11.jpg", "t": "Cranes 11"}, {"c": "Cranes", "f": "gallery/cranes-12.jpg", "t": "Cranes 12"}, {"c": "Cranes", "f": "gallery/cranes-13.jpg", "t": "Cranes 13"}, {"c": "Cranes", "f": "gallery/cranes-14.jpg", "t": "Cranes 14"}, {"c": "Cranes", "f": "gallery/cranes-15.jpg", "t": "Cranes 15"}, {"c": "Cranes", "f": "gallery/cranes-16.jpg", "t": "Cranes 16"}, {"c": "Cranes", "f": "gallery/cranes-17.jpg", "t": "Cranes 17"}, {"c": "Cranes", "f": "gallery/cranes-18.jpg", "t": "Cranes 18"}, {"c": "Cranes", "f": "gallery/cranes-19.jpg", "t": "Cranes 19"}, {"c": "Cranes", "f": "gallery/cranes-20.jpg", "t": "Cranes 20"}, {"c": "Trucks", "f": "gallery/trucks-01.jpg", "t": "Trucks 1"}, {"c": "Trucks", "f": "gallery/trucks-02.jpg", "t": "Trucks 2"}, {"c": "Trucks", "f": "gallery/trucks-03.jpg", "t": "Trucks 3"}, {"c": "Trucks", "f": "gallery/trucks-04.jpg", "t": "Trucks 4"}, {"c": "Trucks", "f": "gallery/trucks-05.jpg", "t": "Trucks 5"}, {"c": "Trucks", "f": "gallery/trucks-06.jpg", "t": "Trucks 6"}, {"c": "Trucks", "f": "gallery/trucks-07.jpg", "t": "Trucks 7"}, {"c": "Trucks", "f": "gallery/trucks-08.jpg", "t": "Trucks 8"}, {"c": "Trucks", "f": "gallery/trucks-09.jpg", "t": "Trucks 9"}, {"c": "Trucks", "f": "gallery/trucks-10.jpg", "t": "Trucks 10"}, {"c": "Trucks", "f": "gallery/trucks-11.jpg", "t": "Trucks 11"}, {"c": "Trucks", "f": "gallery/trucks-12.jpg", "t": "Trucks 12"}, {"c": "Trucks", "f": "gallery/trucks-13.jpg", "t": "Trucks 13"}, {"c": "Trucks", "f": "gallery/trucks-14.jpg", "t": "Trucks 14"}, {"c": "Trucks", "f": "gallery/trucks-15.jpg", "t": "Trucks 15"}, {"c": "Trucks", "f": "gallery/trucks-16.jpg", "t": "Trucks 16"}, {"c": "Trucks", "f": "gallery/trucks-17.jpg", "t": "Trucks 17"}, {"c": "Trucks", "f": "gallery/trucks-18.jpg", "t": "Trucks 18"}, {"c": "Trucks", "f": "gallery/trucks-19.jpg", "t": "Trucks 19"}, {"c": "Trucks", "f": "gallery/trucks-20.jpg", "t": "Trucks 20"}, {"c": "Trucks", "f": "gallery/trucks-21.jpg", "t": "Trucks 21"}, {"c": "Trucks", "f": "gallery/trucks-22.jpg", "t": "Trucks 22"}, {"c": "Trucks", "f": "gallery/trucks-23.jpg", "t": "Trucks 23"}, {"c": "Trucks", "f": "gallery/trucks-24.jpg", "t": "Trucks 24"}, {"c": "Trucks", "f": "gallery/trucks-25.jpg", "t": "Trucks 25"}, {"c": "Trucks", "f": "gallery/trucks-26.jpg", "t": "Trucks 26"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-01.jpg", "t": "Locos and Wagons 1"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-02.jpg", "t": "Locos and Wagons 2"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-03.jpg", "t": "Locos and Wagons 3"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-04.jpg", "t": "Locos and Wagons 4"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-05.jpg", "t": "Locos and Wagons 5"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-06.jpg", "t": "Locos and Wagons 6"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-07.jpg", "t": "Locos and Wagons 7"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-08.jpg", "t": "Locos and Wagons 8"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-09.jpg", "t": "Locos and Wagons 9"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-10.jpg", "t": "Locos and Wagons 10"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-11.jpg", "t": "Locos and Wagons 11"}, {"c": "Locos and Wagons", "f": "gallery/locos-and-wagons-12.jpg", "t": "Locos and Wagons 12"}, {"c": "Figures", "f": "gallery/figures-01.jpg", "t": "Figures 1"}, {"c": "Figures", "f": "gallery/figures-02.jpg", "t": "Figures 2"}, {"c": "Figures", "f": "gallery/figures-03.jpg", "t": "Figures 3"}, {"c": "Figures", "f": "gallery/figures-04.jpg", "t": "Figures 4"}, {"c": "Figures", "f": "gallery/figures-05.jpg", "t": "Figures 5"}, {"c": "Figures", "f": "gallery/figures-06.jpg", "t": "Figures 6"}, {"c": "Figures", "f": "gallery/figures-07.jpg", "t": "Figures 7"}, {"c": "Figures", "f": "gallery/figures-08.jpg", "t": "Figures 8"}, {"c": "Figures", "f": "gallery/figures-09.jpg", "t": "Figures 9"}, {"c": "Figures", "f": "gallery/figures-10.jpg", "t": "Figures 10"}, {"c": "Figures", "f": "gallery/figures-11.jpg", "t": "Figures 11"}, {"c": "Figures", "f": "gallery/figures-12.jpg", "t": "Figures 12"}, {"c": "Figures", "f": "gallery/figures-13.jpg", "t": "Figures 13"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-01.jpg", "t": "Tea Drinkers 1"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-02.jpg", "t": "Tea Drinkers 2"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-03.jpg", "t": "Tea Drinkers 3"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-04.jpg", "t": "Tea Drinkers 4"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-05.jpg", "t": "Tea Drinkers 5"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-06.jpg", "t": "Tea Drinkers 6"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-07.jpg", "t": "Tea Drinkers 7"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-08.jpg", "t": "Tea Drinkers 8"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-09.jpg", "t": "Tea Drinkers 9"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-10.jpg", "t": "Tea Drinkers 10"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-11.jpg", "t": "Tea Drinkers 11"}, {"c": "Tea Drinkers", "f": "gallery/tea-drinkers-12.jpg", "t": "Tea Drinkers 12"}, {"c": "Toilets", "f": "gallery/toilets-01.jpg", "t": "Toilets 1"}, {"c": "Toilets", "f": "gallery/toilets-02.jpg", "t": "Toilets 2"}, {"c": "Toilets", "f": "gallery/toilets-03.jpg", "t": "Toilets 3"}, {"c": "Toilets", "f": "gallery/toilets-04.jpg", "t": "Toilets 4"}, {"c": "Toilets", "f": "gallery/toilets-05.jpg", "t": "Toilets 5"}, {"c": "Toilets", "f": "gallery/toilets-06.jpg", "t": "Toilets 6"}, {"c": "Toilets", "f": "gallery/toilets-07.jpg", "t": "Toilets 7"}, {"c": "Toilets", "f": "gallery/toilets-08.jpg", "t": "Toilets 8"}, {"c": "Toilets", "f": "gallery/toilets-09.jpg", "t": "Toilets 9"}, {"c": "Toilets", "f": "gallery/toilets-10.jpg", "t": "Toilets 10"}, {"c": "Toilets", "f": "gallery/toilets-11.jpg", "t": "Toilets 11"}, {"c": "Walls", "f": "gallery/walls-01.jpg", "t": "Walls 1"}, {"c": "Walls", "f": "gallery/walls-02.jpg", "t": "Walls 2"}, {"c": "Walls", "f": "gallery/walls-03.jpg", "t": "Walls 3"}, {"c": "Walls", "f": "gallery/walls-04.jpg", "t": "Walls 4"}, {"c": "Walls", "f": "gallery/walls-05.jpg", "t": "Walls 5"}, {"c": "Walls", "f": "gallery/walls-06.jpg", "t": "Walls 6"}, {"c": "Walls", "f": "gallery/walls-07.jpg", "t": "Walls 7"}, {"c": "Walls", "f": "gallery/walls-08.jpg", "t": "Walls 8"}, {"c": "Walls", "f": "gallery/walls-09.jpg", "t": "Walls 9"}, {"c": "Walls", "f": "gallery/walls-10.jpg", "t": "Walls 10"}, {"c": "Walls", "f": "gallery/walls-11.jpg", "t": "Walls 11"}, {"c": "Walls", "f": "gallery/walls-12.jpg", "t": "Walls 12"}, {"c": "Painting", "f": "gallery/painting-01.jpg", "t": "Painting 1"}, {"c": "Painting", "f": "gallery/painting-02.jpg", "t": "Painting 2"}, {"c": "Painting", "f": "gallery/painting-03.jpg", "t": "Painting 3"}, {"c": "Painting", "f": "gallery/painting-04.jpg", "t": "Painting 4"}, {"c": "Painting", "f": "gallery/painting-05.jpg", "t": "Painting 5"}, {"c": "Painting", "f": "gallery/painting-06.jpg", "t": "Painting 6"}, {"c": "Painting", "f": "gallery/painting-07.jpg", "t": "Painting 7"}, {"c": "Painting", "f": "gallery/painting-08.jpg", "t": "Painting 8"}, {"c": "Painting", "f": "gallery/painting-09.jpg", "t": "Painting 9"}, {"c": "Painting", "f": "gallery/painting-10.jpg", "t": "Painting 10"}, {"c": "Painting", "f": "gallery/painting-11.jpg", "t": "Painting 11"}, {"c": "Painting", "f": "gallery/painting-12.jpg", "t": "Painting 12"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-01.jpg", "t": "Building of the layout 1"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-02.jpg", "t": "Building of the layout 2"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-03.jpg", "t": "Building of the layout 3"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-04.jpg", "t": "Building of the layout 4"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-05.jpg", "t": "Building of the layout 5"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-06.jpg", "t": "Building of the layout 6"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-07.jpg", "t": "Building of the layout 7"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-08.jpg", "t": "Building of the layout 8"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-09.jpg", "t": "Building of the layout 9"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-10.jpg", "t": "Building of the layout 10"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-11.jpg", "t": "Building of the layout 11"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-12.jpg", "t": "Building of the layout 12"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-13.jpg", "t": "Building of the layout 13"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-14.jpg", "t": "Building of the layout 14"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-15.jpg", "t": "Building of the layout 15"}, {"c": "Building of the layout", "f": "gallery/building-of-the-layout-16.jpg", "t": "Building of the layout 16"}, {"c": "Early Days", "f": "gallery/early-days-01.jpg", "t": "Early Days 1"}, {"c": "Early Days", "f": "gallery/early-days-02.jpg", "t": "Early Days 2"}, {"c": "Early Days", "f": "gallery/early-days-03.jpg", "t": "Early Days 3"}, {"c": "Early Days", "f": "gallery/early-days-04.jpg", "t": "Early Days 4"}, {"c": "Early Days", "f": "gallery/early-days-05.jpg", "t": "Early Days 5"}, {"c": "Early Days", "f": "gallery/early-days-06.jpg", "t": "Early Days 6"}, {"c": "Early Days", "f": "gallery/early-days-07.jpg", "t": "Early Days 7"}, {"c": "Early Days", "f": "gallery/early-days-08.jpg", "t": "Early Days 8"}, {"c": "Early Days", "f": "gallery/early-days-09.jpg", "t": "Early Days 9"}, {"c": "Early Days", "f": "gallery/early-days-10.jpg", "t": "Early Days 10"}, {"c": "Early Days", "f": "gallery/early-days-11.jpg", "t": "Early Days 11"}, {"c": "Early Days", "f": "gallery/early-days-12.jpg", "t": "Early Days 12"}, {"c": "Early Days", "f": "gallery/early-days-13.jpg", "t": "Early Days 13"}, {"c": "Early Days", "f": "gallery/early-days-14.jpg", "t": "Early Days 14"}, {"c": "Early Days", "f": "gallery/early-days-15.jpg", "t": "Early Days 15"}, {"c": "Early Days", "f": "gallery/early-days-16.jpg", "t": "Early Days 16"}, {"c": "Electronics", "f": "gallery/electronics-01.jpg", "t": "Electronics 1"}, {"c": "Electronics", "f": "gallery/electronics-02.jpg", "t": "Electronics 2"}, {"c": "Electronics", "f": "gallery/electronics-03.jpg", "t": "Electronics 3"}, {"c": "Electronics", "f": "gallery/electronics-04.jpg", "t": "Electronics 4"}, {"c": "Electronics", "f": "gallery/electronics-05.jpg", "t": "Electronics 5"}, {"c": "Electronics", "f": "gallery/electronics-06.jpg", "t": "Electronics 6"}, {"c": "Electronics", "f": "gallery/electronics-07.jpg", "t": "Electronics 7"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-01.jpg", "t": "Loco Stay Alives 1"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-02.jpg", "t": "Loco Stay Alives 2"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-03.jpg", "t": "Loco Stay Alives 3"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-04.jpg", "t": "Loco Stay Alives 4"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-05.jpg", "t": "Loco Stay Alives 5"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-06.jpg", "t": "Loco Stay Alives 6"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-07.jpg", "t": "Loco Stay Alives 7"}, {"c": "Loco Stay Alives", "f": "gallery/loco-stay-alives-08.jpg", "t": "Loco Stay Alives 8"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-01.jpg", "t": "Behind the scenes 1"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-02.jpg", "t": "Behind the scenes 2"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-03.jpg", "t": "Behind the scenes 3"}, {"c": "Behind the scenes", "f": "gallery/behind-the-scenes-04.jpg", "t": "Behind the scenes 4"}]}</script>
 <script id="main">
 (() => {
-  const PAGE_HEAD = '<title>EssexBrick Model Works</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">\n';
-  const SKEL = '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>';
+  const PAGE_HEAD = "<title>EssexBrick Model Works</title>\n<meta name=\"claude:viewport-fit-sides\" content=\"cover\">\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap\">\n";
+  const SKEL = '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
   const CSS = document.getElementById("css").textContent;
   const TPL = document.getElementById("tpl").innerHTML;
   const MAIN = document.getElementById("main").textContent;
@@ -467,7 +595,8 @@ dialog.g-box::backdrop{background:#000}
 
   document.getElementById("app").append(document.getElementById("tpl").content.cloneNode(true));
 
-  const CATS = {railway:"Layout & builds", plugins:"IngeTrazo plugin", modelling:"Modelling & printing"};
+  const CATS = {plugins:"IngeTrazo plugins", railway:"Layout & builds", modelling:"Modelling & printing"};
+  const SHORT = {plugins:"Plugin", railway:"Layout", modelling:"Modelling"};
   const $ = s => document.querySelector(s);
   const el = (tag, attrs = {}, ...kids) => {
     const n = document.createElement(tag);
@@ -485,9 +614,17 @@ dialog.g-box::backdrop{background:#000}
   const fmtDate = d => { if (!d) return ""; const t = new Date(d + "T12:00:00"); return isNaN(t) ? "" : t.toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"}); };
   const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
   const byNewest = (a, b) => String(b.date || "").localeCompare(String(a.date || ""));
+  const cleanId = id => /^[A-Za-z0-9_-]+$/.test(String(id || "")) ? id : null;
+  const ytId = u => {
+    try { const x = new URL(u);
+      if (/youtu\.be$/.test(x.hostname)) return cleanId(x.pathname.slice(1).split("/")[0]);
+      if (x.searchParams.get("v")) return cleanId(x.searchParams.get("v"));
+      const m = x.pathname.match(/\/(?:shorts|embed|live)\/([A-Za-z0-9_-]+)/); return m ? m[1] : null;
+    } catch { return null; }
+  };
 
   let artifact = null, canEdit = false, saving = false;
-  let filter = "all", query = "", confirming = null;
+  let confirming = null;
 
   function status(msg){ const s = $("#status"); s.textContent = msg || ""; s.hidden = !msg; }
 
@@ -508,55 +645,120 @@ dialog.g-box::backdrop{background:#000}
     }
   }
 
-  /* ---------- Videos ---------- */
-  function videoCard(v, big){
-    const url = safeUrl(v.url);
-    const thumb = el("a", {class:"thumb", href:url || "#", target:"_blank", rel:"noopener", "aria-label":"Watch " + v.title + " on YouTube"});
-    const img = safeImg(v.thumb);
-    if (img) thumb.append(el("img", {src:img, alt:"", loading:"lazy"}));
-    else thumb.append(el("div", {class:"ph"}, el("span", {text:CATS[v.category] || "EssexBrick"})));
-    thumb.append(el("div", {class:"play", "aria-hidden":"true"}));
-    const body = el("div", {class:"body"},
+  /* ---------- Pages: one view at a time, chosen by the address (#plugins etc.) ---------- */
+  const PAGES = ["home", "plugins", "videos", "layout", "about"];
+  let page = null;
+  function route(){
+    const h = location.hash.slice(1);
+    const next = PAGES.includes(h) ? h : "home";
+    if (next === page) return;
+    page = next;
+    document.querySelectorAll("[data-page]").forEach(s => s.hidden = s.dataset.page !== page);
+    document.querySelectorAll("[data-nav]").forEach(a => a.dataset.nav === page ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+    window.scrollTo(0, 0);
+    gRestart();
+  }
+  window.addEventListener("hashchange", route);
+
+  /* ---------- All videos: the ones added by hand, plus every video in the playlists ---------- */
+  function allVideos(){
+    const seen = new Map();
+    for (const v of state.videos){
+      const id = ytId(v.url);
+      const item = {key: v.id, yt: id, title: v.title, url: safeUrl(v.url), category: v.category, date: v.date, description: v.description, thumb: safeImg(v.thumb), own: v, lists: []};
+      if (id) seen.set(id, item); else seen.set("own-" + v.id, item);
+    }
+    for (const p of state.playlists){
+      const lid = cleanId(p.id); if (!lid) continue;
+      (Array.isArray(p.videos) ? p.videos : []).forEach(([vid, t], i) => {
+        if (!cleanId(vid)) return;
+        const have = seen.get(vid);
+        if (have){ have.lists.push(lid); return; }
+        seen.set(vid, {key: vid, yt: vid, title: t, url: "https://www.youtube.com/watch?v=" + vid, category: p.category, date: "", lists: [lid], plTitle: p.title, plOrder: i});
+      });
+    }
+    return [...seen.values()];
+  }
+
+  function thumbBox(v){
+    const a = el("a", {class:"thumb", href:v.url || "#", target:"_blank", rel:"noopener", "aria-label":"Watch " + v.title + " on YouTube"});
+    const ph = () => el("div", {class:"ph"}, el("span", {text:CATS[v.category] || "EssexBrick"}));
+    const src = v.thumb || (v.yt ? "https://i.ytimg.com/vi/" + v.yt + "/mqdefault.jpg" : null);
+    if (src){
+      const img = el("img", {src, alt:"", loading:"lazy"});
+      img.addEventListener("error", () => img.replaceWith(ph()), {once:true});
+      a.append(img);
+    } else a.append(ph());
+    a.append(el("div", {class:"play", "aria-hidden":"true"}));
+    return a;
+  }
+
+  function videoCard(v){
+    const card = el("article", {class:"vcard"}, thumbBox(v),
+      el("h3", {}, el("a", {href:v.url || "#", target:"_blank", rel:"noopener", text:v.title})),
       el("div", {class:"meta"},
-        el("span", {class:"badge " + (v.category || ""), text:CATS[v.category] || "Video"}),
-        v.category === "plugins" ? el("span", {class:"badge free", text:"Free plugin"}) : null,
-        v.date ? el("span", {text:fmtDate(v.date)}) : null),
-      el("h3", {}, el("a", {href:url || "#", target:"_blank", rel:"noopener", text:v.title})),
-      v.description ? el("p", {text:v.description}) : null,
-      big ? el("div", {}, el("a", {class:"btn", href:url || "#", target:"_blank", rel:"noopener", text:"Watch on YouTube"})) : null
-    );
-    if (canEdit) body.append(adminRow("videos", v, () => openVideo(v)));
-    return el("article", {class:"card"}, thumb, body);
+        el("span", {class:"badge " + (v.category || ""), text:SHORT[v.category] || "Video"}),
+        v.date ? el("span", {text:fmtDate(v.date)}) : v.plTitle ? el("span", {text:v.plTitle}) : null),
+      v.description && v.description !== v.title ? el("p", {class:"meta", text:v.description}) : null);
+    if (canEdit && v.own) card.append(adminRow("videos", v.own, () => openVideo(v.own)));
+    return card;
   }
+  const asItem = v => v && {key:v.id, yt:ytId(v.url), title:v.title, url:safeUrl(v.url), category:v.category, date:v.date, description:v.description, thumb:safeImg(v.thumb), own:v};
 
-  function renderShowcase(){
-    const layout = state.videos.find(v => v.featured);
+  /* ---------- Home ---------- */
+  function renderHome(){
     const latest = state.videos.filter(v => v.category === "plugins").sort(byNewest)[0];
-    const fill = (id, v, emptyEdit, emptyView) => {
-      const box = $(id); box.replaceChildren();
-      if (v) box.append(videoCard(v, true));
-      else box.append(el("div", {class:"empty"}, el("strong", {text: canEdit ? "Nothing here yet" : "Coming soon"}), canEdit ? emptyEdit : emptyView));
-    };
-    fill("#slotLayout", layout, "Add your layout video and tick “Show as My layout video”.", "A tour of the layout is on its way.");
-    fill("#slotPlugin", latest, "Add a video in the IngeTrazo plugins section and it shows here.", "The next plugin tutorial is on its way.");
+    const box = $("#homeLatest"); box.replaceChildren();
+    if (latest){
+      const v = asItem(latest);
+      box.append(el("div", {class:"lbl", text:"Latest plugin video"}), thumbBox(v),
+        el("div", {class:"side"}, el("div", {class:"vcard"}, el("h3", {}, el("a", {href:v.url || "#", target:"_blank", rel:"noopener", text:v.title})),
+          el("div", {class:"meta"}, el("span", {class:"badge free", text:"Free plugin"}), v.date ? el("span", {text:fmtDate(v.date)}) : null)),
+          el("div", {}, el("a", {class:"btn", href:v.url || "#", target:"_blank", rel:"noopener", text:"Watch on YouTube"}))));
+    } else box.append(el("div", {class:"empty"}, el("strong", {text:"New plugin video coming soon"})));
+    $("#rPlugCount").textContent = state.plugins.length; $("#ctaCount").textContent = state.plugins.length;
+    $("#rVidCount").textContent = allVideos().length;
   }
 
+  /* ---------- Videos page ---------- */
+  let vFilter = "all", vList = "", query = "", vShown = 24;
+  function renderVideoControls(){
+    const all = allVideos();
+    const counts = {all: all.length}; for (const k in CATS) counts[k] = all.filter(v => v.category === k).length;
+    $("#vChips").replaceChildren(...[["all", "All"], ...Object.entries(CATS)].filter(([k]) => k === "all" || counts[k]).map(([k, label]) =>
+      el("button", {class:"chip", type:"button", "aria-pressed":String(k === vFilter), onclick: () => { vFilter = k; vList = ""; vShown = 24; renderVideoControls(); renderVideos(); }},
+        label, el("span", {class:"n", text:String(counts[k])}))));
+    const pick = $("#plPick");
+    const lists = state.playlists.filter(p => cleanId(p.id) && (vFilter === "all" || p.category === vFilter));
+    pick.replaceChildren(el("option", {value:"", text:"All playlists"}), ...lists.map(p => el("option", {value:p.id, text:p.title})));
+    pick.value = lists.some(p => p.id === vList) ? vList : "";
+  }
   function renderVideos(){
     const grid = $("#videoGrid"); grid.replaceChildren();
-    const counts = {all: state.videos.length, railway:0, plugins:0, modelling:0};
-    state.videos.forEach(v => { if (counts[v.category] != null) counts[v.category]++; });
-    for (const k in counts) $("#n-" + k).textContent = counts[k];
     const q = query.trim().toLowerCase();
-    const list = state.videos.filter(v => (filter === "all" || v.category === filter) &&
-      (!q || (v.title + " " + (v.description || "")).toLowerCase().includes(q))).sort(byNewest);
+    let list = allVideos().filter(v => (vFilter === "all" || v.category === vFilter) && (!vList || v.lists.includes(vList)) &&
+      (!q || (v.title + " " + (v.description || "") + " " + (v.plTitle || "")).toLowerCase().includes(q)));
+    if (vList){
+      const p = state.playlists.find(x => x.id === vList);
+      const order = new Map((p?.videos || []).map(([id], i) => [id, i]));
+      list.sort((a, b) => (order.get(a.yt) ?? 999) - (order.get(b.yt) ?? 999));
+    } else list.sort((a, b) => byNewest(a, b));
+    $("#vCount").textContent = list.length === 1 ? "1 video" : list.length + " videos";
     if (!list.length){
-      const msg = state.videos.length ? ["No videos match", "Try another section or clear the search."] :
-        canEdit ? ["No videos yet", "Press “Add video”, paste a YouTube link, and it appears here for everyone."] :
-                  ["Videos coming soon", "New plugin tutorials will appear here."];
-      grid.append(el("div", {class:"empty", style:"grid-column:1/-1"}, el("strong", {text:msg[0]}), msg[1]));
-      return;
+      grid.append(el("div", {class:"empty", style:"grid-column:1/-1"}, el("strong", {text:"No videos match"}), "Try another subject or clear the search."));
+      $("#moreBox").hidden = true; return;
     }
-    for (const v of list) grid.append(videoCard(v));
+    for (const v of list.slice(0, vShown)) grid.append(videoCard(v));
+    $("#moreBox").hidden = list.length <= vShown;
+    $("#moreBtn").textContent = "Show more (" + (list.length - vShown) + " left)";
+  }
+  $("#moreBtn").addEventListener("click", () => { vShown += 24; renderVideos(); });
+  $("#plPick").addEventListener("change", e => { vList = e.target.value; vShown = 24; renderVideos(); });
+  $("#q").addEventListener("input", e => { query = e.target.value; vShown = 24; renderVideos(); });
+  function showPlaylist(id){
+    const p = state.playlists.find(x => x.id === id);
+    vFilter = p?.category || "all"; vList = id; query = ""; $("#q").value = ""; vShown = 24;
+    renderVideoControls(); renderVideos(); location.hash = "videos";
   }
 
   function adminRow(coll, item, onEdit){
@@ -570,7 +772,6 @@ dialog.g-box::backdrop{background:#000}
       el("button", {class:"btn small ghost", type:"button", text:"Edit", onclick:onEdit}),
       el("button", {class:"btn small ghost", type:"button", text:"Remove", onclick: () => { confirming = key; renderAll(); }}));
   }
-
   async function removeItem(coll, item){
     if (saving) return;
     confirming = null;
@@ -586,44 +787,67 @@ dialog.g-box::backdrop{background:#000}
   function renderPlugins(){
     const grid = $("#pluginGrid"); grid.replaceChildren();
     const n = state.plugins.length;
-    $("#plugCount").textContent = n || ""; $("#ctaCount").textContent = n || "";
+    $("#plugCount").textContent = n || "";
     const site = state.site, gh = safeUrl(site.github), it = safeUrl(site.ingetrazo), tour = safeUrl(site.tour || ""), guides = safeUrl(site.guides || "");
-    $("#getBar").replaceChildren(...[
-      it ? el("a", {class:"btn", href:it, target:"_blank", rel:"noopener", text:"Install from IngeTrazo extensions"}) : null,
-      gh ? el("a", {class:"btn ghost", href:gh, target:"_blank", rel:"noopener", text:"Download all from GitHub"}) : null,
-      tour ? el("a", {class:"btn ghost", href:tour, target:"_blank", rel:"noopener", text:"Watch the install & tour"}) : null,
+    $("#getIT").replaceChildren(...[it ? el("a", {class:"btn", href:it, target:"_blank", rel:"noopener", text:"Open IngeTrazo extensions"}) : null,
+      tour ? el("a", {class:"btn ghost", href:tour, target:"_blank", rel:"noopener", text:"Watch the install video"}) : null].filter(Boolean));
+    $("#getGH").replaceChildren(...[gh ? el("a", {class:"btn", href:gh, target:"_blank", rel:"noopener", text:"Download from GitHub"}) : null,
       guides ? el("a", {class:"btn ghost", href:guides, target:"_blank", rel:"noopener", text:"User guides"}) : null].filter(Boolean));
     if (!n){
       $("#pChips").replaceChildren();
-      grid.append(el("div", {class:"empty"},
-        el("strong", {text: canEdit ? "No plugins listed yet" : "Plugins coming soon"}), canEdit ? "Press “Add plugin” to list one." : ""));
+      grid.append(el("div", {class:"empty", style:"grid-column:1/-1"}, el("strong", {text: canEdit ? "No plugins listed yet" : "Plugins coming soon"})));
       return;
     }
     const gOf = p => PGROUPS.some(g => g[0] === p.group) ? p.group : "other";
+    const label = Object.fromEntries(PGROUPS);
     const used = PGROUPS.filter(([g]) => state.plugins.some(p => gOf(p) === g));
-    if (!used.some(g => g[0] === pFilter)) pFilter = "all";
-    $("#pChips").replaceChildren(...[["all","All"], ...used].map(([g, label]) => el("button", {class:"chip", type:"button", "aria-pressed":String(g === pFilter),
-      onclick: () => { pFilter = g; renderPlugins(); }}, label, el("span", {class:"n", text:String(g === "all" ? n : state.plugins.filter(p => gOf(p) === g).length)}))));
-    const sorted = [...state.plugins].sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(a.name).localeCompare(String(b.name)));
-    for (const [g, label] of used){
+    const nNew = state.plugins.filter(p => p.isNew).length;
+    if (!(pFilter === "all" || (pFilter === "new" && nNew) || used.some(g => g[0] === pFilter))) pFilter = "all";
+    const chipDefs = [...(nNew ? [["new", "New"]] : []), ["all", "All"], ...used];
+    $("#pChips").replaceChildren(...chipDefs.map(([g, l]) => el("button", {class:"chip" + (g === "new" ? " chip-new" : ""), type:"button", "aria-pressed":String(g === pFilter),
+      onclick: () => { pFilter = g; renderPlugins(); }}, l, el("span", {class:"n", text:String(g === "all" ? n : g === "new" ? nNew : state.plugins.filter(p => gOf(p) === g).length)}))));
+    const sortIn = list => [...list].sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(a.name).localeCompare(String(b.name)));
+    const card = p => {
+      const pg = safeUrl(p.github || ""), vid = safeUrl(p.video), pic = picSafe(p.pic);
+      const c = el("article", {class:"plug"},
+        pic ? el("button", {class:"plug-pic", type:"button", "aria-label":"See " + p.name + " pictures full size", onclick: () => openPic(pic, p.name)},
+          el("img", {src:pic.replace(/\.(webp|jpg|png)$/, "-sm.$1"), alt:p.name + " examples", loading:"lazy"}),
+          p.isNew ? el("span", {class:"new-tag", text:"New"}) : null) : null,
+        el("div", {class:"plug-top"}, el("div", {class:"ico", "aria-hidden":"true", text:"E"}),
+          el("div", {}, el("h3", {}, p.name, !pic && p.isNew ? el("span", {class:"new-tag inline", text:"New"}) : null),
+            el("div", {class:"grp", text:label[gOf(p)]}), p.shortcut ? el("div", {class:"key", text:p.shortcut}) : null)),
+        p.description ? el("p", {text:p.description}) : null,
+        (vid || pg) ? el("div", {class:"links"},
+          vid ? el("a", {class:"btn small", href:vid, target:"_blank", rel:"noopener", text:"▶ Watch tutorial"}) : null,
+          pg ? el("a", {class:"btn small ghost", href:pg, target:"_blank", rel:"noopener", text:"User guide"}) : null) : null);
+      if (canEdit) c.append(adminRow("plugins", p, () => openPlugin(p)));
+      return c;
+    };
+    const section = (title, list) => el("div", {class:"pgroup"},
+      el("h2", {class:"grp-h"}, title, el("span", {class:"n", text:String(list.length)})),
+      el("div", {class:"plugins"}, list.map(card)));
+    if (pFilter === "new") grid.append(section("New plugins", sortIn(state.plugins.filter(p => p.isNew))));
+    else for (const [g, l] of used){
       if (pFilter !== "all" && pFilter !== g) continue;
-      const list = sorted.filter(p => gOf(p) === g);
-      const box = el("div", {class:"plugins"});
-      for (const p of list){
-        const pg = safeUrl(p.github || ""), vid = safeUrl(p.video);
-        const card = el("article", {class:"plug"},
-          el("div", {class:"plug-top"}, el("div", {class:"ico", "aria-hidden":"true", text:"E"}),
-            el("div", {}, el("h3", {text:p.name}), p.shortcut ? el("span", {class:"key", text:p.shortcut}) : null)),
-          p.description ? el("p", {text:p.description}) : null,
-          (vid || pg) ? el("div", {class:"links"},
-            vid ? el("a", {class:"btn small", href:vid, target:"_blank", rel:"noopener", text:"▶ Watch tutorial"}) : null,
-            pg ? el("a", {class:"btn small ghost", href:pg, target:"_blank", rel:"noopener", text:"More"}) : null) : null
-        );
-        if (canEdit) card.append(adminRow("plugins", p, () => openPlugin(p)));
-        box.append(card);
-      }
-      grid.append(el("div", {class:"pgroup"}, el("h3", {class:"grp"}, label, el("span", {class:"n", text:"(" + list.length + ")"})), box));
+      grid.append(section(l, sortIn(state.plugins.filter(p => gOf(p) === g))));
     }
+  }
+
+  /* ---------- Plugin pictures: click to see full size ---------- */
+  const picSafe = f => typeof f === "string" && /^plugins\/[a-z0-9-]+\.(webp|jpg|png)$/.test(f) ? f : null;
+  function openPic(src, name){ $("#picImg").src = src; $("#picImg").alt = name + " examples"; $("#picCap").textContent = name; $("#picBox").showModal(); }
+  $("#picClose").addEventListener("click", () => $("#picBox").close());
+  $("#picBox").addEventListener("click", e => { if (e.target === e.currentTarget || e.target.id === "picImg") $("#picBox").close(); });
+
+  /* ---------- My Layout ---------- */
+  function renderLayout(){
+    const layout = state.videos.find(v => v.featured);
+    const box = $("#slotLayout"); box.replaceChildren();
+    if (layout) box.append(videoCard(asItem(layout)));
+    else box.append(el("div", {class:"empty"}, el("strong", {text: canEdit ? "Nothing here yet" : "Coming soon"}), canEdit ? "Add your layout video and tick “Show as My layout video”." : "A tour of the layout is on its way."));
+    const rail = state.playlists.filter(p => p.category === "railway" && cleanId(p.id) && (p.videos || []).length);
+    $("#railSeries").replaceChildren(el("div", {class:"eyebrow", text:"More from the layout"}), ...rail.map(p =>
+      el("button", {type:"button", onclick: () => showPlaylist(p.id)}, p.title, el("span", {text:(p.videos.length === 1 ? "1 video" : p.videos.length + " videos") + " →"}))));
   }
 
   /* ---------- Site ---------- */
@@ -632,17 +856,15 @@ dialog.g-box::backdrop{background:#000}
     if (site.tagline) $("#tagline").textContent = site.tagline;
     if (site.intro) $("#intro").textContent = site.intro;
     { const r = issuesUrl(site.github); if (r) $("#reportBtn").href = r; }
-    if (Array.isArray(site.logoTags) && site.logoTags.length){
-      const tb = $("#logoTags"); tb.replaceChildren();
-      for (const t of site.logoTags){
-        const [txt, link] = String(t).split("|").map(s => s.trim());
-        if (!txt) continue;
-        const u = safeUrl(link || "");
-        tb.append(u ? el("a", {class:"logo-tag", href:u, target:"_blank", rel:"noopener", text:txt}) : el("span", {class:"logo-tag", text:txt}));
-      }
+    const tb = $("#logoTags"); tb.replaceChildren();
+    for (const t of (Array.isArray(site.logoTags) ? site.logoTags : [])){
+      const [txt, link] = String(t).split("|").map(s => s.trim());
+      if (!txt) continue;
+      const u = safeUrl(link || "");
+      tb.append(u ? el("a", {class:"logo-tag", href:u, target:"_blank", rel:"noopener", text:txt}) : el("span", {class:"logo-tag", text:txt}));
     }
     const box = $("#siteLinks"); box.replaceChildren();
-    const items = [["youtube","YouTube channel",true],["github","GitHub"],["ingetrazo","IngeTrazo extensions"],["facebook","Facebook"]];
+    const items = [["youtube","YouTube channel",true],["facebook","Facebook page"],["github","GitHub"],["ingetrazo","IngeTrazo extensions"]];
     let any = false;
     for (const [k, label, primary] of items){
       const u = safeUrl(site[k]); if (!u) continue; any = true;
@@ -653,7 +875,7 @@ dialog.g-box::backdrop{background:#000}
 
   function renderAll(){
     document.querySelectorAll("[data-edit]").forEach(n => n.hidden = !canEdit);
-    renderShowcase(); renderVideos(); renderPlugins(); renderSite(); renderPlaylists(); renderGallery();
+    renderHome(); renderVideoControls(); renderVideos(); renderPlugins(); renderSite(); renderPlaylists(); renderLayout(); renderGallery();
   }
 
   /* ---------- Thumbnails: shrink to 640×360 and keep inside the page ---------- */
@@ -679,7 +901,7 @@ dialog.g-box::backdrop{background:#000}
     editingVideo = v || null; pendingThumb = null;
     $("#dvTitle").textContent = v ? "Edit video" : "Add video";
     $("#v-title").value = v?.title || ""; $("#v-url").value = v?.url || "";
-    $("#v-cat").value = v?.category || (filter !== "all" ? filter : "plugins");
+    $("#v-cat").value = v?.category || (vFilter !== "all" ? vFilter : "plugins");
     $("#v-date").value = v?.date || new Date().toISOString().slice(0,10);
     $("#v-desc").value = v?.description || ""; $("#v-feat").checked = !!v?.featured;
     $("#v-thumb").value = ""; $("#v-err").textContent = "";
@@ -712,14 +934,14 @@ dialog.g-box::backdrop{background:#000}
     editingPlugin = p || null;
     $("#dpTitle").textContent = p ? "Edit plugin" : "Add plugin";
     $("#p-name").value = p?.name || ""; $("#p-desc").value = p?.description || "";
-    $("#p-gh").value = p?.github || ""; $("#p-group").value = p?.group || "build"; $("#p-key").value = p?.shortcut || ""; $("#p-vid").value = p?.video || ""; $("#p-err").textContent = "";
+    $("#p-gh").value = p?.github || ""; $("#p-group").value = p?.group || "build"; $("#p-key").value = p?.shortcut || ""; $("#p-vid").value = p?.video || ""; $("#p-new").checked = !!p?.isNew; $("#p-err").textContent = "";
     $("#dlgPlugin").showModal();
   }
   $("#fPlugin").addEventListener("submit", async e => {
     e.preventDefault(); if (saving) return;
     const before = state.plugins;
     const item = {id: editingPlugin?.id || newId(), name:$("#p-name").value.trim(), description:$("#p-desc").value.trim(),
-      github:$("#p-gh").value.trim(), video:$("#p-vid").value.trim(), group:$("#p-group").value, shortcut:$("#p-key").value.trim(), order: editingPlugin?.order ?? before.length + 1};
+      github:$("#p-gh").value.trim(), video:$("#p-vid").value.trim(), group:$("#p-group").value, shortcut:$("#p-key").value.trim(), order: editingPlugin?.order ?? before.length + 1, pic: editingPlugin?.pic || null, isNew: $("#p-new").checked};
     state.plugins = editingPlugin ? before.map(x => x.id === item.id ? item : x) : [...before, item];
     try { await save(); $("#dlgPlugin").close(); }
     catch (err){ state.plugins = before; $("#p-err").textContent = "Couldn't save: " + (err?.message || err?.code); }
@@ -748,14 +970,12 @@ dialog.g-box::backdrop{background:#000}
   $("#addPlugin").addEventListener("click", () => openPlugin(null));
 
   /* ---------- Playlists ---------- */
-  const GROUPS = [["plugins","IngeTrazo plugins"],["railway","Layout & builds"],["modelling","Modelling & printing"]];
   const plId = u => { try { return new URL(u).searchParams.get("list"); } catch { return null; } };
-  const cleanId = id => /^[A-Za-z0-9_-]+$/.test(String(id || "")) ? id : null;
   function renderPlaylists(){
     const wrap = $("#plWrap"); wrap.replaceChildren();
     const all = state.playlists || [];
     if (!all.length){ wrap.append(el("div", {class:"empty"}, el("strong", {text:"Playlists coming soon"}))); return; }
-    for (const [cat, label] of GROUPS){
+    for (const [cat, label] of Object.entries(CATS)){
       const list = all.filter(p => p.category === cat);
       if (!list.length) continue;
       const grid = el("div", {class:"pl-grid"});
@@ -763,16 +983,17 @@ dialog.g-box::backdrop{background:#000}
         const lid = cleanId(p.id); if (!lid) continue;
         const vids = Array.isArray(p.videos) ? p.videos : [];
         const playAll = "https://www.youtube.com/playlist?list=" + lid;
-        const det = el("details", {class:"pl"},
+        grid.append(el("details", {class:"pl"},
           el("summary", {},
             el("div", {class:"stack", "aria-hidden":"true", text: vids.length ? String(vids.length) : "▶"}),
-            el("div", {}, el("div", {class:"pt", text:p.title}),
+            el("div", {}, el("div", {class:"ptl", text:p.title}),
               el("div", {class:"pd", text: (vids.length ? vids.length + (vids.length === 1 ? " video" : " videos") : "Playlist") + (p.description ? " · " + p.description : "")})),
             el("span", {class:"chev", "aria-hidden":"true"})),
           vids.length ? el("ol", {}, vids.map(([vid, t]) => cleanId(vid) ? el("li", {}, el("a", {href:"https://www.youtube.com/watch?v=" + vid + "&list=" + lid, target:"_blank", rel:"noopener", text:t})) : null)) : null,
-          el("div", {class:"pfoot"}, el("a", {class:"btn small", href:playAll, target:"_blank", rel:"noopener", text:"Play all on YouTube"}),
-            canEdit ? adminRow("playlists", p, () => openPlaylist(p)) : null));
-        grid.append(det);
+          el("div", {class:"pfoot"},
+            vids.length ? el("button", {class:"btn small ghost", type:"button", text:"Show with pictures", onclick: () => { showPlaylist(lid); window.scrollTo(0, 0); }}) : null,
+            el("a", {class:"btn small", href:playAll, target:"_blank", rel:"noopener", text:"Play all on YouTube"}),
+            canEdit ? adminRow("playlists", p, () => openPlaylist(p)) : null)));
       }
       wrap.append(el("div", {class:"pl-group"}, el("h3", {class:"grp", text:label}), grid));
     }
@@ -799,14 +1020,6 @@ dialog.g-box::backdrop{background:#000}
   });
   $("#addPlaylist").addEventListener("click", () => openPlaylist(null));
 
-  /* ---------- Filters ---------- */
-  document.querySelectorAll("#library .chip").forEach(c => c.addEventListener("click", () => {
-    filter = c.dataset.f;
-    document.querySelectorAll("#library .chip").forEach(x => x.setAttribute("aria-pressed", String(x === c)));
-    renderVideos();
-  }));
-  $("#q").addEventListener("input", e => { query = e.target.value; renderVideos(); });
-
   /* ---------- Gallery: category buttons, shuffled slideshow, thumbnails, full screen ---------- */
   const gSafe = f => typeof f === "string" && /^gallery\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/.test(f) ? f : null;
   const G = {cat:"All", order:[], i:0, timer:null, playing: !matchMedia("(prefers-reduced-motion: reduce)").matches};
@@ -815,7 +1028,7 @@ dialog.g-box::backdrop{background:#000}
   function gStart(){ const l = gAll().filter(x => G.cat === "All" || x.c === G.cat); G.order = gShuffle(l); G.i = 0; const k = G.order.findIndex(x => x.c === "Overall view"); if (G.cat === "All" && k > 0) [G.order[0], G.order[k]] = [G.order[k], G.order[0]]; }
   function gChips(){
     const all = gAll(), cats = ["All", ...new Set(all.map(x => x.c))];
-    $("#gChips").replaceChildren(...cats.map(c => el("button", {class:"gchip", type:"button", "aria-pressed":String(c === G.cat),
+    $("#gChips").replaceChildren(...cats.map(c => el("button", {class:"chip", type:"button", "aria-pressed":String(c === G.cat),
       onclick: () => { G.cat = c; gStart(); gChips(); gThumbs(); gShow(); gRestart(); }},
       c, el("span", {class:"n", text:String(c === "All" ? all.length : all.filter(x => x.c === c).length)}))));
   }
@@ -831,14 +1044,14 @@ dialog.g-box::backdrop{background:#000}
     const box = $("#gThumbs");
     [...box.children].forEach((b, k) => b.classList.toggle("on", k === G.i));
     const th = box.children[G.i];
-    if (th) box.scrollTo({left: th.offsetLeft - box.offsetLeft - box.clientWidth / 2 + th.clientWidth / 2, behavior:"smooth"});
-    const nx = G.order[(G.i + 1) % G.order.length]; if (nx) new Image().src = nx.f;
+    if (th && page === "layout") box.scrollTo({left: th.offsetLeft - box.offsetLeft - box.clientWidth / 2 + th.clientWidth / 2, behavior:"smooth"});
+    const nx = G.order[(G.i + 1) % G.order.length]; if (nx && page === "layout") new Image().src = nx.f;
     if ($("#gBox").open){ $("#gBoxImg").src = x.f; $("#gBoxImg").alt = x.t; $("#gBoxCap").textContent = x.t + "  (" + (G.i + 1) + " / " + G.order.length + ")"; }
   }
   function gStep(d){ if (!G.order.length) return; G.i = (G.i + d + G.order.length) % G.order.length; gShow(); }
   function gRestart(){
     clearInterval(G.timer);
-    if (G.playing && !$("#gBox").open) G.timer = setInterval(() => { if (!document.hidden) gStep(1); }, 5000);
+    if (G.playing && page === "layout" && !$("#gBox").open) G.timer = setInterval(() => { if (!document.hidden) gStep(1); }, 5000);
     $("#gPlay").textContent = G.playing ? "Pause" : "Play";
   }
   function renderGallery(){
@@ -862,6 +1075,7 @@ dialog.g-box::backdrop{background:#000}
     if (e.key === "ArrowRight"){ gStep(1); if (!inBox) gRestart(); }
   });
 
+  route();
   renderAll();
 
   /* ---------- Editing controls appear only for Eddy ---------- */
@@ -874,6 +1088,4 @@ dialog.g-box::backdrop{background:#000}
   })();
 })();
 </script>
-
-
 </body></html>
