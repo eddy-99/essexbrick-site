@@ -315,6 +315,7 @@ a.logo-tag:hover{background:var(--gold);color:var(--maroon-deep)}
 .pinned .lbl{color:var(--maroon-deep)}
 .pinned ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;line-height:1.4}
 .pinned .btnrow{display:flex;flex-wrap:wrap;gap:10px}
+.pinned .tip,.install .tip{margin:0;color:var(--muted);font-size:.95em;line-height:1.4}
 
 /* Inner pages: a maroon title band across the full width */
 .page-head{background:var(--maroon-deep);box-shadow:0 0 0 100vmax var(--maroon-deep);clip-path:inset(0 -100vmax);margin-top:-36px;padding-block:26px 28px;margin-bottom:30px;color:var(--on-maroon)}
@@ -431,7 +432,8 @@ dialog.pic-box::backdrop{background:#000}
       <div class="way rec">
         <span class="rec-tag">Easiest</span>
         <h2>Install from IngeTrazo</h2>
-        <ol><li>In IngeTrazo, go to <strong>Extensions</strong>, then <strong>Manage extensions</strong>.</li><li>Search <strong>Eddy</strong> and install the ones you want. <a href="https://youtu.be/Qernr_VfzYQ" target="_blank" rel="noopener">Watch how</a></li><li>Restart IngeTrazo. The plugins appear on the toolbar and in the menus.</li></ol>
+        <ol><li>In IngeTrazo, go to <strong>Extensions</strong>, then <strong>Manage extensions</strong>.</li><li>Search <strong>Eddy</strong> and install <strong>3D Check for Updates</strong> first, then restart IngeTrazo.</li><li>Go to <strong>Extensions</strong> in the top bar, click <strong>3D Check for Updates</strong>, then click <strong>Check now</strong>. All my plugins show under <strong>New plugins</strong>, already ticked: untick any you don't want.</li><li>Click <strong>Update ticked</strong>, then restart IngeTrazo. You'll find them all under <strong>Extensions</strong> in the top bar, in <strong>3D Plugins by Eddy</strong>.</li></ol>
+        <p class="tip">Only want one or two? Search <strong>Eddy</strong> and install just those instead.</p>
         <div class="btnrow" id="getIT"></div>
       </div>
       <div class="way">
@@ -755,14 +757,17 @@ dialog.pic-box::backdrop{background:#000}
     const id = cleanId(state.site.install?.yt || "");
     if (!id){ box.hidden = true; return; }
     box.hidden = false;
-    const v = {yt:id, title:"How to install my free plugins", url:"https://youtu.be/" + id, category:"plugins"};
+    const v = {yt:id, title:"Installing my plugins one at a time", url:"https://youtu.be/" + id, category:"plugins"};
     box.append(el("div", {class:"lbl", text:"\u{1F4CC} Start here: how to install"}), thumbBox(v),
       el("div", {class:"side"},
-        el("h3", {}, el("a", {href:v.url, target:"_blank", rel:"noopener", text:"Install my free plugins in a few clicks"})),
-        el("ol", {}, el("li", {text:"In IngeTrazo, go to Extensions, then Manage extensions."}),
-          el("li", {text:"Search \u201cEddy\u201d and install the plugins you want."}),
-          el("li", {text:"Restart IngeTrazo. The plugins appear on the toolbar and in the menus."})),
-        el("div", {class:"btnrow"}, el("a", {class:"btn", href:v.url, target:"_blank", rel:"noopener", text:"Watch the install video"}),
+        el("h3", {text:"Get all my free plugins in one go"}),
+        el("ol", {}, el("li", {}, "In IngeTrazo, go to ", el("strong", {text:"Extensions"}), ", then ", el("strong", {text:"Manage extensions"}), "."),
+          el("li", {}, "Search \u201cEddy\u201d and install ", el("strong", {text:"3D Check for Updates"}), " first. Then restart IngeTrazo."),
+          el("li", {}, "Go to ", el("strong", {text:"Extensions"}), " in the top bar, click ", el("strong", {text:"3D Check for Updates"}), ", then click ", el("strong", {text:"Check now"}), "."),
+          el("li", {}, "All my plugins are listed under ", el("strong", {text:"New plugins"}), ", already ticked. Untick any you don\u2019t want."),
+          el("li", {}, "Click ", el("strong", {text:"Update ticked"}), ", then restart IngeTrazo. That\u2019s it: you\u2019ll find them all under ", el("strong", {text:"Extensions"}), " in the top bar, in ", el("strong", {text:"3D Plugins by Eddy"}), ".")),
+        el("p", {class:"tip"}, "Tip: tick ", el("strong", {text:"Check when IngeTrazo starts"}), " and it tells you when I bring out something new."),
+        el("div", {class:"btnrow"}, el("a", {class:"btn", href:v.url, target:"_blank", rel:"noopener", text:"Watch: installing one plugin at a time"}),
           el("a", {class:"btn ghost", href:"#plugins", text:"Other ways to install"}))));
   }
   function renderHome(){
@@ -850,8 +855,9 @@ dialog.pic-box::backdrop{background:#000}
     const n = state.plugins.length;
     $("#plugCount").textContent = n || "";
     const site = state.site, gh = safeUrl(site.github), it = safeUrl(site.ingetrazo), tour = safeUrl(site.tour || ""), guides = safeUrl(site.guides || "");
+    const oneAt = cleanId(site.install?.yt || "") ? "https://youtu.be/" + cleanId(site.install.yt) : tour;
     $("#getIT").replaceChildren(...[it ? el("a", {class:"btn", href:it, target:"_blank", rel:"noopener", text:"Open IngeTrazo extensions"}) : null,
-      tour ? el("a", {class:"btn ghost", href:tour, target:"_blank", rel:"noopener", text:"Watch the install video"}) : null].filter(Boolean));
+      oneAt ? el("a", {class:"btn ghost", href:oneAt, target:"_blank", rel:"noopener", text:"Watch: installing one plugin at a time"}) : null].filter(Boolean));
     $("#getGH").replaceChildren(...[gh ? el("a", {class:"btn", href:gh, target:"_blank", rel:"noopener", text:"Download from GitHub"}) : null,
       guides ? el("a", {class:"btn ghost", href:guides, target:"_blank", rel:"noopener", text:"User guides"}) : null].filter(Boolean));
     if (!n){
